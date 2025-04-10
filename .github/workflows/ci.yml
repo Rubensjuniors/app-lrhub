@@ -17,14 +17,17 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Install-dependencies
+      - name: install-dependencies
         run: npm ci
 
       - name: check-vulnerabilities
         run: npm audit --audit-level=low
 
-      - name: Lint
+      - name: run-lint
         run: npm run lint
 
-      - name: Type-Check
+      - name: run-tests
+        run: npm run Test
+
+      - name: run-type-check
         run: npm run type-check
