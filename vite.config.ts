@@ -1,6 +1,7 @@
+/// <reference types="vitest/config" />
+import { defineConfig } from 'vite'
 import path from 'path'
 import tailwindcss from '@tailwindcss/vite'
-import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import checker from 'vite-plugin-checker'
 
@@ -15,4 +16,13 @@ export default defineConfig({
   server: {
     open: true,
   },
+  test: {
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: './config/vitest/setup.ts',
+    include: ['src/**/*.@(test|spec).{ts,tsx}'],
+    coverage: {
+      reporter: ['text', 'json', 'html'],
+    },
+  }
 })
