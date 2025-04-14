@@ -24,6 +24,14 @@ export function AppRoutes() {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/financial"
+            element={
+              <ProtectedRoute>
+                <h1>financial</h1>
+              </ProtectedRoute>
+            }
+          />
         </Route>
       </Routes>
     </ThemeProvider>
