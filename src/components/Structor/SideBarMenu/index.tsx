@@ -21,7 +21,7 @@ export function AppSidebarMenu() {
                   <div
                     className={`
                       ${isActive ? 'text-primary bg-sidebar-secondary' : ''}
-                      hover:bg-accent rounded flex items-center gap-2 py-4 px-3`}
+                      hover:bg-sidebar-secondary rounded flex items-center gap-2 py-4 px-3`}
                   >
                     {item.icon}
                     <span>{item.name}</span>
