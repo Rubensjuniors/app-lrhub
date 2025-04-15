@@ -3,6 +3,7 @@ import { Sidebar } from '@/components/ui/Sidebar/index'
 import Logo from '@/assets/images/logo.svg'
 import { ItemsMenu } from './constants'
 import { NavLink } from 'react-router-dom'
+import { CardProfile } from '@/components/CardProfile'
 
 export function AppSidebarMenu() {
   return (
@@ -12,23 +13,27 @@ export function AppSidebarMenu() {
         <ButtonToggleTheme />
       </Sidebar.SidebarHeader>
       <Sidebar.SidebarContent className="p-2">
-        {ItemsMenu.map((item) => {
-          return (
-            <NavLink to={item.route} key={item.name}>
-              {({ isActive }) => (
-                <span
-                  className={`${isActive ? 'text-purple-700 bg-purple-100' : ''} rounded flex items-center gap-2 py-4 px-3`}
-                >
-                  {item.icon}
-                  <span>{item.name}</span>
-                </span>
-              )}
-            </NavLink>
-          )
-        })}
+        <nav className="flex flex-col gap-2">
+          {ItemsMenu.map((item) => {
+            return (
+              <NavLink to={item.route} key={item.name}>
+                {({ isActive }) => (
+                  <div
+                    className={`
+                      ${isActive ? 'text-primary bg-sidebar-secondary' : ''}
+                      hover:bg-accent rounded flex items-center gap-2 py-4 px-3`}
+                  >
+                    {item.icon}
+                    <span>{item.name}</span>
+                  </div>
+                )}
+              </NavLink>
+            )
+          })}
+        </nav>
       </Sidebar.SidebarContent>
       <Sidebar.SidebarFooter className="p-4">
-        <h1>Footer</h1>
+        <CardProfile name="Rubens Junio" photoUrl="https://github.com/rubensjuniors.png" />
       </Sidebar.SidebarFooter>
     </Sidebar>
   )

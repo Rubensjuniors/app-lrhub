@@ -21,7 +21,7 @@ export default function SingIn() {
 
   const handleSingIn = () => {
     login()
-    navigate('/')
+    navigate('/financial')
   }
   const handleSingUp = () => {
     navigate('/login/singup')
