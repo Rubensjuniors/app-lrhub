@@ -7,6 +7,7 @@ import { ProtectedRoute } from './PrivateRouter'
 const SingIn = lazy(() => import('./pages/Login/SingIn/SingIn'))
 const SingOut = lazy(() => import('./pages/Login/SingUp'))
 const Financial = lazy(() => import('./pages/Financial'))
+const Profile = lazy(() => import('./pages/Profile'))
 
 export function AppRoutes() {
   return (
@@ -36,7 +37,7 @@ export function AppRoutes() {
             path="/profile"
             element={
               <ProtectedRoute>
-                <h1>profile</h1>
+                <Profile />
               </ProtectedRoute>
             }
           />

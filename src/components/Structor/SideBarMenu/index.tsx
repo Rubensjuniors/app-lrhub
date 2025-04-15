@@ -2,24 +2,27 @@ import { ButtonToggleTheme } from '@/components/ButtonToggleTheme'
 import { Sidebar } from '@/components/ui/Sidebar/index'
 import Logo from '@/assets/images/logo.svg'
 import { ItemsMenu } from './constants'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { CardProfile } from '@/components/CardProfile'
+import { useSidebar } from '@/context/SideBarContext'
 
 export function AppSidebarMenu() {
+  const { setOpenMobile, isMobile } = useSidebar()
   return (
     <Sidebar>
       <Sidebar.SidebarHeader className="flex items-center flex-row justify-between p-4">
-        <img src={Logo} alt="Logo" />
-        <div>
-          <ButtonToggleTheme />
-          <Sidebar.SidebarTrigger className="md:hidden ml-3" isClose  />
-        </div>
+        <Link to="/" className="hidden md:block">
+          <img src={Logo} alt="Logo" />
+        </Link>
+
+        <ButtonToggleTheme />
+        <Sidebar.SidebarTrigger className="md:hidden ml-3" isClose />
       </Sidebar.SidebarHeader>
       <Sidebar.SidebarContent className="p-2">
         <nav className="flex flex-col gap-2">
           {ItemsMenu.map((item) => {
             return (
-              <NavLink to={item.route} key={item.name}>
+              <NavLink to={item.route} key={item.name} onClick={() => setOpenMobile(false)}>
                 {({ isActive }) => (
                   <div
                     className={`
@@ -38,7 +41,11 @@ export function AppSidebarMenu() {
         </nav>
       </Sidebar.SidebarContent>
       <Sidebar.SidebarFooter className="p-4">
-        <CardProfile name="Rubens Junio" photoUrl="https://github.com/rubensjuniors.png" />
+        <CardProfile
+          name="Larissa Vitoria"
+          photoUrl="https://github.com/larissacesarr.png"
+          dropdownPosition={isMobile ? 'top' : 'right'}
+        />
       </Sidebar.SidebarFooter>
     </Sidebar>
   )

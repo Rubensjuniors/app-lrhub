@@ -1,5 +1,7 @@
 export default function Financial() {
   return (
-    <h1>ola</h1>
+    <div className="w-full p-4">
+      
+    </div>
   )
 }

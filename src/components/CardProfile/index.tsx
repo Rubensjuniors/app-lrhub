@@ -9,6 +9,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/Avatar'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '@/context/AuthContext'
+import { useSidebar } from '@/context/SideBarContext'
 
 interface CardProfileProps {
   name: string
@@ -16,13 +17,10 @@ interface CardProfileProps {
   dropdownPosition?: 'right' | 'top' | 'bottom' | 'left'
 }
 
-export function CardProfile({
-  name,
-  photoUrl,
-  dropdownPosition = 'right',
-}: CardProfileProps) {
+export function CardProfile({ name, photoUrl, dropdownPosition = 'right' }: CardProfileProps) {
   const navigate = useNavigate()
   const { logout } = useAuth()
+  const { setOpenMobile } = useSidebar()
 
   return (
     <DropdownMenu>
@@ -37,7 +35,12 @@ export function CardProfile({
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent side={dropdownPosition} className="w-[--radix-popper-anchor-width]">
-        <DropdownMenuItem onClick={() => navigate('/profile')}>
+        <DropdownMenuItem
+          onClick={() => {
+            navigate('/profile')
+            setOpenMobile(false)
+          }}
+        >
           <span>Perfil</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => logout()}>
