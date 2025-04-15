@@ -36,7 +36,7 @@ export default function SingIn() {
         <CardContent>
           <form action="">
             <div className="space-y-2 mb-4">
-              <Label htmlFor="emailo">E-mail</Label>
+              <Label htmlFor="email">E-mail</Label>
               <Input id="email" placeholder="E-mail" />
             </div>
             <div className="space-y-2">

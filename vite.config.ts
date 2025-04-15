@@ -15,6 +15,10 @@ export default defineConfig({
   },
   server: {
     open: true,
+    fs: {
+      deny: ['.env', '/etc', '/root'],
+      allow: ['src', 'public']
+    }
   },
   test: {
     environment: 'jsdom',
