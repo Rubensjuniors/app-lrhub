@@ -10,7 +10,10 @@ export function AppSidebarMenu() {
     <Sidebar>
       <Sidebar.SidebarHeader className="flex items-center flex-row justify-between p-4">
         <img src={Logo} alt="Logo" />
-        <ButtonToggleTheme />
+        <div>
+          <ButtonToggleTheme />
+          <Sidebar.SidebarTrigger className="md:hidden ml-3" isClose  />
+        </div>
       </Sidebar.SidebarHeader>
       <Sidebar.SidebarContent className="p-2">
         <nav className="flex flex-col gap-2">
