@@ -17,6 +17,14 @@ export function AppRoutes() {
 
         <Route element={<Structor />}>
           <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <></>
+              </ProtectedRoute>
+            }
+          />
+          <Route
             path="/financial"
             element={
               <ProtectedRoute>
