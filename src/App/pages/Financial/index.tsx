@@ -1,6 +1,7 @@
 import { CurrencyCard, CurrencyCardProps } from '@/components/CurrencyCard'
+import { ExpenseCard } from '@/components/ExpenseCard'
 import { SwitcherCalendar } from '@/components/SwitcherCalendar'
-import { Card } from '@/components/ui/Card'
+import { ExpenseTabs } from './TabsMobile'
 
 const name = 'larissa Vitoria'
 
@@ -22,7 +23,7 @@ export default function Financial() {
         <SwitcherCalendar />
       </header>
 
-      <div className="grid grid-cols-4 grid-rows-3 md:grid-rows-5 gap-4 mt-5">
+      <div className="grid grid-cols-4 grid-rows-2 md:grid-rows-5 gap-4 mt-5">
         <div className="col-start-1 col-end-5 row-start-1 row-end-2 flex items-center gap-4 flex-wrap">
           {currencyCards.map((item) => {
             return (
@@ -32,13 +33,28 @@ export default function Financial() {
             )
           })}
         </div>
-
-        <Card className="md:hidden col-start-1 col-end-5 row-start-2 row-end-4">Mobile</Card>
-        <Card className="hidden
-        md:block col-start-1 col-end-5 lg:col-end-3 row-start-2 row-end-3 lg:row-end-4">2</Card>
-        <Card className="hidden
-        md:block lg:col-end-5 lg:col-start-3 col-start-1 col-end-5 lg:row-start-2 row-start-3 row-end-4">3</Card>
-        <Card className="hidden md:block col-start-1 col-end-5 row-start-4 row-end-6">4</Card>
+        <div className="md:hidden col-start-1 col-end-5 row-start-2 row-end-4 flex mt-4">
+          <ExpenseTabs />
+        </div>
+        <div
+          className="hidden
+        md:block col-start-1 col-end-5 lg:col-end-3 row-start-2 row-end-3 lg:row-end-4"
+        >
+          <ExpenseCard title="Gastos Fixos" handleAddExpense={() => void 0} items={[]} />
+        </div>
+        <div
+          className="hidden
+        md:block lg:col-end-5 lg:col-start-3 col-start-1 col-end-5 lg:row-start-2 row-start-3 row-end-4"
+        >
+          <ExpenseCard
+            title="Cartão de Credito (Parcelados)"
+            handleAddExpense={() => void 0}
+            items={[]}
+          />
+        </div>
+        <div className="hidden md:block col-start-1 col-end-5 row-start-4 row-end-6">
+          <ExpenseCard title="Debito ou Pix" handleAddExpense={() => void 0} items={[]} />
+        </div>
       </div>
     </div>
   )
