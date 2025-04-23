@@ -40,7 +40,7 @@ export default function Financial() {
           className="hidden
         md:block col-start-1 col-end-5 lg:col-end-3 row-start-2 row-end-3 lg:row-end-4"
         >
-          <ExpenseCard title="Gastos Fixos" handleAddExpense={() => void 0} items={[]} />
+          <ExpenseCard title="Gastos Fixos" handleAddTransaction={() => void 0} items={[]} type="fixedExpenses" />
         </div>
         <div
           className="hidden
@@ -48,12 +48,13 @@ export default function Financial() {
         >
           <ExpenseCard
             title="Cartão de Credito (Parcelados)"
-            handleAddExpense={() => void 0}
+            handleAddTransaction={() => void 0}
             items={[]}
+            type="creditCard"
           />
         </div>
         <div className="hidden md:block col-start-1 col-end-5 row-start-4 row-end-6">
-          <ExpenseCard title="Debito ou Pix" handleAddExpense={() => void 0} items={[]} />
+          <ExpenseCard title="Debito ou Pix" handleAddTransaction={() => void 0} items={[]} type="pix" />
         </div>
       </div>
     </div>

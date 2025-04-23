@@ -11,17 +11,18 @@ export function ExpenseTabs() {
         <TabsTrigger value="pix">Debito</TabsTrigger>
       </TabsList>
       <TabsContent value="fixedExpenses">
-        <ExpenseCard title="Gastos Fixos" handleAddExpense={() => void 0} items={[]} />
+        <ExpenseCard title="Gastos Fixos" handleAddTransaction={() => void 0} items={[]} type="fixedExpenses" />
       </TabsContent>
       <TabsContent value="creditCard">
         <ExpenseCard
           title="Cartão de Credito (Parcelados)"
-          handleAddExpense={() => void 0}
+          handleAddTransaction={() => void 0}
           items={[]}
+          type="creditCard"
         />
       </TabsContent>
       <TabsContent value="pix">
-        <ExpenseCard title="Debito ou Pix" handleAddExpense={() => void 0} items={[]} />
+        <ExpenseCard title="Debito ou Pix" handleAddTransaction={() => void 0} items={[]} type="pix"/>
       </TabsContent>
     </Tabs>
   )
