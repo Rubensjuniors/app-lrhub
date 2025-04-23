@@ -4,6 +4,6 @@ export const ItemsMenu = [
   {
     icon: <DollarSign />,
     name: 'Financeiro',
-    route: '/financial',
+    route: '/',
   },
 ]

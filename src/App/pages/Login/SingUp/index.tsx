@@ -14,13 +14,13 @@ export default function SingIn() {
   const navigate = useNavigate()
 
   if (isAuthenticated) {
-    return <Navigate to="/financial" replace />
+    return <Navigate to="/" replace />
   }
 
 
   const handleSingUp = () => {
     login()
-    navigate('/financial')
+    navigate('/')
   }
   const handleSingIn = () => {
     navigate('/login/singin')

@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import { Structor } from './Structor.component'
 import { ThemeProvider } from '@/context/ThemeContext'
 import { lazy } from 'react'
@@ -19,14 +19,6 @@ export function AppRoutes() {
         <Route element={<Structor />}>
           <Route
             path="/"
-            element={
-              <ProtectedRoute>
-                 <Navigate to="/financial" replace />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/financial"
             element={
               <ProtectedRoute>
                 <Financial />
