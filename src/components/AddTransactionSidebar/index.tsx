@@ -33,7 +33,7 @@ export function AddTransactionSidebar({
           </Button>
         )}
       </SheetTrigger>
-      <SheetContent className="min-w-[600px]">
+      <SheetContent className="min-w-[370px] md:min-w-[600px]">
         <SheetHeader>
           <SheetTitle>Novo gasto</SheetTitle>
           <SheetDescription>
