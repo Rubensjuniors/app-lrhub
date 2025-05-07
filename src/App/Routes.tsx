@@ -1,40 +1,55 @@
 import { Routes, Route } from 'react-router-dom'
-import { Structor } from './Structor.component'
 import { ThemeProvider } from '@/context/ThemeContext'
-import { lazy } from 'react'
+import { lazy, Suspense } from 'react'
 import { ProtectedRoute } from './PrivateRouter'
 
-const SingIn = lazy(() => import('./pages/Login/SingIn/SingIn'))
-const SingOut = lazy(() => import('./pages/Login/SingUp'))
+// Lazy loaded components
+const SignIn = lazy(() => import('./pages/Login/SingIn/SingIn'))
+const SignUp = lazy(() => import('./pages/Login/SingUp'))
 const Financial = lazy(() => import('./pages/Financial'))
 const Profile = lazy(() => import('./pages/Profile'))
+
+// Loading component
+const LoadingFallback = () => <div>Carregando...</div>
+
+// Route configuration
+const routes = [
+  {
+    path: '/login/signin',
+    element: <SignIn />,
+    isProtected: false,
+  },
+  {
+    path: '/login/signup',
+    element: <SignUp />,
+    isProtected: false,
+  },
+  {
+    path: '/',
+    element: <Financial />,
+    isProtected: true,
+  },
+  {
+    path: '/profile',
+    element: <Profile />,
+    isProtected: true,
+  },
+]
 
 export function AppRoutes() {
   return (
     <ThemeProvider>
-      <Routes>
-        <Route path="/login/singin" element={<SingIn />} />
-        <Route path="/login/singup" element={<SingOut />} />
-
-        <Route element={<Structor />}>
-          <Route
-            path="/"
-            element={
-              <ProtectedRoute>
-                <Financial />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/profile"
-            element={
-              <ProtectedRoute>
-                <Profile />
-              </ProtectedRoute>
-            }
-          />
-        </Route>
-      </Routes>
+      <Suspense fallback={<LoadingFallback />}>
+        <Routes>
+          {routes.map(({ path, element, isProtected }) => (
+            <Route
+              key={path}
+              path={path}
+              element={isProtected ? <ProtectedRoute>{element}</ProtectedRoute> : element}
+            />
+          ))}
+        </Routes>
+      </Suspense>
     </ThemeProvider>
   )
 }
