@@ -1,7 +1,6 @@
 import { CurrencyCard, CurrencyCardProps } from '@/components/CurrencyCard'
-import { ExpenseCard } from '@/components/ExpenseCard'
 import { SwitcherCalendar } from '@/components/SwitcherCalendar'
-import { ExpenseTabs } from './TabsMobile'
+import { ExpenseTabs } from './components/ExpenseTabs'
 
 const name = 'larissa Vitoria'
 
@@ -23,8 +22,8 @@ export default function Financial() {
         <SwitcherCalendar />
       </header>
 
-      <div className="grid grid-cols-4 grid-rows-2 md:grid-rows-5 gap-4 mt-5">
-        <div className="col-start-1 col-end-5 row-start-1 row-end-2 flex items-center gap-4 flex-wrap">
+      <div className="mt-5">
+        <div className="flex items-center gap-4 flex-wrap">
           {currencyCards.map((item) => {
             return (
               <div className="flex-1" key={item.type}>
@@ -33,28 +32,8 @@ export default function Financial() {
             )
           })}
         </div>
-        <div className="md:hidden col-start-1 col-end-5 row-start-2 row-end-4 flex mt-4">
+        <div className="mt-3">
           <ExpenseTabs />
-        </div>
-        <div
-          className="hidden
-        md:block col-start-1 col-end-5 lg:col-end-3 row-start-2 row-end-3 lg:row-end-4"
-        >
-          <ExpenseCard title="Gastos Fixos" handleAddTransaction={() => void 0} items={[]} type="fixedExpenses" />
-        </div>
-        <div
-          className="hidden
-        md:block lg:col-end-5 lg:col-start-3 col-start-1 col-end-5 lg:row-start-2 row-start-3 row-end-4"
-        >
-          <ExpenseCard
-            title="Cartão de Credito (Parcelados)"
-            handleAddTransaction={() => void 0}
-            items={[]}
-            type="creditCard"
-          />
-        </div>
-        <div className="hidden md:block col-start-1 col-end-5 row-start-4 row-end-6">
-          <ExpenseCard title="Debito ou Pix" handleAddTransaction={() => void 0} items={[]} type="pix" />
         </div>
       </div>
     </div>

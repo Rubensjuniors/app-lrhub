@@ -17,7 +17,7 @@ export function CurrencyCard({ type, value }: CurrencyCardProps) {
       icon: <ArrowBigDown color="red" />,
     },
     leftovers: {
-      title: 'Sobras',
+      title: 'Total',
       icon: <DollarSign />,
     },
   }

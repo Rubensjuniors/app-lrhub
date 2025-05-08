@@ -7,23 +7,19 @@ import { Suspense } from 'react'
 export function Structor() {
   return (
     <SidebarProvider defaultOpen={true}>
-      <div className="flex h-screen w-full">
-        <aside className="fixed left-0 top-0 z-40 h-screen">
-          <AppSidebarMenu />
-        </aside>
+      <>
+        <AppSidebarMenu />
 
-        <div className="flex w-full flex-col pl-64">
-          <header className="sticky top-0 z-30">
-            <Header />
-          </header>
+        <div className="w-full">
+          <Header />
 
-          <main className="flex-1 p-4">
+          <main>
             <Suspense fallback={<div>Carregando...</div>}>
               <Outlet />
             </Suspense>
           </main>
         </div>
-      </div>
+      </>
     </SidebarProvider>
   )
 }
