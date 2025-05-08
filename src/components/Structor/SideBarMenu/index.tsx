@@ -5,9 +5,12 @@ import { ItemsMenu } from './constants'
 import { Link, NavLink } from 'react-router-dom'
 import { CardProfile } from '@/components/CardProfile'
 import { useSidebar } from '@/context/SideBarContext'
+import { useTranslation } from 'react-i18next'
 
 export function AppSidebarMenu() {
   const { setOpenMobile, isMobile } = useSidebar()
+  const { t } = useTranslation()
+
   return (
     <Sidebar>
       <Sidebar.SidebarHeader className="flex items-center flex-row justify-between p-4">
@@ -32,7 +35,7 @@ export function AppSidebarMenu() {
                       gap-2 py-4 px-3`}
                   >
                     {item.icon}
-                    <span>{item.name}</span>
+                    <span>{t(item.name)}</span>
                   </div>
                 )}
               </NavLink>

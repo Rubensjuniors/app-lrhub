@@ -1,5 +1,6 @@
 import { ArrowBigDown, ArrowBigUp, DollarSign } from 'lucide-react'
 import { Card, CardContent, CardHeader } from '../ui/Card'
+import { useTranslation } from 'react-i18next'
 
 export interface CurrencyCardProps {
   type: 'entries' | 'exits' | 'leftovers'
@@ -7,17 +8,19 @@ export interface CurrencyCardProps {
 }
 
 export function CurrencyCard({ type, value }: CurrencyCardProps) {
+  const { t } = useTranslation()
+
   const titlesAndIcons = {
     entries: {
-      title: 'Entradas',
+      title: t('currency_card.entries'),
       icon: <ArrowBigUp color="green" />,
     },
     exits: {
-      title: 'Saidas',
+      title: t('currency_card.exits'),
       icon: <ArrowBigDown color="red" />,
     },
     leftovers: {
-      title: 'Total',
+      title: t('currency_card.total'),
       icon: <DollarSign />,
     },
   }

@@ -1,6 +1,7 @@
 import { CurrencyCard, CurrencyCardProps } from '@/components/CurrencyCard'
 import { SwitcherCalendar } from '@/components/SwitcherCalendar'
 import { ExpenseTabs } from './components/ExpenseTabs'
+import { Trans, useTranslation } from 'react-i18next'
 
 const name = 'larissa Vitoria'
 
@@ -11,12 +12,16 @@ const currencyCards: CurrencyCardProps[] = [
 ]
 
 export default function Financial() {
+  const { t } = useTranslation()
+
   return (
     <div className="w-full p-5 xl:px-15">
       <header className="gap-4 flex items-center justify-center sm:justify-between flex-col sm:flex-row">
         <div className="flex items-start flex-col">
-          <h1 className="text-2xl font-bold">Olá, {name}</h1>
-          <small>Aqui estão todos os seus gastos.</small>
+          <h1 className="text-2xl font-bold">
+            <Trans i18nKey="init.title" values={{ name }} />
+          </h1>
+          <small>{t('init.description')}</small>
         </div>
 
         <SwitcherCalendar />

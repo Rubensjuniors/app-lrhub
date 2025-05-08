@@ -10,7 +10,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/Avatar'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '@/context/AuthContext'
 import { useSidebar } from '@/context/SideBarContext'
-
+import { useTranslation } from 'react-i18next'
 interface CardProfileProps {
   name: string
   photoUrl: string
@@ -21,6 +21,7 @@ export function CardProfile({ name, photoUrl, dropdownPosition = 'right' }: Card
   const navigate = useNavigate()
   const { logout } = useAuth()
   const { setOpenMobile } = useSidebar()
+  const { t } = useTranslation()
 
   return (
     <DropdownMenu>
@@ -41,10 +42,10 @@ export function CardProfile({ name, photoUrl, dropdownPosition = 'right' }: Card
             setOpenMobile(false)
           }}
         >
-          <span>Perfil</span>
+          <span>{t('general.profile')}</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => logout()}>
-          <span className="text-red-500">Sair</span>
+          <span className="text-red-500">{t('general.out')}</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

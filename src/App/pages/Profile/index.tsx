@@ -3,10 +3,12 @@ import { Button } from '@/components/ui/Button'
 import { Card, CardContent, CardFooter } from '@/components/ui/Card'
 import { cn } from '@/lib/utils'
 import { AvatarImage } from '@radix-ui/react-avatar'
-
+import { useTranslation } from 'react-i18next'
 const name = 'Larissa Vitoria'
 
 export default function Profile() {
+  const { t } = useTranslation()
+
   return (
     <div className="w-full flex flex-col items-center justify-center min-h-svh">
       <Card className={cn('w-[280px] md:w-[380px]')}>
@@ -19,7 +21,7 @@ export default function Profile() {
         </CardContent>
         <CardFooter>
           <Button variant="destructive" className="w-full">
-            Sair
+            {t('general.out')}
           </Button>
         </CardFooter>
       </Card>

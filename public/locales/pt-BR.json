@@ -1,0 +1,50 @@
+{
+  "general": {
+    "profile": "Perfil",
+    "out": "Sair",
+    "add_expense": "Cadastrar um Gasto"
+  },
+  "sidebar": {
+    "financial": "Financeiro"
+  },
+  "init": {
+    "title": "Olá, {{name}}",
+    "description": "Aqui estão todos os seus gastos."
+  },
+  "currency_card": {
+    "entries": "Entradas",
+    "exits": "Saídas",
+    "total": "Total"
+  },
+  "expense_tabs": {
+    "fixed_expenses": "Gastos Fixos",
+    "fixed_expenses_mobile": "Fixos",
+    "credit_card": "Cartão de Credito",
+    "credit_card_mobile": "Credito",
+    "debit_pix": "Débito/PIX"
+  },
+  "expense_table": {
+    "fixed_expenses": {
+      "title": "Gastos Fixos"
+    },
+    "credit_card": {
+      "title": "Cartão de Credito (Parcelados)"
+    },
+    "debit_pix": {
+      "title": "Débito ou PIX"
+    }
+  },
+  "empty_states": {
+    "no_expenses": {
+      "title": "Você ainda não cadastrou nenhum gasto",
+      "description": "Adicione um agora para começar a acompanhar seus registros!"
+    }
+  },
+  "add_transaction_sidebar": {
+    "new_expense": "Novo gasto",
+    "choose_type_and_fill_data": "Escolha o tipo e preencha os dados para adicionar à sua lista.",
+    "fixed_expenses": "Gastos Fixos", 
+    "credit_card": "Parcelados (Creditos)",
+    "pix": "Debito"
+  }
+}
