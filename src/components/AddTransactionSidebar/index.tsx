@@ -1,15 +1,8 @@
 import { SquarePlus } from 'lucide-react'
-import { Button } from '../ui/Button'
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from '../ui/Sheet'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/Tabs'
+import { Button } from '../shad-ui/Button'
+import { Tabs } from '../shad-ui/Tabs'
 import { useTranslation } from 'react-i18next'
+import { Sheet } from '../shad-ui/Sheet'
 export type ITransactionSidebarTypes = 'fixedExpenses' | 'creditCard' | 'pix'
 interface AddTransactionSidebarProps {
   type: ITransactionSidebarTypes
@@ -26,7 +19,7 @@ export function AddTransactionSidebar({
 
   return (
     <Sheet>
-      <SheetTrigger asChild>
+      <Sheet.Trigger asChild>
         {isEmptyState ? (
           <Button onClick={() => handleAddTransaction()}>{t('general.add_expense')}</Button>
         ) : (
@@ -34,28 +27,36 @@ export function AddTransactionSidebar({
             <SquarePlus />
           </Button>
         )}
-      </SheetTrigger>
-      <SheetContent className="min-w-[370px] md:min-w-[600px]">
-        <SheetHeader>
-          <SheetTitle>{t('add_transaction_sidebar.new_expense')}</SheetTitle>
-          <SheetDescription>
+      </Sheet.Trigger>
+      <Sheet.Content className="min-w-[370px] md:min-w-[600px]">
+        <Sheet.Header>
+          <Sheet.Title>{t('add_transaction_sidebar.new_expense')}</Sheet.Title>
+          <Sheet.Description>
             {t('add_transaction_sidebar.choose_type_and_fill_data')}
-          </SheetDescription>
-        </SheetHeader>
+          </Sheet.Description>
+        </Sheet.Header>
 
         <div>
           <Tabs defaultValue={type} className="w-full items-center justify-center">
-            <TabsList className="flex items-center flex-wrap mb-3">
-              <TabsTrigger value="fixedExpenses">{t('add_transaction_sidebar.fixed_expenses')}</TabsTrigger>
-              <TabsTrigger value="creditCard">{t('add_transaction_sidebar.credit_card')}</TabsTrigger>
-              <TabsTrigger value="pix">{t('add_transaction_sidebar.pix')}</TabsTrigger>
-            </TabsList>
-            <TabsContent value="fixedExpenses">{t('add_transaction_sidebar.fixed_expenses')}</TabsContent>
-            <TabsContent value="creditCard">{t('add_transaction_sidebar.credit_card')}</TabsContent>
-            <TabsContent value="pix">{t('add_transaction_sidebar.pix')}</TabsContent>
+            <Tabs.List className="flex items-center flex-wrap mb-3">
+              <Tabs.Trigger value="fixedExpenses">
+                {t('add_transaction_sidebar.fixed_expenses')}
+              </Tabs.Trigger>
+              <Tabs.Trigger value="creditCard">
+                {t('add_transaction_sidebar.credit_card')}
+              </Tabs.Trigger>
+              <Tabs.Trigger value="pix">{t('add_transaction_sidebar.pix')}</Tabs.Trigger>
+            </Tabs.List>
+            <Tabs.Content value="fixedExpenses">
+              {t('add_transaction_sidebar.fixed_expenses')}
+            </Tabs.Content>
+            <Tabs.Content value="creditCard">
+              {t('add_transaction_sidebar.credit_card')}
+            </Tabs.Content>
+            <Tabs.Content value="pix">{t('add_transaction_sidebar.pix')}</Tabs.Content>
           </Tabs>
         </div>
-      </SheetContent>
+      </Sheet.Content>
     </Sheet>
   )
 }

@@ -1,7 +1,7 @@
 import { addMonths, format, subMonths } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import { useEffect, useState } from 'react'
-import { Button } from '../ui/Button'
+import { Button } from '../shad-ui/Button'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 function getMonthStart(date: Date) {

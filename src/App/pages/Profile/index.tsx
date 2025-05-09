@@ -1,6 +1,6 @@
-import { Avatar, AvatarFallback } from '@/components/ui/Avatar'
-import { Button } from '@/components/ui/Button'
-import { Card, CardContent, CardFooter } from '@/components/ui/Card'
+import { Avatar, AvatarFallback } from '@/components/shad-ui/Avatar'
+import { Button } from '@/components/shad-ui/Button'
+import { Card } from '@/components/shad-ui/Card'
 import { cn } from '@/lib/utils'
 import { AvatarImage } from '@radix-ui/react-avatar'
 import { useTranslation } from 'react-i18next'
@@ -12,18 +12,18 @@ export default function Profile() {
   return (
     <div className="w-full flex flex-col items-center justify-center min-h-svh">
       <Card className={cn('w-[280px] md:w-[380px]')}>
-        <CardContent className="flex flex-col items-center">
+        <Card.Content className="flex flex-col items-center">
           <Avatar className="w-[140px] h-[140px] md:w-[150px] md:h-[150px]">
             <AvatarImage src="https://github.com/larissacesarr.png" alt="@shadcn" />
             <AvatarFallback>{name.charAt(0).toUpperCase()}</AvatarFallback>
           </Avatar>
           <strong className="text-3xl mt-3">{name}</strong>
-        </CardContent>
-        <CardFooter>
+        </Card.Content>
+        <Card.Footer>
           <Button variant="destructive" className="w-full">
             {t('general.out')}
           </Button>
-        </CardFooter>
+        </Card.Footer>
       </Card>
     </div>
   )

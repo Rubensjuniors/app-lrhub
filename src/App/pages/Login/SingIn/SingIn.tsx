@@ -1,23 +1,17 @@
-import { Button } from '@/components/ui/Button'
+import { Button } from '@/components/shad-ui/Button'
 import { useAuth } from '@/context/AuthContext'
 import { Navigate, useNavigate } from 'react-router-dom'
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/Card'
-import { Input } from '@/components/ui/Input'
-import { Label } from '@/components/ui/Label'
+import { Card } from '@/components/shad-ui/Card'
+import { Input } from '@/components/shad-ui/Input'
+import { Label } from '@/components/shad-ui/Label'
 
 export default function SingIn() {
   const { login, isAuthenticated } = useAuth()
   const navigate = useNavigate()
 
-   if (isAuthenticated) {
-      return <Navigate to="/" replace />
-    }
+  if (isAuthenticated) {
+    return <Navigate to="/" replace />
+  }
 
   const handleSingIn = () => {
     login()
@@ -30,10 +24,10 @@ export default function SingIn() {
   return (
     <div className="flex flex-col items-center justify-center min-h-svh">
       <Card className="w-[350px]">
-        <CardHeader>
-          <CardTitle>Entrar na sua conta</CardTitle>
-        </CardHeader>
-        <CardContent>
+        <Card.Header>
+          <Card.Title>Entrar na sua conta</Card.Title>
+        </Card.Header>
+        <Card.Content>
           <form action="">
             <div className="space-y-2 mb-4">
               <Label htmlFor="email">E-mail</Label>
@@ -44,11 +38,13 @@ export default function SingIn() {
               <Input id="password" placeholder="Senha" />
             </div>
           </form>
-        </CardContent>
-        <CardFooter className="flex items-center gap-3">
+        </Card.Content>
+        <Card.Footer className="flex items-center gap-3">
           <Button onClick={handleSingIn}>Entrar</Button>
-          <Button variant="link" onClick={handleSingUp}>Cadastra-se</Button>
-        </CardFooter>
+          <Button variant="link" onClick={handleSingUp}>
+            Cadastra-se
+          </Button>
+        </Card.Footer>
       </Card>
     </div>
   )

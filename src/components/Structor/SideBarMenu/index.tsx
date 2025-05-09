@@ -1,5 +1,5 @@
 import { ButtonToggleTheme } from '@/components/ButtonToggleTheme'
-import { Sidebar } from '@/components/ui/Sidebar/index'
+import { Sidebar } from '@/components/shad-ui/Sidebar/index'
 import Logo from '@/assets/images/logo.svg'
 import { ItemsMenu } from './constants'
 import { Link, NavLink } from 'react-router-dom'

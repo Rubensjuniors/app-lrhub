@@ -1,4 +1,4 @@
-import { SidebarTrigger } from '@/components/ui/Sidebar/SidebarTrigger'
+import { SidebarTrigger } from '@/components/shad-ui/Sidebar/SidebarTrigger'
 import Logo from '@/assets/images/logo.svg'
 import { Link } from 'react-router-dom'
 

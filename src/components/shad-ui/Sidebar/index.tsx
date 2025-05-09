@@ -3,11 +3,7 @@ import { useSidebar } from '@/context/SideBarContext'
 import { cn } from '@/lib/utils'
 import {
   Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-} from '@/components/ui/Sheet'
+} from '@/components/shad-ui/Sheet'
 import { SidebarContent } from './SidebarContent'
 import { SidebarTrigger } from './SidebarTrigger'
 import { SidebarHeader } from './SidebarHeader'
@@ -47,7 +43,7 @@ function Sidebar({
   if (isMobile) {
     return (
       <Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
-        <SheetContent
+        <Sheet.Content
           data-sidebar="sidebar"
           data-slot="sidebar"
           data-mobile="true"
@@ -55,12 +51,12 @@ function Sidebar({
           style={{ '--sidebar-width': SIDEBAR_WIDTH_MOBILE } as React.CSSProperties}
           side={side}
         >
-          <SheetHeader className="sr-only">
-            <SheetTitle>Sidebar</SheetTitle>
-            <SheetDescription>Displays the mobile sidebar.</SheetDescription>
-          </SheetHeader>
+          <Sheet.Header className="sr-only">
+            <Sheet.Title>Sidebar</Sheet.Title>
+            <Sheet.Description>Displays the mobile sidebar.</Sheet.Description>
+          </Sheet.Header>
           <div className="flex h-full w-full flex-col">{children}</div>
-        </SheetContent>
+        </Sheet.Content>
       </Sheet>
     )
   }
@@ -110,7 +106,6 @@ function Sidebar({
     </div>
   )
 }
-
 
 Sidebar.SidebarTrigger = SidebarTrigger
 Sidebar.SidebarHeader = SidebarHeader

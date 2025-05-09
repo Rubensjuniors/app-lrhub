@@ -1,6 +1,6 @@
 import { Moon, Sun } from 'lucide-react'
 
-import { Button } from '@/components/ui/Button'
+import { Button } from '@/components/shad-ui/Button'
 import { useTheme } from '@/context/ThemeContext'
 import { useMemo } from 'react'
 

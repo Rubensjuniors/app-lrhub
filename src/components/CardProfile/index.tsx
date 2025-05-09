@@ -1,16 +1,12 @@
-import { Button } from '@/components/ui/Button'
+import { Button } from '@/components/shad-ui/Button'
 import { ChevronUp } from 'lucide-react'
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem,
-} from '@/components/ui/DropdownMenu'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/Avatar'
+import { DropdownMenu } from '@/components/shad-ui/DropdownMenu'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/shad-ui/Avatar'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '@/context/AuthContext'
 import { useSidebar } from '@/context/SideBarContext'
 import { useTranslation } from 'react-i18next'
+
 interface CardProfileProps {
   name: string
   photoUrl: string
@@ -25,7 +21,7 @@ export function CardProfile({ name, photoUrl, dropdownPosition = 'right' }: Card
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+      <DropdownMenu.Trigger asChild>
         <Button variant="outline" className="py-8 px-2">
           <Avatar>
             <AvatarImage src={photoUrl} />
@@ -34,20 +30,20 @@ export function CardProfile({ name, photoUrl, dropdownPosition = 'right' }: Card
           {name}
           <ChevronUp className="ml-auto" />
         </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent side={dropdownPosition} className="w-[--radix-popper-anchor-width]">
-        <DropdownMenuItem
+      </DropdownMenu.Trigger>
+      <DropdownMenu.Content side={dropdownPosition} className="w-[--radix-popper-anchor-width]">
+        <DropdownMenu.Item
           onClick={() => {
             navigate('/profile')
             setOpenMobile(false)
           }}
         >
           <span>{t('general.profile')}</span>
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => logout()}>
+        </DropdownMenu.Item>
+        <DropdownMenu.Item onClick={() => logout()}>
           <span className="text-red-500">{t('general.out')}</span>
-        </DropdownMenuItem>
-      </DropdownMenuContent>
+        </DropdownMenu.Item>
+      </DropdownMenu.Content>
     </DropdownMenu>
   )
 }

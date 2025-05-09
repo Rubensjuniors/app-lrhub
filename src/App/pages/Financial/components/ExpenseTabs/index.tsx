@@ -1,6 +1,5 @@
 import { ExpenseCard } from '@/components/ExpenseCard'
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/Tabs'
-import { TabsContent } from '@radix-ui/react-tabs'
+import { Tabs } from '@/components/shad-ui/Tabs'
 import { useTranslation } from 'react-i18next'
 
 export function ExpenseTabs() {
@@ -8,41 +7,41 @@ export function ExpenseTabs() {
 
   return (
     <Tabs defaultValue="fixedExpenses" className="w-full">
-      <TabsList className="flex items-center flex-wrap mb-3">
-        <TabsTrigger value="fixedExpenses">
+      <Tabs.List className="flex items-center flex-wrap mb-3">
+        <Tabs.Trigger value="fixedExpenses">
           <span className="sm:hidden">{t('expense_tabs.fixed_expenses_mobile')}</span>
           <span className="hidden sm:block">{t('expense_tabs.fixed_expenses')}</span>
-        </TabsTrigger>
-        <TabsTrigger value="creditCard">
+        </Tabs.Trigger>
+        <Tabs.Trigger value="creditCard">
           <span className="sm:hidden">{t('expense_tabs.credit_card_mobile')}</span>
           <span className="hidden sm:block">{t('expense_tabs.credit_card')}</span>
-        </TabsTrigger>
-        <TabsTrigger value="pix">{t('expense_tabs.debit_pix')}</TabsTrigger>
-      </TabsList>
-      <TabsContent value="fixedExpenses">
+        </Tabs.Trigger>
+        <Tabs.Trigger value="pix">{t('expense_tabs.debit_pix')}</Tabs.Trigger>
+      </Tabs.List>
+      <Tabs.Content value="fixedExpenses">
         <ExpenseCard
           title={t('expense_table.fixed_expenses.title')}
           handleAddTransaction={() => void 0}
           items={[]}
           type="fixedExpenses"
         />
-      </TabsContent>
-      <TabsContent value="creditCard">
+      </Tabs.Content>
+      <Tabs.Content value="creditCard">
         <ExpenseCard
           title={t('expense_table.credit_card.title')}
           handleAddTransaction={() => void 0}
           items={[]}
           type="creditCard"
         />
-      </TabsContent>
-      <TabsContent value="pix">
+      </Tabs.Content>
+      <Tabs.Content value="pix">
         <ExpenseCard
           title={t('expense_table.debit_pix.title')}
           handleAddTransaction={() => void 0}
           items={[]}
           type="pix"
         />
-      </TabsContent>
+      </Tabs.Content>
     </Tabs>
   )
 }
