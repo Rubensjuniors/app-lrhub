@@ -1,0 +1,93 @@
+{
+  "balance": {
+    "entry": 1000,
+    "exits": 500,
+    "total": 500
+  },
+  "fixed": [
+    {
+      "id": 1,
+      "paid": true,
+      "name": "Aluguel",
+      "date_of_purchase": "2024-07-10",
+      "updated_at": "2024-07-10",
+      "created_at": "2024-07-10",
+      "category": "Moradia",
+      "payment_method": "PIX",
+      "is_installment": false,
+      "total_installments": null,
+      "current_installment": null,
+      "total_amount": 600,
+      "number_installments_paid": null,
+      "installment_amount": null
+    }
+  ],
+  "debit": [
+    {
+      "id": 1,
+      "paid": false,
+      "name": "Mercado",
+      "date_of_purchase": "2024-07-10",
+      "updated_at": "2024-07-10",
+      "created_at": "2024-07-10",
+      "category": "Alimentação",
+      "payment_method": "CREDIT_CARD",
+      "is_installment": false,
+      "total_installments": 1,
+      "current_installment": 1,
+      "total_amount": 80,
+      "number_installments_paid": 0,
+      "installment_amount": 80
+    },
+    {
+      "id": 2,
+      "paid": false,
+      "name": "Uber",
+      "date_of_purchase": "2024-07-10",
+      "updated_at": "2024-07-10",
+      "created_at": "2024-07-10",
+      "category": "Transporte",
+      "payment_method": "PIX",
+      "is_installment": false,
+      "total_installments": null,
+      "current_installment": null,
+      "total_amount": 10,
+      "number_installments_paid": null,
+      "installment_amount": null
+    }
+  ],
+  "credit": [
+    {
+      "id": 1,
+      "paid": false,
+      "name": "Celular",
+      "date_of_purchase": "2024-07-10",
+      "updated_at": "2024-07-10",
+      "created_at": "2024-07-10",
+      "category": "Tecnologia",
+      "payment_method": "CREDIT_CARD",
+      "is_installment": true,
+      "total_installments": 12,
+      "current_installment": 1,
+      "total_amount": 1200,
+      "number_installments_paid": 0,
+      "installment_amount": 100
+    },
+    {
+      "id": 2,
+      "paid": false,
+      "name": "MacBook Pro",
+      "date_of_purchase": "2024-07-10",
+      "updated_at": "2024-07-10",
+      "created_at": "2024-07-10",
+      "category": "Tecnologia",
+      "payment_method": "CREDIT_CARD",
+      "is_installment": true,
+      "total_installments": 12,
+      "current_installment": 5,
+      "total_amount": 10000,
+      "number_installments_paid": 4,
+      "installment_amount": 833
+    }
+  ]
+}

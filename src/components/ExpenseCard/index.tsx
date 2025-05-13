@@ -1,7 +1,7 @@
 import { Card } from '../shad-ui/Card'
 import { AddTransactionSidebar, ITransactionSidebarTypes } from '../AddTransactionSidebar'
 import { NoExpenseEmptyState } from './EmptyStates/NoExpense'
-import { CustomTable } from '../commons/CustomTable'
+import { CustomTable } from '../Commons/CustomTable'
 import { Checkbox } from '../shad-ui/Checkbox'
 
 interface ExpenseCardProps {
@@ -13,6 +13,49 @@ interface ExpenseCardProps {
   handleDelete?(): void
   type: ITransactionSidebarTypes
 }
+
+const dataMock = [
+  {
+    id: 1,
+    paid: true,
+    name: 'Pagamento de Aluguel',
+    date: '2024-07-10',
+    category: 'Moradia',
+    amount: 1500,
+  },
+  {
+    id: 2,
+    paid: false,
+    name: 'Conta de Energia',
+    date: '2024-07-15',
+    category: 'Utilidades',
+    amount: 250.75,
+  },
+  {
+    id: 3,
+    paid: true,
+    name: 'Supermercado Mensal',
+    date: '2024-07-05',
+    category: 'Alimentação',
+    amount: 850.32,
+  },
+  {
+    id: 4,
+    paid: false,
+    name: 'Parcela do Cartão',
+    date: '2024-07-20',
+    category: 'Dívidas',
+    amount: 1200,
+  },
+  {
+    id: 5,
+    paid: true,
+    name: 'Assinatura Netflix',
+    date: '2024-07-08',
+    category: 'Entretenimento',
+    amount: 55.9,
+  },
+]
 
 export function ExpenseCard({ title, handleAddTransaction, items, type }: ExpenseCardProps) {
   return (
@@ -58,60 +101,21 @@ export function ExpenseCard({ title, handleAddTransaction, items, type }: Expens
               key: 'actions',
               label: 'Ações',
               position: 'right',
-              render: () => (
-                <div className="flex gap-2 justify-end">
-                  <button className="p-1 bg-blue-100 text-blue-600 rounded hover:bg-blue-200">
-                    Editar
-                  </button>
-                  <button className="p-1 bg-red-100 text-red-600 rounded hover:bg-red-200">
-                    Excluir
-                  </button>
-                </div>
-              ),
+              render: () => {
+               return (
+                  <div className="flex gap-2 justify-end">
+                    <button className="p-1 bg-blue-100 text-blue-600 rounded hover:bg-blue-200">
+                      Editar
+                    </button>
+                    <button className="p-1 bg-red-100 text-red-600 rounded hover:bg-red-200">
+                      Excluir
+                    </button>
+                  </div>
+                )
+              },
             },
           ]}
-          data={[
-            {
-              id: 1,
-              paid: true,
-              name: 'Pagamento de Aluguel',
-              date: '2024-07-10',
-              category: 'Moradia',
-              amount: 1500,
-            },
-            {
-              id: 2,
-              paid: false,
-              name: 'Conta de Energia',
-              date: '2024-07-15',
-              category: 'Utilidades',
-              amount: 250.75,
-            },
-            {
-              id: 3,
-              paid: true,
-              name: 'Supermercado Mensal',
-              date: '2024-07-05',
-              category: 'Alimentação',
-              amount: 850.32,
-            },
-            {
-              id: 4,
-              paid: false,
-              name: 'Parcela do Cartão',
-              date: '2024-07-20',
-              category: 'Dívidas',
-              amount: 1200,
-            },
-            {
-              id: 5,
-              paid: true,
-              name: 'Assinatura Netflix',
-              date: '2024-07-08',
-              category: 'Entretenimento',
-              amount: 55.9,
-            },
-          ]}
+          data={dataMock}
         />
         {items.length > 10 && (
           <NoExpenseEmptyState type={type} handleAddTransaction={handleAddTransaction} />

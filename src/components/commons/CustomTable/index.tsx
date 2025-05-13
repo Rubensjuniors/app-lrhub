@@ -1,19 +1,19 @@
 import { Table } from '@/components/shad-ui/Table'
 import { ReactNode } from 'react'
 
-interface Column {
+interface Column<T = Record<string, unknown>> {
   key: string
   label: string
   position?: 'left' | 'right' | 'center'
-  render?: (value: string | number | boolean, row: Record<string, unknown>) => ReactNode
+  render?: (value: string | number | boolean, row: T) => ReactNode
 }
 
-interface CustomTableProps {
-  columns: Column[]
-  data: Record<string, unknown>[]
+interface CustomTableProps<T = Record<string, unknown>> {
+  columns: Column<T>[]
+  data: T[]
 }
 
-export function CustomTable({ columns, data }: CustomTableProps) {
+export function CustomTable<T = Record<string, unknown>>({ columns, data }: CustomTableProps<T>) {
   return (
     <Table>
       <Table.Header>
@@ -35,8 +35,8 @@ export function CustomTable({ columns, data }: CustomTableProps) {
             {columns.map((column) => (
               <Table.Cell key={column.key}>
                 {column.render
-                  ? column.render(row[column.key] as string | number | boolean, row)
-                  : String(row[column.key] ?? '')}
+                  ? column.render(row[column.key as keyof T] as string | number | boolean, row)
+                  : String(row[column.key as keyof T] ?? '')}
               </Table.Cell>
             ))}
           </Table.Row>

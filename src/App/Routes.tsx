@@ -3,26 +3,21 @@ import { ThemeProvider } from '@/context/ThemeContext'
 import { lazy, Suspense } from 'react'
 import { ProtectedRoute } from './PrivateRouter'
 import { Structor } from './Structor.component'
+import { Loader } from '@/components/Commons/Loader'
 
-// Lazy loaded components
 const SignIn = lazy(() => import('./pages/Login/SingIn/SingIn'))
 const SignUp = lazy(() => import('./pages/Login/SingUp'))
 const Financial = lazy(() => import('./pages/Financial'))
 const Profile = lazy(() => import('./pages/Profile'))
 
-// Loading component
-const LoadingFallback = () => <div>Carregando...</div>
-
 export function AppRoutes() {
   return (
     <ThemeProvider>
-      <Suspense fallback={<LoadingFallback />}>
+      <Suspense fallback={<Loader />}>
         <Routes>
-          {/* Rotas públicas */}
           <Route path="/login/signin" element={<SignIn />} />
           <Route path="/login/signup" element={<SignUp />} />
 
-          {/* Rotas protegidas com layout Structor */}
           <Route
             element={
               <ProtectedRoute>
