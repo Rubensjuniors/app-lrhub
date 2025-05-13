@@ -3,7 +3,7 @@ import { ThemeProvider } from '@/context/ThemeContext'
 import { lazy, Suspense } from 'react'
 import { ProtectedRoute } from './PrivateRouter'
 import { Structor } from './Structor.component'
-import { Loader } from '../components/Commons/Loader'
+import { Loader } from '../components/commons/Loader'
 
 const SignIn = lazy(() => import('./pages/Login/SingIn/SingIn'))
 const SignUp = lazy(() => import('./pages/Login/SingUp'))

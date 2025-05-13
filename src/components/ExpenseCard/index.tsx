@@ -1,7 +1,7 @@
 import { Card } from '../shad-ui/Card'
 import { AddTransactionSidebar, ITransactionSidebarTypes } from '../AddTransactionSidebar'
 import { NoExpenseEmptyState } from './EmptyStates/NoExpense'
-import { CustomTable } from '../Commons/CustomTable'
+import { CustomTable } from '../commons/CustomTable'
 import { Checkbox } from '../shad-ui/Checkbox'
 
 interface ExpenseCardProps {
