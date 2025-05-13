@@ -3,7 +3,9 @@ import { Button } from '../shad-ui/Button'
 import { Tabs } from '../shad-ui/Tabs'
 import { useTranslation } from 'react-i18next'
 import { Sheet } from '../shad-ui/Sheet'
+
 export type ITransactionSidebarTypes = 'fixedExpenses' | 'creditCard' | 'pix'
+
 interface AddTransactionSidebarProps {
   type: ITransactionSidebarTypes
   handleAddTransaction(): void

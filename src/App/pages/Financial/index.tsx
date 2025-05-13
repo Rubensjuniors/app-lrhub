@@ -1,18 +1,20 @@
-import { CurrencyCard, CurrencyCardProps } from '@/components/CurrencyCard'
+import { CurrencyCard, CurrencyCardType } from '@/components/CurrencyCard'
 import { SwitcherCalendar } from '@/components/SwitcherCalendar'
 import { ExpenseTabs } from './components/ExpenseTabs'
 import { Trans, useTranslation } from 'react-i18next'
+import { useGetBalance } from '@/api/queries/useGetBalance'
 
 const name = 'larissa Vitoria'
 
-const currencyCards: CurrencyCardProps[] = [
-  { type: 'entries', value: 1000 },
-  { type: 'exits', value: 500 },
-  { type: 'leftovers', value: 500 },
-]
-
 export default function Financial() {
   const { t } = useTranslation()
+
+  const { data: balance, isLoading } = useGetBalance()
+  const currencyCards = [
+    { type: CurrencyCardType.entries, value: balance?.entry || 0 },
+    { type: CurrencyCardType.exits, value: balance?.exits || 0 },
+    { type: CurrencyCardType.leftovers, value: balance?.total || 0 },
+  ]
 
   return (
     <div className="w-full p-5 xl:px-15">
@@ -32,7 +34,7 @@ export default function Financial() {
           {currencyCards.map((item) => {
             return (
               <div className="flex-1" key={item.type}>
-                <CurrencyCard type={item.type} value={item.value} />
+                <CurrencyCard type={item.type} value={item.value} isLoading={isLoading} />
               </div>
             )
           })}

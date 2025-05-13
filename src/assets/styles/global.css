@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -119,5 +118,66 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Loader animations */
+@keyframes rectangleOneAnim {
+  0% {
+    height: 15px;
+  }
+  40% {
+    height: 30px;
+  }
+  100% {
+    height: 15px;
+  }
+}
+
+@keyframes rectangleTwoAnim {
+  0% {
+    height: 15px;
+  }
+  40% {
+    height: 40px;
+  }
+  100% {
+    height: 15px;
+  }
+}
+
+@keyframes rectangleThreeAnim {
+  0% {
+    height: 15px;
+  }
+  40% {
+    height: 50px;
+  }
+  100% {
+    height: 15px;
+  }
+}
+
+@keyframes rectangleFourAnim {
+  0% {
+    height: 15px;
+  }
+  40% {
+    height: 40px;
+  }
+  100% {
+    height: 15px;
+  }
+}
+
+@keyframes rectangleFiveAnim {
+  0% {
+    height: 15px;
+  }
+  40% {
+    height: 30px;
+  }
+  100% {
+    height: 15px;
   }
 }

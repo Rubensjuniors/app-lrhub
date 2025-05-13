@@ -1,13 +1,21 @@
 import { ArrowBigDown, ArrowBigUp, DollarSign } from 'lucide-react'
 import { Card } from '../shad-ui/Card'
 import { useTranslation } from 'react-i18next'
+import { Skeleton } from '../shad-ui/Skeleton'
 
-export interface CurrencyCardProps {
-  type: 'entries' | 'exits' | 'leftovers'
-  value: number
+export enum CurrencyCardType {
+  entries = 'entries',
+  exits = 'exits',
+  leftovers = 'leftovers',
 }
 
-export function CurrencyCard({ type, value }: CurrencyCardProps) {
+export interface CurrencyCardProps {
+  type: CurrencyCardType
+  value: number
+  isLoading?: boolean
+}
+
+export function CurrencyCard({ type, value, isLoading }: CurrencyCardProps) {
   const { t } = useTranslation()
 
   const titlesAndIcons = {
@@ -34,7 +42,11 @@ export function CurrencyCard({ type, value }: CurrencyCardProps) {
         <span>{cardConfig.icon}</span>
       </Card.Header>
       <Card.Content>
-        <span className="text-xl md:text-3xl sm:text-2xl">R$ {value}</span>
+        {isLoading ? (
+          <Skeleton className="w-40 md:w-50 h-10" />
+        ) : (
+          <span className="text-xl md:text-3xl sm:text-2xl">R$ {value}</span>
+        )}
       </Card.Content>
     </Card>
   )

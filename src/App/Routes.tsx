@@ -3,7 +3,7 @@ import { ThemeProvider } from '@/context/ThemeContext'
 import { lazy, Suspense } from 'react'
 import { ProtectedRoute } from './PrivateRouter'
 import { Structor } from './Structor.component'
-import { Loader } from '../components/commons/Loader'
+import { Loader } from '@/components/LoaderFullContent'
 
 const SignIn = lazy(() => import('./pages/Login/SingIn/SingIn'))
 const SignUp = lazy(() => import('./pages/Login/SingUp'))
@@ -27,7 +27,6 @@ export function AppRoutes() {
           >
             <Route path="/" element={<Financial />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/loader" element={<Loader />} />
           </Route>
         </Routes>
       </Suspense>
