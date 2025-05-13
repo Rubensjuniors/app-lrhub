@@ -27,6 +27,7 @@ export function AppRoutes() {
           >
             <Route path="/" element={<Financial />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/loader" element={<Loader />} />
           </Route>
         </Routes>
       </Suspense>
