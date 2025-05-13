@@ -5,7 +5,9 @@ interface Column<T = Record<string, unknown>> {
   key: string
   label: string
   position?: 'left' | 'right' | 'center'
-  render?: (value: string | number | boolean, row: T) => ReactNode
+  className?: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  render?: (value: any, row: T) => ReactNode
 }
 
 interface CustomTableProps<T = Record<string, unknown>> {
@@ -21,7 +23,7 @@ export function CustomTable<T = Record<string, unknown>>({ columns, data }: Cust
           {columns.map((column) => (
             <Table.Head
               key={column.key}
-              className={`text-${column?.position ? column?.position : 'left'}`}
+              className={`text-${column?.position ? column?.position : 'left'} ${column?.className}`}
             >
               {column.label}
             </Table.Head>

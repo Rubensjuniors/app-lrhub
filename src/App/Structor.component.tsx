@@ -2,8 +2,7 @@ import { Header } from '@/components/Structor/Header'
 import { AppSidebarMenu } from '@/components/Structor/SideBarMenu'
 import { SidebarProvider } from '@/context/SideBarContext'
 import { Outlet } from 'react-router-dom'
-import { Suspense } from 'react'
-import { Loader } from '../components/commons/Loader'
+
 export function Structor() {
   return (
     <SidebarProvider defaultOpen={true}>
@@ -14,9 +13,7 @@ export function Structor() {
           <Header />
 
           <main>
-            <Suspense fallback={<Loader />}>
-              <Outlet />
-            </Suspense>
+            <Outlet />
           </main>
         </div>
       </>
