@@ -73,7 +73,7 @@ export function ExpenseCard({ title, handleAddTransaction, items, type }: Expens
             {
               key: 'paid',
               label: 'Pago',
-              render: (value) => (
+              render: (value: string | number | boolean) => (
                 <span>
                   <Checkbox checked={Boolean(value)} />
                 </span>
@@ -86,7 +86,8 @@ export function ExpenseCard({ title, handleAddTransaction, items, type }: Expens
             {
               key: 'date',
               label: 'Data',
-              render: (value) => new Date(value as string).toLocaleDateString('pt-BR'),
+              render: (value: string | number | boolean) =>
+                new Date(String(value)).toLocaleDateString('pt-BR'),
             },
             {
               key: 'category',
@@ -95,14 +96,15 @@ export function ExpenseCard({ title, handleAddTransaction, items, type }: Expens
             {
               key: 'amount',
               label: 'Valor',
-              render: (value) => `R$ ${Number(value).toFixed(2).replace('.', ',')}`,
+              render: (value: string | number | boolean) =>
+                `R$ ${Number(value).toFixed(2).replace('.', ',')}`,
             },
             {
               key: 'actions',
               label: 'Ações',
               position: 'right',
               render: () => {
-               return (
+                return (
                   <div className="flex gap-2 justify-end">
                     <button className="p-1 bg-blue-100 text-blue-600 rounded hover:bg-blue-200">
                       Editar
