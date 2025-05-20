@@ -3,12 +3,12 @@ import { ThemeProvider } from '@/context/ThemeContext'
 import { lazy, Suspense } from 'react'
 import { ProtectedRoute } from './PrivateRouter'
 import { Structor } from './Structor.component'
-import { Loader } from '../components/commons/Loader'
+import { Loader } from '../components/Atoms/Loader'
 
-const SignIn = lazy(() => import('./pages/Login/SingIn/SingIn'))
-const SignUp = lazy(() => import('./pages/Login/SingUp'))
-const Financial = lazy(() => import('./pages/Financial'))
-const Profile = lazy(() => import('./pages/Profile'))
+const SignIn = lazy(() => import('../pages/Login/SingIn/SingIn'))
+const SignUp = lazy(() => import('../pages/Login/SingUp'))
+const Financial = lazy(() => import('../pages/Financial'))
+const Profile = lazy(() => import('../pages/Profile'))
 
 export function AppRoutes() {
   return (

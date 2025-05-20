@@ -1,6 +1,6 @@
 import React from 'react'
 import { useIsMobile } from '@/hooks/use-mobile'
-import { TooltipProvider } from '@/components/shad-ui/Tooltip'
+import { TooltipProvider } from '@/components/Atoms/Tooltip'
 import { cn } from '@/lib/utils'
 
 const SIDEBAR_COOKIE_NAME = 'sidebar_state'
