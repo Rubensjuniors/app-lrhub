@@ -1,5 +1,5 @@
-import { Header } from '@/layout/Header'
-import { AppSidebarMenu } from '@/layout/SideBarMenu'
+import { Header } from '@/layout/components/Header'
+import { AppSidebarMenu } from '@/layout/components/SideBarMenu'
 import { SidebarProvider } from '@/context/SideBarContext'
 import { Outlet } from 'react-router-dom'
 import { Suspense } from 'react'

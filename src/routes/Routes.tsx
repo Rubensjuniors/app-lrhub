@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from '@/context/ThemeContext'
 import { lazy, Suspense } from 'react'
 import { ProtectedRoute } from './PrivateRouter'
-import { Structor } from './Structor.component'
+import { Structor } from '../layout/Structor.component'
 import { Loader } from '../components/Atoms/Loader'
 
 const SignIn = lazy(() => import('../pages/Login/SingIn/SingIn'))
