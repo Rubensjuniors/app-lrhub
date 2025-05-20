@@ -10,7 +10,7 @@ const SignUp = lazy(() => import('../pages/Login/SingUp'))
 const Financial = lazy(() => import('../pages/Financial'))
 const Profile = lazy(() => import('../pages/Profile'))
 
-export function AppRoutes() {
+export function RoutesComponent() {
   return (
     <ThemeProvider>
       <Suspense fallback={<Loader />}>
