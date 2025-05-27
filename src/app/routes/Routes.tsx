@@ -6,8 +6,8 @@ const SignIn = lazy(() => import('../../pages/auth/Sing-in/SingIn'))
 const SignUp = lazy(() => import('../../pages/auth/Sing-up'))
 
 const AppLayout = lazy(() => import('../../layout/app'))
-const Financial = lazy(() => import('../../pages/Financial'))
-const Profile = lazy(() => import('../../pages/Profile'))
+const Financial = lazy(() => import('../../pages/app/Financial'))
+const Profile = lazy(() => import('../../pages/app/Profile'))
 
 export const Router = createBrowserRouter([
   {

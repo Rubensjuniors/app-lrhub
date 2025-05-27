@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import {
   AddTransactionSidebar,
   ITransactionSidebarTypes,
-} from '@/modules/Financial/components/AddTransactionSidebar'
+} from '@/modules/app/Financial/components/AddTransactionSidebar'
 
 interface NoExpenseProps {
   type: ITransactionSidebarTypes

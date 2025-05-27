@@ -5,7 +5,7 @@ import Logo from '@/assets/images/logo.svg'
 import { Sidebar } from '@/components/Atoms'
 import { ButtonToggleTheme } from '@/components/Molecules'
 import { useSidebar } from '@/context/SideBarContext'
-import { CardProfile } from '@/modules/Profile/components/CardProfile'
+import { CardProfile } from '@/modules/app/Profile/components/CardProfile'
 
 import { ItemsMenu } from './constants'
 
