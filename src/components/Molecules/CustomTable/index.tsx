@@ -1,5 +1,6 @@
-import { Table } from '@/components/Atoms/Table'
 import { ReactNode } from 'react'
+
+import { Table } from '@/components/Atoms/Table'
 
 interface Column<T = Record<string, unknown>> {
   key: string

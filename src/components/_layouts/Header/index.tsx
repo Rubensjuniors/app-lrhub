@@ -1,5 +1,6 @@
-import Logo from '@/assets/images/logo.svg'
 import { Link } from 'react-router-dom'
+
+import Logo from '@/assets/images/logo.svg'
 import { SidebarTrigger } from '@/components/Atoms/Sidebar/SidebarTrigger'
 
 export function Header() {

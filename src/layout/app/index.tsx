@@ -1,11 +1,13 @@
-import { Header } from '@/layout/components/Header'
-import { AppSidebarMenu } from '@/layout/components/SideBarMenu'
-import { SidebarProvider } from '@/context/SideBarContext'
-import { Outlet } from 'react-router-dom'
 import { Suspense } from 'react'
-import { Loader } from '../components/Atoms/Loader'
+import { Outlet } from 'react-router-dom'
 
-export function Structor() {
+import { Header } from '@/components/_layouts/Header'
+import { AppSidebarMenu } from '@/components/_layouts/SideBarMenu'
+import { SidebarProvider } from '@/context/SideBarContext'
+
+import { Loader } from '../../components/Atoms/Loader'
+
+export default function AppLayout() {
   return (
     <SidebarProvider defaultOpen={true}>
       <>

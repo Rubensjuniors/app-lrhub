@@ -1,6 +1,7 @@
 import { ArrowBigDown, ArrowBigUp, DollarSign } from 'lucide-react'
-import { Card } from '@/components/Atoms'
 import { useTranslation } from 'react-i18next'
+
+import { Card } from '@/components/Atoms'
 
 export interface CurrencyCardProps {
   type: 'entries' | 'exits' | 'leftovers'

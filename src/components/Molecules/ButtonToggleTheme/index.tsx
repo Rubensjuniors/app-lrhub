@@ -1,8 +1,8 @@
 import { Moon, Sun } from 'lucide-react'
+import { useMemo } from 'react'
 
 import { Button } from '@/components/Atoms/Button'
 import { useTheme } from '@/context/ThemeContext'
-import { useMemo } from 'react'
 
 export function ButtonToggleTheme() {
   const { setTheme, theme } = useTheme()

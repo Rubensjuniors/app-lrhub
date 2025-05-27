@@ -1,5 +1,7 @@
-import { Tabs } from '@/components/Atoms/Tabs'
 import { useTranslation } from 'react-i18next'
+
+import { Tabs } from '@/components/Atoms/Tabs'
+
 import { ExpenseCard } from '../ExpenseCard'
 
 export function ExpenseTabs() {

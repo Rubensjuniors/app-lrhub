@@ -1,5 +1,6 @@
+import { useEffect,useState } from 'react'
+
 import logoSvg from '@/assets/images/logo.svg'
-import { useState, useEffect } from 'react'
 
 export function Loader() {
   const [rotation, setRotation] = useState(0)

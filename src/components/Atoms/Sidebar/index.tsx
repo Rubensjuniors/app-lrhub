@@ -1,11 +1,12 @@
 /* eslint-disable max-len */
+import { Sheet } from '@/components/Atoms/Sheet'
 import { useSidebar } from '@/context/SideBarContext'
 import { cn } from '@/lib/utils'
-import { Sheet } from '@/components/Atoms/Sheet'
+
 import { SidebarContent } from './SidebarContent'
-import { SidebarTrigger } from './SidebarTrigger'
-import { SidebarHeader } from './SidebarHeader'
 import { SidebarFooter } from './SidebarFooter'
+import { SidebarHeader } from './SidebarHeader'
+import { SidebarTrigger } from './SidebarTrigger'
 
 const SIDEBAR_WIDTH_MOBILE = '18rem'
 

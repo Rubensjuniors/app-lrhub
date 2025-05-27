@@ -1,14 +1,15 @@
-import * as React from 'react'
 import * as SheetPrimitive from '@radix-ui/react-dialog'
-import { SheetContent } from './SheetContent'
-import { SheetTrigger } from './SheetTrigger'
-import { SheetDescription } from './SheetDescription'
-import { SheetTitle } from './SheetTitle'
+import * as React from 'react'
+
 import { SheetClose } from './SheetClose'
-import { SheetPortal } from './SheetPortal'
-import { SheetOverlay } from './SheetOverlay'
-import { SheetHeader } from './SheetHeader'
+import { SheetContent } from './SheetContent'
+import { SheetDescription } from './SheetDescription'
 import { SheetFooter } from './SheetFooter'
+import { SheetHeader } from './SheetHeader'
+import { SheetOverlay } from './SheetOverlay'
+import { SheetPortal } from './SheetPortal'
+import { SheetTitle } from './SheetTitle'
+import { SheetTrigger } from './SheetTrigger'
 
 
 function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {

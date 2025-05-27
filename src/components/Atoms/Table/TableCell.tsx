@@ -1,4 +1,5 @@
 import * as React from 'react'
+
 import { cn } from '@/lib/utils'
 
 function TableCell({ className, ...props }: React.ComponentProps<'td'>) {

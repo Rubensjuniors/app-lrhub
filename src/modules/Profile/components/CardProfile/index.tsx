@@ -1,10 +1,10 @@
+import { ChevronUp } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
+
 import { Button, DropdownMenu } from '@/components/Atoms'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/Atoms/Avatar'
-import { useNavigate } from 'react-router-dom'
-import { useAuth } from '@/context/AuthContext'
 import { useSidebar } from '@/context/SideBarContext'
-import { useTranslation } from 'react-i18next'
-import { ChevronUp } from 'lucide-react'
 
 interface CardProfileProps {
   name: string
@@ -14,7 +14,6 @@ interface CardProfileProps {
 
 export function CardProfile({ name, photoUrl, dropdownPosition = 'right' }: CardProfileProps) {
   const navigate = useNavigate()
-  const { logout } = useAuth()
   const { setOpenMobile } = useSidebar()
   const { t } = useTranslation()
 
@@ -39,7 +38,7 @@ export function CardProfile({ name, photoUrl, dropdownPosition = 'right' }: Card
         >
           <span>{t('general.profile')}</span>
         </DropdownMenu.Item>
-        <DropdownMenu.Item onClick={() => logout()}>
+        <DropdownMenu.Item onClick={() => void 0}>
           <span className="text-red-500">{t('general.out')}</span>
         </DropdownMenu.Item>
       </DropdownMenu.Content>

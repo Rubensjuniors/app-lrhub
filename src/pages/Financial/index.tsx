@@ -1,7 +1,8 @@
+import { Trans, useTranslation } from 'react-i18next'
+
 import { SwitcherCalendar } from '@/components/Molecules'
 import { CurrencyCard, CurrencyCardProps } from '@/modules/Financial/components/CurrencyCard'
 import { ExpenseTabs } from '@/modules/Financial/components/ExpenseTabs'
-import { Trans, useTranslation } from 'react-i18next'
 
 const name = 'larissa Vitoria'
 

@@ -1,7 +1,8 @@
 import { Card, Checkbox } from '@/components/Atoms'
+import { CustomTable } from '@/components/Molecules'
+
 import { AddTransactionSidebar, ITransactionSidebarTypes } from '../AddTransactionSidebar'
 import { NoExpenseEmptyState } from './EmptyStates/NoExpense'
-import { CustomTable } from '@/components/Molecules'
 
 interface ExpenseCardProps {
   title: string

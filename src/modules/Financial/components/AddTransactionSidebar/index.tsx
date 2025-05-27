@@ -1,6 +1,7 @@
 import { SquarePlus } from 'lucide-react'
-import { Button, Sheet, Tabs } from '@/components/Atoms'
 import { useTranslation } from 'react-i18next'
+
+import { Button, Sheet, Tabs } from '@/components/Atoms'
 
 export type ITransactionSidebarTypes = 'fixedExpenses' | 'creditCard' | 'pix'
 interface AddTransactionSidebarProps {

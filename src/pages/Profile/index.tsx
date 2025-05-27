@@ -1,8 +1,9 @@
-import { Avatar, AvatarFallback } from '@/components/Atoms/Avatar'
-import { Button, Card } from '@/components/Atoms'
-import { cn } from '@/lib/utils'
 import { AvatarImage } from '@radix-ui/react-avatar'
 import { useTranslation } from 'react-i18next'
+
+import { Button, Card } from '@/components/Atoms'
+import { Avatar, AvatarFallback } from '@/components/Atoms/Avatar'
+import { cn } from '@/lib/utils'
 
 const name = 'Larissa Vitoria'
 

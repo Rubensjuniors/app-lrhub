@@ -1,11 +1,13 @@
 import * as React from 'react'
+
 import { cn } from '@/lib/utils'
-import { CardHeader } from './CardHeader'
-import { CardFooter } from './CardFooter'
-import { CardContent } from './CardContent'
-import { CardTitle } from './CardTitle'
-import { CardDescription } from './CardDescription'
+
 import { CardAction } from './CardAction'
+import { CardContent } from './CardContent'
+import { CardDescription } from './CardDescription'
+import { CardFooter } from './CardFooter'
+import { CardHeader } from './CardHeader'
+import { CardTitle } from './CardTitle'
 
 
 function Card({ className, ...props }: React.ComponentProps<'div'>) {

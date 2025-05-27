@@ -1,11 +1,13 @@
-import { ButtonToggleTheme } from '@/components/Molecules'
-import { Sidebar } from '@/components/Atoms'
-import Logo from '@/assets/images/logo.svg'
-import { ItemsMenu } from './constants'
-import { Link, NavLink } from 'react-router-dom'
-import { CardProfile } from '@/modules/Profile/components/CardProfile'
-import { useSidebar } from '@/context/SideBarContext'
 import { useTranslation } from 'react-i18next'
+import { Link, NavLink } from 'react-router-dom'
+
+import Logo from '@/assets/images/logo.svg'
+import { Sidebar } from '@/components/Atoms'
+import { ButtonToggleTheme } from '@/components/Molecules'
+import { useSidebar } from '@/context/SideBarContext'
+import { CardProfile } from '@/modules/Profile/components/CardProfile'
+
+import { ItemsMenu } from './constants'
 
 export function AppSidebarMenu() {
   const { setOpenMobile, isMobile } = useSidebar()

@@ -1,12 +1,14 @@
 import * as React from 'react'
+
 import { cn } from '@/lib/utils'
-import { TableHeader } from './TableHeader'
+
 import { TableBody } from './TableBody'
+import { TableCaption } from './TableCaption'
+import { TableCell } from './TableCell'
 import { TableFooter } from './TableFooter'
 import { TableHead } from './TableHead'
+import { TableHeader } from './TableHeader'
 import { TableRow } from './TableRow'
-import { TableCell } from './TableCell'
-import { TableCaption } from './TableCaption'
 
 
 function Table({ className, ...props }: React.ComponentProps<'table'>) {

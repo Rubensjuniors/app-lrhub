@@ -1,21 +1,20 @@
-import { Button, Card, Input, Label } from '@/components/Atoms'
-import { useAuth } from '@/context/AuthContext'
 import { Navigate, useNavigate } from 'react-router-dom'
 
+import { Button, Card, Input, Label } from '@/components/Atoms'
+
 export default function SingIn() {
-  const { login, isAuthenticated } = useAuth()
   const navigate = useNavigate()
+  const isAuthenticated = false
 
   if (isAuthenticated) {
     return <Navigate to="/" replace />
   }
 
   const handleSingIn = () => {
-    login()
     navigate('/')
   }
   const handleSingUp = () => {
-    navigate('/login/singup')
+    navigate('/sign-up')
   }
 
   return (
