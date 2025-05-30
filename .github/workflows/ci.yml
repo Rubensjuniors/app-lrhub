@@ -9,7 +9,7 @@ jobs:
     name: Lint, Type Check & Audit
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js 22
         uses: actions/setup-node@v4
