@@ -48,7 +48,7 @@ export default function SignIn() {
           <Link to="/sign-up">Criar conta</Link>
         </Button>
 
-        <div className="flex w-[350px] flex-col justify-center gap-6">
+        <div className="flex w-full max-w-[350px] flex-col justify-center gap-6">
           <div className="flex flex-col gap-2 text-center">
             <h1 className="text-2xl font-semibold tracking-tight">Acessar Hub</h1>
             <p className="text-sm text-muted-foreground">
@@ -56,7 +56,7 @@ export default function SignIn() {
             </p>
           </div>
 
-          <form className="space-y-4" onSubmit={handleSubmit(handleSignIn)}>
+          <form className="space-y-4 w-full" onSubmit={handleSubmit(handleSignIn)}>
             <div className="space-y-2">
               <Label htmlFor="email">E-mail</Label>
               <Input id="email" type="email" {...register('email')} placeholder="Digite seu e-mail" />

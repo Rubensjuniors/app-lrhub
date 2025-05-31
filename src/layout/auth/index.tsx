@@ -7,8 +7,9 @@ import Savings from '@/assets/images/Savings.svg'
 
 export default function AuthLayout() {
   return (
-    <div className="grid min-h-screen grid-cols-2 antialiased">
-      <div className="flex h-full flex-col justify-between border-r bg-muted border-foreground/ p-10 text-muted-foreground">
+    <div className="grid min-h-screen grid-cols-1 lg:grid-cols-2 antialiased">
+      <div className="hidden
+      lg:flex h-full flex-col justify-between border-r bg-muted border-foreground/ p-10 text-muted-foreground">
         <div className="flex items-center gap-1 text-lg font-medium text-foreground">
           <img src={Logo} alt="Logo" />
           <span className="font-semibold text-1xl">Hub</span>
@@ -21,7 +22,7 @@ export default function AuthLayout() {
         </footer>
       </div>
 
-      <div className="relative flex flex-col items-center justify-center">
+      <div className="relative flex flex-col items-center justify-center ">
         <Outlet />
       </div>
     </div>
