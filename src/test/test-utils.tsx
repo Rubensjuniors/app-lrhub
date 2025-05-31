@@ -1,5 +1,6 @@
-import { ReactElement } from 'react'
 import { render, RenderOptions } from '@testing-library/react'
+import { ReactElement } from 'react'
+
 import { ThemeProvider } from '@/context/ThemeContext'
 
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {

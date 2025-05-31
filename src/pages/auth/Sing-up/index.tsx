@@ -34,7 +34,7 @@ export default function SignUp() {
     formState: { isSubmitting, errors, isValid },
     reset,
   } = useForm<SignUpForm>({
-    resolver: zodResolver(signUpForm)
+    resolver: zodResolver(signUpForm),
   })
 
   async function handleSignUp(data: SignUpForm) {
@@ -73,19 +73,34 @@ export default function SignUp() {
 
             <div className="space-y-2">
               <Label htmlFor="email">E-mail</Label>
-              <Input id="email" type="email" {...register('email')} placeholder="Digite seu e-mail" />
+              <Input
+                id="email"
+                type="email"
+                {...register('email')}
+                placeholder="Digite seu e-mail"
+              />
               {errors.email && <FormMenssage>{errors.email?.message}</FormMenssage>}
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="phone">Seu celular</Label>
-              <Input id="phone" type="tel" {...register('phone')} placeholder="Digite seu celular" />
+              <Input
+                id="phone"
+                type="tel"
+                {...register('phone')}
+                placeholder="Digite seu celular"
+              />
               {errors.phone && <FormMenssage>{errors.phone?.message}</FormMenssage>}
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="createPassword">Crie uma senha</Label>
-              <Input id="createPassword" type="password" {...register('createPassword')} placeholder="Crie uma senha" />
+              <Input
+                id="createPassword"
+                type="password"
+                {...register('createPassword')}
+                placeholder="Crie uma senha"
+              />
               {errors.createPassword && (
                 <FormMenssage>{errors.createPassword?.message}</FormMenssage>
               )}
@@ -93,7 +108,12 @@ export default function SignUp() {
 
             <div className="space-y-2">
               <Label htmlFor="confirmPassword">Confirme sua senha</Label>
-              <Input id="confirmPassword" type="password" {...register('confirmPassword')} placeholder="Confirme sua senha" />
+              <Input
+                id="confirmPassword"
+                type="password"
+                {...register('confirmPassword')}
+                placeholder="Confirme sua senha"
+              />
               {errors.confirmPassword && (
                 <FormMenssage>{errors.confirmPassword?.message}</FormMenssage>
               )}
