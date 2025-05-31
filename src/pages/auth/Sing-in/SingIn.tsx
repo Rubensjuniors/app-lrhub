@@ -34,7 +34,8 @@ export default function SignIn() {
       console.log(data)
       reset()
       navigate('/')
-    } catch (error) {
+    } catch (error: unknown) {
+      console.error(error)
       toast.error('Credenciais inválidas.', {
         description: 'Verifique se o e-mail está correto.',
       })

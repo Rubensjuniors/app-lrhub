@@ -44,7 +44,8 @@ export default function SignUp() {
 
       navigate('/')
       reset()
-    } catch (error) {
+    } catch (error: unknown) {
+      console.error(error)
       toast.error('Erro ao cadastrar restaurante.')
     }
   }
