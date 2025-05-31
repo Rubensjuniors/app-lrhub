@@ -3,8 +3,6 @@ import { Button } from './Button'
 import { Card } from './Card'
 import { Checkbox } from './Checkbox'
 import { DropdownMenu } from './DropdownMenu'
-import { Input } from './Input'
-import { Label } from './Label'
 import { Loader } from './Loader'
 import { Sheet } from './Sheet'
 import { Sidebar } from './Sidebar'
@@ -19,8 +17,6 @@ export {
   Card,
   Checkbox,
   DropdownMenu,
-  Input,
-  Label,
   Sheet,
   Sidebar,
   Skeleton,
