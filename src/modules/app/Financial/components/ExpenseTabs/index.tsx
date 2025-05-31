@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next'
 import { Tabs } from '@/components/Atoms/Tabs'
 
 import { ExpenseCard } from '../ExpenseCard'
+import { ExpenseCreditCardTable } from '../Tables/ExpenseCreditCardTable'
+import { ExpenseDebitTable } from '../Tables/ExpenseDebitTable'
 import { ExpenseFixedTable } from '../Tables/ExpenseFixedTable'
 
 export function ExpenseTabs() {
@@ -40,8 +42,7 @@ export function ExpenseTabs() {
           handleAddTransaction={() => void 0}
           type="creditCard"
         >
-          {' '}
-          <ExpenseFixedTable />
+          <ExpenseCreditCardTable />
         </ExpenseCard>
       </Tabs.Content>
 
@@ -51,8 +52,7 @@ export function ExpenseTabs() {
           handleAddTransaction={() => void 0}
           type="pix"
         >
-          {' '}
-          <ExpenseFixedTable />
+          <ExpenseDebitTable />
         </ExpenseCard>
       </Tabs.Content>
     </Tabs>
