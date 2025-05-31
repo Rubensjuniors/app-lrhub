@@ -19,14 +19,5 @@ export default defineConfig({
       deny: ['.env', '/etc', '/root'],
       allow: ['src', 'public']
     }
-  },
-  test: {
-    environment: 'jsdom',
-    globals: true,
-    setupFiles: './config/vitest/setup.ts',
-    include: ['src/**/*.@(test|spec).{ts,tsx}'],
-    coverage: {
-      reporter: ['text', 'json', 'html'],
-    },
   }
 })
