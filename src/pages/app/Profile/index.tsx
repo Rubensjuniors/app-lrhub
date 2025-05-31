@@ -1,5 +1,6 @@
 import { AvatarImage } from '@radix-ui/react-avatar'
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
 
 import { Button, Card } from '@/components/Atoms'
 import { Avatar, AvatarFallback } from '@/components/Atoms/Avatar'
@@ -9,6 +10,10 @@ const name = 'Larissa Vitoria'
 
 export default function Profile() {
   const { t } = useTranslation()
+  const navigate = useNavigate()
+  const signOut = () => {
+    navigate('/sign-in')
+  }
 
   return (
     <div className="w-full flex flex-col items-center justify-center min-h-svh">
@@ -21,7 +26,11 @@ export default function Profile() {
           <strong className="text-3xl mt-3">{name}</strong>
         </Card.Content>
         <Card.Footer>
-          <Button variant="destructive" className="w-full">
+          <Button
+            variant="destructive"
+            className="w-full"
+            onClick={signOut}
+          >
             {t('general.out')}
           </Button>
         </Card.Footer>
