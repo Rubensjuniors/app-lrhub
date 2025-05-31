@@ -1,48 +1,69 @@
-import { ReactNode } from 'react'
+import {
+  ColumnDef,
+  flexRender,
+  getCoreRowModel,
+  TableOptions,
+  useReactTable,
+} from '@tanstack/react-table'
 
 import { Table } from '@/components/Atoms/Table'
+import { TableBody } from '@/components/Atoms/Table/TableBody'
+import { TableCell } from '@/components/Atoms/Table/TableCell'
+import { TableHead } from '@/components/Atoms/Table/TableHead'
+import { TableHeader } from '@/components/Atoms/Table/TableHeader'
+import { TableRow } from '@/components/Atoms/Table/TableRow'
 
-interface Column<T = Record<string, unknown>> {
-  key: string
-  label: string
-  position?: 'left' | 'right' | 'center'
-  render?: (value: string | number | boolean, row: T) => ReactNode
+interface CustomTableProps<TData>
+  extends Omit<TableOptions<TData>, 'data' | 'columns' | 'getCoreRowModel'> {
+  data: TData[]
+  columns: ColumnDef<TData>[]
+  emptyState: React.ReactNode
 }
 
-interface CustomTableProps<T = Record<string, unknown>> {
-  columns: Column<T>[]
-  data: T[]
-}
+export function CustomTable<TData>({
+  data,
+  columns,
+  emptyState,
+  ...reactTableProps
+}: CustomTableProps<TData>) {
+  const table = useReactTable({
+    data: data,
+    columns: columns,
+    ...reactTableProps,
+    getCoreRowModel: getCoreRowModel(),
+  })
 
-export function CustomTable<T = Record<string, unknown>>({ columns, data }: CustomTableProps<T>) {
   return (
     <Table>
-      <Table.Header>
-        <Table.Row>
-          {columns.map((column) => (
-            <Table.Head
-              key={column.key}
-              className={`text-${column?.position ? column?.position : 'left'}`}
-            >
-              {column.label}
-            </Table.Head>
-          ))}
-        </Table.Row>
-      </Table.Header>
-
-      <Table.Body>
-        {data.map((row, rowIndex) => (
-          <Table.Row key={rowIndex}>
-            {columns.map((column) => (
-              <Table.Cell key={column.key}>
-                {column.render
-                  ? column.render(row[column.key as keyof T] as string | number | boolean, row)
-                  : String(row[column.key as keyof T] ?? '')}
-              </Table.Cell>
+      <TableHeader>
+        {table.getHeaderGroups().map((headerGroup) => (
+          <TableRow key={headerGroup.id}>
+            {headerGroup.headers.map((header) => (
+              <TableHead key={header.id}>
+                {flexRender(header.column.columnDef.header, header.getContext())}
+              </TableHead>
             ))}
-          </Table.Row>
+          </TableRow>
         ))}
-      </Table.Body>
+      </TableHeader>
+
+      <TableBody>
+        {table.getRowModel().rows?.length ? (
+          table.getRowModel().rows.map((row) => (
+            <TableRow key={row.id} data-state={row.getIsSelected() && 'selected'}>
+              {row.getVisibleCells().map((cell) => (
+                <TableCell key={cell.id}>
+                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                </TableCell>
+              ))}
+            </TableRow>
+          ))
+        ) : (
+          <TableCell colSpan={columns.length}>
+            {emptyState}
+          </TableCell>
+        )}
+      </TableBody>
     </Table>
   )
 }
