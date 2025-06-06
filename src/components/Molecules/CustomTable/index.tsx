@@ -59,9 +59,9 @@ export function CustomTable<TData>({
             </TableRow>
           ))
         ) : (
-          <TableCell colSpan={columns.length}>
-            {emptyState}
-          </TableCell>
+          <TableRow>
+            <TableCell colSpan={columns.length}>{emptyState}</TableCell>
+          </TableRow>
         )}
       </TableBody>
     </Table>

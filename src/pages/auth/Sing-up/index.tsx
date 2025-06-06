@@ -6,6 +6,7 @@ import { z } from 'zod'
 
 import { Button } from '@/components/Atoms'
 import { FormMenssage, Input, Label } from '@/components/Atoms/Form'
+import { useRegister } from '@/services/Mutations'
 
 const signUpForm = z
   .object({
@@ -36,13 +37,21 @@ export default function SignUp() {
   } = useForm<SignUpForm>({
     resolver: zodResolver(signUpForm),
   })
+  const { mutateAsync: registerUser } = useRegister()
 
   async function handleSignUp(data: SignUpForm) {
     try {
-      console.log(data)
-      await new Promise((resolve) => setTimeout(resolve, 2000))
+      const paramsData = {
+        name: data.name,
+        email: data.email,
+        password: data.createPassword,
+        phone: data.phone || '',
+        urlCoverPhoto: '',
+      }
 
-      navigate('/')
+      await registerUser(paramsData)
+
+      navigate('/sign-in')
       reset()
     } catch (error: unknown) {
       console.error(error)
