@@ -7,8 +7,8 @@ import { Router } from './routes/Routes'
 export function App() {
   return (
     <Providers>
-      <Toaster richColors />
       <RouterProvider router={Router} />
+      <Toaster richColors />
     </Providers>
   )
 }

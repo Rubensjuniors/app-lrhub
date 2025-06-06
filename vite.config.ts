@@ -17,7 +17,13 @@ export default defineConfig({
     open: true,
     fs: {
       deny: ['.env', '/etc', '/root'],
-      allow: ['src', 'public']
-    }
-  }
+      allow: ['src', 'public'],
+    },
+    cors: {
+      origin: '*',
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+      allowedHeaders: ['Content-Type', 'Authorization'],
+      credentials: true,
+    },
+  },
 })

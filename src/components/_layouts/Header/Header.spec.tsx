@@ -1,8 +1,8 @@
 import { BrowserRouter } from 'react-router-dom'
 import { describe, expect, it, vi } from 'vitest'
 
+import { render, screen } from '@/config/test-utils'
 import { SidebarProvider } from '@/context/SideBarContext'
-import { render, screen } from '@/test/test-utils'
 
 import { Header } from '.'
 
