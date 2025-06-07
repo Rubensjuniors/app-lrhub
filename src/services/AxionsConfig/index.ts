@@ -3,8 +3,10 @@ import { toast } from 'sonner'
 
 import { authenticateService } from '../Auth/request'
 
+const baseUrl = import.meta.env.VITE_API_LRHUB
+
 const requestApiLrHub = axios.create({
-  baseURL: import.meta.env.VITE_API_LRHUB,
+  baseURL: baseUrl,
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
