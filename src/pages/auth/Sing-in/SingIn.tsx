@@ -6,8 +6,10 @@ import { z } from 'zod'
 
 import { Button } from '@/components/Atoms'
 import { FormMenssage, Input, Label } from '@/components/Atoms/Form'
+import { useAuthContext } from '@/context/AuthContext'
 
-// i18n added copy
+// "larissa@exempla.com"
+// "LariRub3011#"
 
 const signInForm = z.object({
   email: z.string().email('E-mail inválido.'),
@@ -21,23 +23,26 @@ export default function SignIn() {
     register,
     handleSubmit,
     formState: { isSubmitting, errors, isValid },
-    reset
+    reset,
   } = useForm<SignInForm>({
     resolver: zodResolver(signInForm),
   })
   const navigate = useNavigate()
+  const { signIn } = useAuthContext()
 
   async function handleSignIn(data: SignInForm) {
+    const { email, password } = data
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000))
+      await signIn(email, password)
 
-      console.log(data)
-      reset()
+      console.log('aqui redirect')
+
       navigate('/')
+      reset()
     } catch (error: unknown) {
       console.error(error)
       toast.error('Credenciais inválidas.', {
-        description: 'Verifique se o e-mail está correto.',
+        description: 'Verifique se o e-mail ou Senha estão corretos.',
       })
     }
   }
@@ -60,13 +65,23 @@ export default function SignIn() {
           <form className="space-y-4 w-full" onSubmit={handleSubmit(handleSignIn)}>
             <div className="space-y-2">
               <Label htmlFor="email">E-mail</Label>
-              <Input id="email" type="email" {...register('email')} placeholder="Digite seu e-mail" />
+              <Input
+                id="email"
+                type="email"
+                {...register('email')}
+                placeholder="Digite seu e-mail"
+              />
               {errors.email && <FormMenssage>{errors.email?.message}</FormMenssage>}
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="password">Senha</Label>
-              <Input id="password" type="password" {...register('password')} placeholder="Digite sua senha" />
+              <Input
+                id="password"
+                type="password"
+                {...register('password')}
+                placeholder="Digite sua senha"
+              />
               {errors.password && <FormMenssage>{errors.password?.message}</FormMenssage>}
             </div>
 

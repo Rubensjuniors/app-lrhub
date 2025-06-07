@@ -1,6 +1,8 @@
 import { lazy } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 
+import { ProtectedRoute, PublicRoute } from './PrivateRouter'
+
 const AuthLayout = lazy(() => import('../../layout/auth'))
 const SignIn = lazy(() => import('../../pages/auth/Sing-in/SingIn'))
 const SignUp = lazy(() => import('../../pages/auth/Sing-up'))
@@ -12,7 +14,11 @@ const Profile = lazy(() => import('../../pages/app/Profile'))
 export const Router = createBrowserRouter([
   {
     path: '/',
-    element: <AppLayout />,
+    element: (
+      <ProtectedRoute>
+        <AppLayout />
+      </ProtectedRoute>
+    ),
     children: [
       {
         path: '/',
@@ -26,7 +32,11 @@ export const Router = createBrowserRouter([
   },
   {
     path: '/',
-    element: <AuthLayout />,
+    element: (
+      <PublicRoute>
+        <AuthLayout />
+      </PublicRoute>
+    ),
     children: [
       {
         path: '/sign-in',

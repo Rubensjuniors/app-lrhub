@@ -1,17 +1,46 @@
 import { AvatarImage } from '@radix-ui/react-avatar'
+import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 
 import { Button, Card } from '@/components/Atoms'
 import { Avatar, AvatarFallback } from '@/components/Atoms/Avatar'
+import { useAuthContext } from '@/context/AuthContext'
 import { cn } from '@/lib/utils'
+import { userService } from '@/services/User/request'
 
 const name = 'Larissa Vitoria'
 
 export default function Profile() {
   const { t } = useTranslation()
   const navigate = useNavigate()
-  const signOut = () => {
+  const { signOut } = useAuthContext()
+
+  useEffect(() => {
+    let isMounted = true
+
+    const fetchProfile = async () => {
+      try {
+        const profile = await userService.getProfile()
+        if (isMounted) {
+          console.log({ profile }, 'aqui')
+        }
+      } catch (error) {
+        if (isMounted) {
+          console.error('Erro ao buscar perfil:', error)
+        }
+      }
+    }
+
+    fetchProfile()
+
+    return () => {
+      isMounted = false
+    }
+  }, [])
+
+  const handleSignOut = () => {
+    signOut()
     navigate('/sign-in')
   }
 
@@ -26,11 +55,7 @@ export default function Profile() {
           <strong className="text-3xl mt-3">{name}</strong>
         </Card.Content>
         <Card.Footer>
-          <Button
-            variant="destructive"
-            className="w-full"
-            onClick={signOut}
-          >
+          <Button variant="destructive" className="w-full" onClick={() => handleSignOut()}>
             {t('general.out')}
           </Button>
         </Card.Footer>

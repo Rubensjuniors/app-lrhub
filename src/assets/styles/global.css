@@ -41,8 +41,8 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-secondary: var(--sidebar-secondary);
 
-  --font-sans: "Roboto", "sans-serif";
-  --font-display: "Concert One", "sans-serif";
+  --font-sans: 'Roboto', 'sans-serif';
+  --font-display: 'Concert One', 'sans-serif';
 }
 
 :root {

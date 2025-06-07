@@ -1,7 +1,7 @@
 import { fireEvent, screen } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 
-import { render } from '@/test/test-utils'
+import { render } from '@/config/test-utils'
 
 import { ButtonToggleTheme } from './index'
 
