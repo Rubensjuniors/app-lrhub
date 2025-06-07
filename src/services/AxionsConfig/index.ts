@@ -3,7 +3,7 @@ import { toast } from 'sonner'
 
 import { authenticateService } from '../Auth/request'
 
-const baseUrl = import.meta.env.VITE_API_LRHUB
+const baseUrl =  'https://api-lrhub.onrender.com'
 
 const requestApiLrHub = axios.create({
   baseURL: baseUrl,
