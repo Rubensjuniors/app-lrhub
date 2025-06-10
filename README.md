@@ -113,3 +113,181 @@ Os testes são escritos usando Vitest e Testing Library. Arquivos de teste devem
 ## Licença
 
 © 2024 Rubens Junio e Larissa Vitoria. Todos os direitos reservados.
+
+
+
+# 📘 LRhub – Documentação Técnica e Funcional
+
+> Um projeto pessoal voltado para **produtividade, organização e foco**, com funcionalidades financeiras, de hábitos e rotinas, e uma visão geral integrada.
+
+---
+
+## 📌 Visão Geral
+
+* **Nome do Projeto:** LRhub
+* **Objetivo:** Criar um sistema pessoal completo de produtividade com módulos para:
+
+  * Controle financeiro
+  * Gestão de hábitos e rotinas
+  * Painel geral (hub) de desempenho
+
+---
+
+## 🔧 Rotas e Módulos
+
+### 📍 `/financial` – Módulo Financeiro
+
+#### Funcionalidades:
+
+* Visualização de **entradas**, **saídas** e **total** mensal
+* Tabelas separadas para:
+
+  * Gastos fixos
+  * Parcelados
+  * Débito/pix
+* Ações disponíveis:
+
+  * Criar novo registro
+  * Editar
+  * Excluir
+  * Marcar como "pago" ou "não pago"
+
+#### Funcionalidades Futuras e Ideias:
+
+* [ ] Filtro por mês/ano
+* [ ] Categorias de gastos (alimentação, transporte...)
+* [ ] Metas financeiras (ex: "economizar R\$ 300 em junho")
+* [ ] Resumo por categoria com gráficos
+* [ ] Alertas de vencimento de contas
+* [ ] Importação/exportação CSV
+* [ ] Registro de receitas recorrentes
+* [ ] Marcar gasto como essencial/supérfluo
+* [ ] Duplicar gasto
+* [ ] Sugestões automáticas de economia
+
+---
+
+### 📍 `/habits` – Hábitos e Rotinas
+
+#### Funcionalidades:
+
+* Visualização de hábitos criados
+* Tarefas diárias recorrentes com base na semana
+* Sistema de recompensas baseado em hábitos e tarefas concluídas
+* Ciclos semanais: ao concluir a semana, o usuário ganha 1 ponto
+
+#### Funcionalidades Futuras e Ideias:
+
+* [ ] Sistema de XP, níveis e badges
+* [ ] Loja de recompensas (ex: "assistir um filme")
+* [ ] Gráfico de streaks (dias consecutivos)
+* [ ] Confete/som de recompensa ao concluir hábito
+* [ ] Modo desafio (21 dias seguidos)
+* [ ] Duplicar hábito
+* [ ] Pausar hábito
+* [ ] Associar hábito a metas maiores
+* [ ] Compartilhar progresso
+
+---
+
+### 📍 `/hub` – Painel Geral Integrado
+
+#### Funcionalidades previstas:
+
+* Resumo financeiro (saldo, entradas, saídas)
+* Resumo de hábitos (quantos criados, concluídos, pontuação)
+* Frase motivacional do dia
+* Calendário com tarefas/hábitos
+* Gráfico de desempenho geral
+* Indicador de progresso semanal
+* Lista de metas ativas e seu progresso
+
+#### Ideias futuras:
+
+* [ ] Modo foco (Pomodoro integrado com hábitos)
+* [ ] “Dia ideal” baseado na rotina planejada
+* [ ] Checklist diária automática
+* [ ] Resumos semanais por email/notificação
+* [ ] Mood tracker (humor diário + correlação com hábitos)
+
+---
+
+## 💡 Funcionalidades extras para produtividade & organização
+
+* Metas mensais e anuais com acompanhamento visual
+* Timer de foco Pomodoro com som e relatórios
+* Integração com Google Calendar
+* Áreas de foco: trabalho, saúde, espiritual, etc.
+* Painel de performance com feedback por área
+* Rotinas automatizadas (ex: lembrete diário às 6h)
+
+---
+
+## 🗺️ Roadmap Sugerido
+
+### ✅ V1 (MVP)
+
+* Rota `/financial` completa
+
+  * Entradas, saídas, totais
+  * Tabelas de gastos fixos, parcelados e débito/pix
+  * Ações básicas: criar, editar, excluir, marcar como pago
+
+### 🔜 V2
+
+* Início do `/habits`
+
+  * Criação de hábitos e tarefas
+  * Repetição semanal
+  * Sistema básico de recompensa
+
+### 🔮 V3
+
+* Construção do `/hub`
+
+  * Dashboard unificado
+  * Relatórios e gráficos de desempenho
+
+### 🚀 V4+
+
+* Modo foco (Pomodoro)
+* Integrações externas (Google Calendar, Notion...)
+* Gamificação total com loja, badges e níveis
+
+---
+
+## 📁 Estrutura sugerida do projeto
+
+```txt
+src/
+├── modules/
+│   ├── financial/
+│   ├── habits/
+│   └── hub/
+├── components/
+├── utils/
+├── services/
+└── styles/
+```
+
+---
+
+## ✅ Casos de uso (User Stories)
+
+* **Como usuário**, quero registrar meus gastos mensais para acompanhar minha vida financeira.
+* **Como usuário**, quero criar hábitos com recorrência semanal para melhorar minha disciplina.
+* **Como usuário**, quero acompanhar meu progresso financeiro e de hábitos em uma visão geral.
+* **Como usuário**, quero recompensas visuais e gamificadas para me manter motivado.
+
+---
+
+## 🧪 Testes sugeridos
+
+* Testes unitários de lógica (controle financeiro, cálculo de progresso)
+* Testes de integração entre módulos (ex: hábitos + hub)
+* Testes E2E com Cypress ou Playwright para fluxo completo
+
+---
+
+> Documento criado para guiar a construção iterativa do projeto **LRhub** com base em produtividade pessoal e organização total.
+
