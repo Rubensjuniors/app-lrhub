@@ -42,8 +42,6 @@ export default function SignIn() {
     try {
       await signIn(email, password)
 
-      console.log('aqui redirect')
-
       navigate('/')
       reset()
     } catch (error: unknown) {
