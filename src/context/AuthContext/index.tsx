@@ -17,8 +17,8 @@ interface AuthProviderProps {
 
 export function AuthProvider({ children }: AuthProviderProps) {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
-    const authCookie = Cookies.get('auth')
-    return authCookie ? JSON.parse(authCookie).isAuthenticated : false
+    const cookieToken = Cookies.get('token')
+    return cookieToken ? Boolean(cookieToken) : false
   })
   const [isLoading, setIsLoading] = useState(true)
 
@@ -33,12 +33,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
     async (email: string, password: string) => {
       try {
         await login({ email, password })
-        const authState = { isAuthenticated: true }
-        Cookies.set('auth', JSON.stringify(authState), {
-          expires: 7,
-          secure: true,
-          sameSite: 'strict',
-        })
         setIsAuthenticated(true)
       } catch (error) {
         console.error('Erro ao fazer login:', error)

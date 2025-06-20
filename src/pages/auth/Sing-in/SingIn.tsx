@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { toast } from 'sonner'
 import { z } from 'zod'
 
@@ -19,6 +19,9 @@ const signInForm = z.object({
 type SignInForm = z.infer<typeof signInForm>
 
 export default function SignIn() {
+  const searchParams = useSearchParams()[0]
+  const email = searchParams.get('email') ?? ''
+
   const {
     register,
     handleSubmit,
@@ -26,6 +29,10 @@ export default function SignIn() {
     reset,
   } = useForm<SignInForm>({
     resolver: zodResolver(signInForm),
+    defaultValues: {
+      email,
+      password: '',
+    },
   })
   const navigate = useNavigate()
   const { signIn } = useAuthContext()

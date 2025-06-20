@@ -51,7 +51,7 @@ export default function SignUp() {
 
       await registerUser(paramsData)
 
-      navigate('/sign-in')
+      navigate(`/sign-in?email=${data.email}`)
       reset()
     } catch (error: unknown) {
       console.error(error)

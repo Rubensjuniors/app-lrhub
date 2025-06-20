@@ -1,12 +1,12 @@
 import axios from 'axios'
 import { toast } from 'sonner'
 
-import { authenticateService } from '../Auth/request'
+import { authenticateService } from '../../services/Auth/request'
 
-const baseUrl =  'https://api-lrhub.onrender.com'
+// const baseUrl = 'https://api-lrhub.onrender.com'
 
 const requestApiLrHub = axios.create({
-  baseURL: baseUrl,
+  baseURL: import.meta.env.VITE_API_LRHUB,
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json',

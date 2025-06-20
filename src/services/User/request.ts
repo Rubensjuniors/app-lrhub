@@ -1,6 +1,6 @@
 import { IUser } from '@/types/userTypes'
 
-import requestApiLrHub from '../AxionsConfig'
+import requestApiLrHub from '../../config/AxionsConfig'
 
 type UserData = Omit<IUser, 'created_at' | 'id'>
 

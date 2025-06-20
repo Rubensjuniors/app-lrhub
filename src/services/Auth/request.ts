@@ -1,4 +1,4 @@
-import requestApiLrHub from '../AxionsConfig'
+import requestApiLrHub from '../../config/AxionsConfig'
 
 type SignInData = {
   email: string
