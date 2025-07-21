@@ -1,5 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'sonner'
 import { z } from 'zod'
@@ -10,23 +11,21 @@ import { useRegister } from '@/services/Mutations'
 
 const signUpForm = z
   .object({
-    name: z
-      .string()
-      .min(3, 'Precisa ter no mínimo 3 caracteres.')
-      .max(115, 'Máximo de 115 caracteres.'),
+    name: z.string().min(3, 'min_three_characters').max(115, 'max_115_characters'),
     phone: z.string().optional(),
-    email: z.string().email('E-mail inválido.'),
-    createPassword: z.string().min(8, 'Precisa ter no mínimo 8 caracteres.'),
-    confirmPassword: z.string().min(8, 'Precisa ter no mínimo 8 caracteres.'),
+    email: z.string().email('invalid_email'),
+    createPassword: z.string().min(8, 'max_eight_characters'),
+    confirmPassword: z.string().min(8, 'max_eight_characters'),
   })
   .refine((data) => data.createPassword === data.confirmPassword, {
-    message: 'As senhas não coincidem',
+    message: 'passwords_do_not_match',
     path: ['confirmPassword'],
   })
 
 type SignUpForm = z.infer<typeof signUpForm>
 
 export default function SignUp() {
+  const { t } = useTranslation()
   const navigate = useNavigate()
 
   const {
@@ -63,74 +62,102 @@ export default function SignUp() {
     <>
       <div className="p-8">
         <Button variant="ghost" asChild className="absolute right-8 top-8">
-          <Link to="/sign-in">Fazer login</Link>
+          <Link to="/sign-in" className="cursor-pointer">{t('login.sign_in.title')}</Link>
         </Button>
 
         <div className="flex w-full max-w-[350px] flex-col justify-center gap-6">
           <div className="flex flex-col gap-2 text-center">
-            <h1 className="text-2xl font-semibold tracking-tight">Criar conta grátis</h1>
-            <p className="text-sm text-muted-foreground">
-              Organize suas finanças como nosso hub de controle!
-            </p>
+            <h1 className="text-2xl font-semibold tracking-tight">{t('login.sign_up.title')}</h1>
+            <p className="text-sm text-muted-foreground">{t('login.sign_up.description')}</p>
           </div>
 
           <form className="space-y-4" onSubmit={handleSubmit(handleSignUp)}>
             <div className="space-y-2">
-              <Label htmlFor="name">Nome</Label>
-              <Input id="name" type="text" {...register('name')} placeholder="Digite seu nome" />
-              {errors.name && <FormMenssage>{errors.name?.message}</FormMenssage>}
+              <Label htmlFor="name">{t('login.sign_up.inputs.name.label')}</Label>
+              <Input
+                id="name"
+                type="text"
+                {...register('name')}
+                placeholder={t('login.sign_up.inputs.name.placeholder')}
+                hasError={!!errors.name}
+              />
+              {errors.name && (
+                <FormMenssage>
+                  {t(`login.sign_up.inputs.name.errors.${errors.name?.message}`)}
+                </FormMenssage>
+              )}
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="email">E-mail</Label>
+              <Label htmlFor="email">{t('login.sign_up.inputs.email.label')}</Label>
               <Input
                 id="email"
                 type="email"
                 {...register('email')}
-                placeholder="Digite seu e-mail"
+                placeholder={t('login.sign_up.inputs.email.placeholder')}
+                hasError={!!errors.email}
               />
-              {errors.email && <FormMenssage>{errors.email?.message}</FormMenssage>}
+              {errors.email && (
+                <FormMenssage>
+                  {t(`login.sign_up.inputs.email.errors.${errors.email?.message}`)}
+                </FormMenssage>
+              )}
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="phone">Seu celular</Label>
+              <Label htmlFor="phone">{t('login.sign_up.inputs.phone.label')}</Label>
               <Input
                 id="phone"
                 type="tel"
                 {...register('phone')}
-                placeholder="Digite seu celular"
+                placeholder={t('login.sign_up.inputs.phone.placeholder')}
+                hasError={!!errors.phone}
               />
               {errors.phone && <FormMenssage>{errors.phone?.message}</FormMenssage>}
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="createPassword">Crie uma senha</Label>
+              <Label htmlFor="createPassword">
+                {t('login.sign_up.inputs.create_password.label')}
+              </Label>
               <Input
                 id="createPassword"
                 type="password"
                 {...register('createPassword')}
-                placeholder="Crie uma senha"
+                placeholder={t('login.sign_up.inputs.create_password.placeholder')}
+                hasError={!!errors.createPassword}
               />
               {errors.createPassword && (
-                <FormMenssage>{errors.createPassword?.message}</FormMenssage>
+                <FormMenssage>
+                  {t(
+                    `login.sign_up.inputs.create_password.errors.${errors.createPassword?.message}`,
+                  )}
+                </FormMenssage>
               )}
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword">Confirme sua senha</Label>
+              <Label htmlFor="confirmPassword">
+                {t('login.sign_up.inputs.confirm_password.label')}
+              </Label>
               <Input
                 id="confirmPassword"
                 type="password"
                 {...register('confirmPassword')}
-                placeholder="Confirme sua senha"
+                placeholder={t('login.sign_up.inputs.confirm_password.placeholder')}
+                hasError={!!errors.confirmPassword}
               />
               {errors.confirmPassword && (
-                <FormMenssage>{errors.confirmPassword?.message}</FormMenssage>
+                <FormMenssage>
+                  {t(
+                    `login.sign_up.inputs.confirm_password.errors.${errors.confirmPassword?.message}`,
+                  )}
+                </FormMenssage>
               )}
             </div>
 
-            <Button disabled={isSubmitting || !isValid} className="w-full" type="submit">
-              Finalizar cadastro
+            <Button disabled={isSubmitting} className="w-full" type="submit">
+              {t('login.sign_up.submit')}
             </Button>
           </form>
         </div>

@@ -2,7 +2,9 @@
   "general": {
     "profile": "Perfil",
     "out": "Sair",
-    "add_expense": "Cadastrar um Gasto"
+    "add_expense": "Cadastrar um Gasto",
+    "sign_in": "Entrar",
+    "complete_registration": "Finalizar Cadastro"
   },
   "sidebar": {
     "financial": "Financeiro",
@@ -48,5 +50,70 @@
     "fixed_expenses": "Gastos Fixos",
     "credit_card": "Parcelados (Creditos)",
     "pix": "Debito"
+  },
+  "login": {
+    "sign_in": {
+      "title": "Faça login na sua conta",
+      "description": "Acompanhe seus gastos no seu hub de controle!",
+      "create_account": "Criar conta",
+      "inputs": {
+        "email": {
+          "label": "E-mail",
+          "placeholder": "Digite seu e-mail",
+          "errors": {
+            "invalid_email": "E-mail inválido."
+          }
+        },
+        "password": {
+          "label": "Senha",
+          "placeholder": "Digite seu senha",
+          "errors": {
+            "max_eight_characters": "Precisa ter no mínimo 8 caracteres."
+          }
+        }
+      }
+    },
+    "sign_up": {
+      "title": "Criar conta grátis",
+      "description": "Organize suas finanças como nosso hub de controle!",
+      "sign_in": "Fazer login",
+      "inputs": {
+        "name": {
+          "label": "Nome",
+          "placeholder": "Digite seu nome",
+          "errors": {
+            "min_three_characters": "min_three_characters",
+            "max_115_characters": "max_115_characters"
+          }
+        },
+        "email": {
+          "label": "E-mail",
+          "placeholder": "Digite seu e-mail",
+          "errors": {
+            "invalid_email": "invalid_email"
+          }
+        },
+        "phone": {
+          "label": "Seu celular",
+          "placeholder": "Digite seu celular"
+        },
+        "create_password": {
+          "label": "Crie uma senha",
+          "placeholder": "Crie uma senha",
+          "errors": {
+            "max_eight_characters": "Precisa ter no mínimo 8 caracteres."
+          }
+        },
+        "confirm_password": {
+          "label": "Confirme sua senha",
+          "placeholder": "Confirme sua senha",
+          "errors": {
+            "max_eight_characters": "Precisa ter no mínimo 8 caracteres.",
+            "passwords_do_not_match": "As senhas não coincidem."
+          }
+        }
+      },
+      "submit": "Finalizar cadastro"
+    }
   }
 }
