@@ -82,15 +82,15 @@
           "label": "Nome",
           "placeholder": "Digite seu nome",
           "errors": {
-            "min_three_characters": "min_three_characters",
-            "max_115_characters": "max_115_characters"
+            "min_three_characters": "Nome deve ter no mínimo 3 caracteres.",
+            "max_115_characters": "Nome deve ter no maximo 115 caracteres."
           }
         },
         "email": {
           "label": "E-mail",
           "placeholder": "Digite seu e-mail",
           "errors": {
-            "invalid_email": "invalid_email"
+            "invalid_email":  "E-mail inválido."
           }
         },
         "phone": {
