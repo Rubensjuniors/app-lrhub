@@ -6,6 +6,7 @@ import { Sidebar } from '@/components/common'
 import { ButtonToggleTheme } from '@/components/layout/ButtonToggleTheme'
 import { useSidebar } from '@/context/SideBarContext'
 
+import { CardProfile } from '../CardProfile'
 import { ItemsMenu } from './constants'
 
 export function AppSidebarMenu() {
@@ -48,6 +49,13 @@ export function AppSidebarMenu() {
           })}
         </nav>
       </Sidebar.SidebarContent>
+      <Sidebar.SidebarFooter className="p-4 sm:hidden">
+        <CardProfile
+          name="Larissa Vitoria"
+          photoUrl="https://github.com/larissacesarr.png"
+          dropdownPosition="top"
+        />
+      </Sidebar.SidebarFooter>
     </Sidebar>
   )
 }

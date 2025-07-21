@@ -2,6 +2,7 @@ import { Camera, LogOut, PencilLine } from 'lucide-react'
 
 import { Button, DropdownMenu } from '@/components/common'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/common/Avatar'
+import { Text } from '@/components/common/Text'
 
 interface CardProfileProps {
   name: string
@@ -18,7 +19,9 @@ export function CardProfile({ name, photoUrl, dropdownPosition = 'right' }: Card
             <AvatarImage src={photoUrl} />
             <AvatarFallback>{name.charAt(0).toUpperCase()}</AvatarFallback>
           </Avatar>
-          {name}
+          <Text size="xs" weight="semibold">
+            {name}
+          </Text>
         </Button>
       </DropdownMenu.Trigger>
       <DropdownMenu.Content

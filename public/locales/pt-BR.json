@@ -90,7 +90,7 @@
           "label": "E-mail",
           "placeholder": "Digite seu e-mail",
           "errors": {
-            "invalid_email":  "E-mail inválido."
+            "invalid_email": "E-mail inválido."
           }
         },
         "phone": {
@@ -118,5 +118,19 @@
   },
   "errors": {
     "session_expired": "Sessão expirada"
+  },
+  "months": {
+    "Jan": "Jan",
+    "Feb": "Fev",
+    "Mar": "Mar",
+    "Apr": "Abr",
+    "May": "Mai",
+    "Jun": "Jun",
+    "Jul": "Jul",
+    "Aug": "Ago",
+    "Sep": "Set",
+    "Oct": "Out",
+    "Nov": "Nov",
+    "Dec": "Dez"
   }
 }
