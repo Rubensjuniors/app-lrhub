@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie'
 import { createContext, ReactNode, useCallback, useContext, useEffect, useState } from 'react'
 
-import { useLogin, useLogout } from '@/services/Mutations'
+import { useLogin, useLogout } from '@/modules/Login/Mutations'
 
 interface AuthContextType {
   isAuthenticated: boolean
@@ -17,7 +17,7 @@ interface AuthProviderProps {
 
 export function AuthProvider({ children }: AuthProviderProps) {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
-    const cookieToken = false
+    const cookieToken = true
     return cookieToken ? Boolean(cookieToken) : false
   })
   const [isLoading, setIsLoading] = useState(true)

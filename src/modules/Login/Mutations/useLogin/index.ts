@@ -3,7 +3,7 @@ import { toast } from 'sonner'
 
 import { authenticateService } from '@/services/Auth/request'
 
-import { ApiError } from '../../types/types'
+import { ApiError } from '../types'
 
 export function useLogin() {
   return useMutation({

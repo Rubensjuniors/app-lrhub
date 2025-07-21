@@ -115,5 +115,8 @@
       },
       "submit": "Finalizar cadastro"
     }
+  },
+  "errors": {
+    "session_expired": "Sessão expirada"
   }
 }

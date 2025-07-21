@@ -1,16 +1,25 @@
-import { Link } from 'react-router-dom'
-
-import Logo from '@/assets/images/logo.svg'
+import { Heading } from '@/components/common/Heading'
 import { SidebarTrigger } from '@/components/common/Sidebar/SidebarTrigger'
+
+import { CardProfile } from '../CardProfile'
 
 export function Header() {
   return (
-    <header className="sticky left-0 top-0 z-10 px-5 py-5 shadow-md backdrop-blur-lg md:hidden">
+    <header className="sticky left-0 top-0 z-10 px-5 py-5 shadow-md backdrop-blur-xs">
       <div className="flex w-full items-center justify-between">
-        <SidebarTrigger />
-        <Link to="/">
-          <img src={Logo} alt="Logo" />
-        </Link>
+        <div className="md:hidden">
+          <SidebarTrigger />
+        </div>
+
+        <Heading size="h4" className="hidden md:inline">
+          Ola, Larissa Vitoria
+        </Heading>
+
+        <CardProfile
+          name="Larissa Vitoria"
+          photoUrl="https://github.com/larissacesarr.png"
+          dropdownPosition="bottom"
+        />
       </div>
     </header>
   )

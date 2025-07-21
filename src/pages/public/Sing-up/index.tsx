@@ -7,7 +7,7 @@ import { z } from 'zod'
 
 import { Button } from '@/components/common'
 import { FormMenssage, Input, Label } from '@/components/common/Form'
-import { useRegister } from '@/services/Mutations'
+import { useRegister } from '@/modules/Login/Mutations'
 
 const signUpForm = z
   .object({
@@ -39,6 +39,10 @@ export default function SignUp() {
   const { mutateAsync: registerUser } = useRegister()
 
   async function handleSignUp(data: SignUpForm) {
+    if (!isValid) {
+      return
+    }
+
     try {
       const paramsData = {
         name: data.name,

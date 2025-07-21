@@ -3,7 +3,7 @@ import { toast } from 'sonner'
 
 import { userService } from '@/services/User/request'
 
-import { ApiError } from '../../types/types'
+import { ApiError } from '../types'
 
 export function useRegister() {
   return useMutation({
