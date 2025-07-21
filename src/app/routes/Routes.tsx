@@ -4,12 +4,14 @@ import { createBrowserRouter } from 'react-router-dom'
 import { ProtectedRoute, PublicRoute } from './PrivateRouter'
 
 const AuthLayout = lazy(() => import('../../layout/auth'))
-const SignIn = lazy(() => import('../../pages/auth/Sing-in/SingIn'))
-const SignUp = lazy(() => import('../../pages/auth/Sing-up'))
+const SignIn = lazy(() => import('../../pages/public/Sing-in/SingIn'))
+const SignUp = lazy(() => import('../../pages/public/Sing-up'))
 
 const AppLayout = lazy(() => import('../../layout/app'))
-const Financial = lazy(() => import('../../pages/app/Financial'))
-const Profile = lazy(() => import('../../pages/app/Profile'))
+const Hub = lazy(() => import('../../pages/auth/Hub'))
+const Tasks = lazy(() => import('../../pages/auth/Tasks'))
+// const Financial = lazy(() => import('../../pages/auth/Financial'))
+const Profile = lazy(() => import('../../pages/auth/Profile'))
 
 export const Router = createBrowserRouter([
   {
@@ -22,7 +24,11 @@ export const Router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Financial />,
+        element: <Hub />,
+      },
+      {
+        path: '/tasks',
+        element: <Tasks />,
       },
       {
         path: '/profile',

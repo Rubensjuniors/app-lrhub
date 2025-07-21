@@ -1,11 +1,11 @@
 import { Suspense } from 'react'
 import { Outlet } from 'react-router-dom'
 
-import { Header } from '@/components/_layouts/Header'
-import { AppSidebarMenu } from '@/components/_layouts/SideBarMenu'
+import { Header } from '@/components/layout/Header'
+import { AppSidebarMenu } from '@/components/layout/SideBarMenu'
 import { SidebarProvider } from '@/context/SideBarContext'
 
-import { Loader } from '../../components/Atoms/Loader'
+import { Loader } from '../../components/common/Loader'
 
 export default function AppLayout() {
   return (

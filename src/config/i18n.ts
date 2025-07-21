@@ -16,7 +16,7 @@ i18n
       loadPath: '/locales/{{lng}}.json',
     },
     react: {
-      useSuspense: false, // Desabilita o Suspense para evitar erros de renderização
+      useSuspense: false,
     },
   })
 

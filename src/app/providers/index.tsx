@@ -2,7 +2,7 @@ import { QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { ReactNode, Suspense } from 'react'
 
-import { Loader } from '@/components/Atoms/Loader'
+import { Loader } from '@/components/common/Loader'
 import { AuthProvider } from '@/context/AuthContext'
 import { ThemeProvider } from '@/context/ThemeContext'
 import { queryClient } from '@/lib/queryClient'
