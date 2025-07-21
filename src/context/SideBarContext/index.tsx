@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { TooltipProvider } from '@/components/Atoms/Tooltip'
+import { TooltipProvider } from '@/components/common/Tooltip'
 import { useIsMobile } from '@/hooks/use-mobile'
 import { cn } from '@/lib/utils'
 

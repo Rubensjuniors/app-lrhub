@@ -5,7 +5,9 @@
     "add_expense": "Cadastrar um Gasto"
   },
   "sidebar": {
-    "financial": "Financeiro"
+    "financial": "Financeiro",
+    "hub": "Painel",
+    "tasks": "Tarefas"
   },
   "init": {
     "title": "Olá, {{name}}",
@@ -43,7 +45,7 @@
   "add_transaction_sidebar": {
     "new_expense": "Novo gasto",
     "choose_type_and_fill_data": "Escolha o tipo e preencha os dados para adicionar à sua lista.",
-    "fixed_expenses": "Gastos Fixos", 
+    "fixed_expenses": "Gastos Fixos",
     "credit_card": "Parcelados (Creditos)",
     "pix": "Debito"
   }
