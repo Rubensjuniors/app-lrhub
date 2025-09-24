@@ -5,17 +5,18 @@
   "tsx": true,
   "tailwind": {
     "config": "",
-    "css": "src/assets/styles/global.css",
+    "css": "old/src/assets/styles/global.css",
     "baseColor": "neutral",
     "cssVariables": true,
     "prefix": ""
   },
+  "iconLibrary": "lucide",
   "aliases": {
     "components": "@/components",
     "utils": "@/lib/utils",
-    "ui": "@/components/shad-ui",
+    "ui": "@/components/ui",
     "lib": "@/lib",
     "hooks": "@/hooks"
   },
-  "iconLibrary": "lucide"
+  "registries": {}
 }
