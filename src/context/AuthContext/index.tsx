@@ -17,8 +17,8 @@ interface AuthProviderProps {
 
 export function AuthProvider({ children }: AuthProviderProps) {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
-    const cookieToken = Cookies.get('token') ?? true
-    return cookieToken ? Boolean(cookieToken) : false
+    const cookieToken = Cookies.get('token')
+    return cookieToken ? Boolean(cookieToken) : true
   })
   const [isLoading, setIsLoading] = useState(true)
 
