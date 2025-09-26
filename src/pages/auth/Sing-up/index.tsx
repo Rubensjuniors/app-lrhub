@@ -1,61 +1,39 @@
+import { Button } from '@/shared/components/Atoms'
+import { FormMenssage, Input, Label } from '@/shared/components/Atoms/Form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { Link, useNavigate } from '@tanstack/react-router'
 import { useForm } from 'react-hook-form'
-import { Link, useNavigate } from 'react-router-dom'
-import { toast } from 'sonner'
-import { z } from 'zod'
-
-import { Button } from '@/components/Atoms'
-import { FormMenssage, Input, Label } from '@/components/Atoms/Form'
-import { useRegister } from '@/services/Mutations'
-
-const signUpForm = z
-  .object({
-    name: z
-      .string()
-      .min(3, 'Precisa ter no mínimo 3 caracteres.')
-      .max(115, 'Máximo de 115 caracteres.'),
-    phone: z.string().optional(),
-    email: z.string().email('E-mail inválido.'),
-    createPassword: z.string().min(8, 'Precisa ter no mínimo 8 caracteres.'),
-    confirmPassword: z.string().min(8, 'Precisa ter no mínimo 8 caracteres.'),
-  })
-  .refine((data) => data.createPassword === data.confirmPassword, {
-    message: 'As senhas não coincidem',
-    path: ['confirmPassword'],
-  })
-
-type SignUpForm = z.infer<typeof signUpForm>
+import { schemaSignUp, type TypeSchemaSignUp } from './schema'
+import { useTranslation } from 'react-i18next'
 
 export default function SignUp() {
+  const { t } = useTranslation()
   const navigate = useNavigate()
 
   const {
     register,
     handleSubmit,
-    formState: { isSubmitting, errors, isValid },
+    formState: { isSubmitting, errors },
     reset,
-  } = useForm<SignUpForm>({
-    resolver: zodResolver(signUpForm),
+  } = useForm<TypeSchemaSignUp>({
+    resolver: zodResolver(schemaSignUp),
   })
-  const { mutateAsync: registerUser } = useRegister()
 
-  async function handleSignUp(data: SignUpForm) {
+  async function handleSignUp(data: TypeSchemaSignUp) {
     try {
       const paramsData = {
         name: data.name,
         email: data.email,
         password: data.createPassword,
-        phone: data.phone || '',
         urlCoverPhoto: '',
       }
 
-      await registerUser(paramsData)
+      console.log(paramsData)
 
-      navigate(`/sign-in?email=${data.email}`)
+      navigate({ to: '/sign-in', search: { email: data.email } })
       reset()
     } catch (error: unknown) {
       console.error(error)
-      toast.error('Erro ao cadastrar restaurante.')
     }
   }
 
@@ -63,74 +41,66 @@ export default function SignUp() {
     <>
       <div className="p-8">
         <Button variant="ghost" asChild className="absolute right-8 top-8">
-          <Link to="/sign-in">Fazer login</Link>
+          <Link to="/sign-in">{t('auth.login')}</Link>
         </Button>
 
         <div className="flex w-full max-w-[350px] flex-col justify-center gap-6">
           <div className="flex flex-col gap-2 text-center">
-            <h1 className="text-2xl font-semibold tracking-tight">Criar conta grátis</h1>
-            <p className="text-sm text-muted-foreground">
-              Organize suas finanças como nosso hub de controle!
-            </p>
+            <h1 className="text-2xl font-semibold tracking-tight">{t('auth.sign_up.title')}</h1>
+            <p className="text-sm text-muted-foreground">{t('auth.sign_up.description')}</p>
           </div>
 
           <form className="space-y-4" onSubmit={handleSubmit(handleSignUp)}>
             <div className="space-y-2">
-              <Label htmlFor="name">Nome</Label>
-              <Input id="name" type="text" {...register('name')} placeholder="Digite seu nome" />
-              {errors.name && <FormMenssage>{errors.name?.message}</FormMenssage>}
+              <Label htmlFor="name">{t('auth.sign_up.inputs.name.label')}</Label>
+              <Input
+                id="name"
+                type="text"
+                {...register('name')}
+                placeholder={t('auth.sign_up.inputs.name.placeholder')}
+              />
+              {errors.name && <FormMenssage>{t(errors.name?.message ?? '')}</FormMenssage>}
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="email">E-mail</Label>
+              <Label htmlFor="email">{t('auth.sign_up.inputs.email.label')}</Label>
               <Input
                 id="email"
                 type="email"
                 {...register('email')}
-                placeholder="Digite seu e-mail"
+                placeholder={t('auth.sign_up.inputs.email.placeholder')}
               />
-              {errors.email && <FormMenssage>{errors.email?.message}</FormMenssage>}
+              {errors.email && <FormMenssage>{t(errors.email?.message ?? '')}</FormMenssage>}
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="phone">Seu celular</Label>
-              <Input
-                id="phone"
-                type="tel"
-                {...register('phone')}
-                placeholder="Digite seu celular"
-              />
-              {errors.phone && <FormMenssage>{errors.phone?.message}</FormMenssage>}
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="createPassword">Crie uma senha</Label>
+              <Label htmlFor="createPassword">{t('auth.sign_up.inputs.createPassword.label')}</Label>
               <Input
                 id="createPassword"
                 type="password"
                 {...register('createPassword')}
-                placeholder="Crie uma senha"
+                placeholder={t('auth.sign_up.inputs.createPassword.placeholder')}
               />
               {errors.createPassword && (
-                <FormMenssage>{errors.createPassword?.message}</FormMenssage>
+                <FormMenssage>{t(errors.createPassword?.message ?? '')}</FormMenssage>
               )}
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword">Confirme sua senha</Label>
+              <Label htmlFor="confirmPassword">{t('auth.sign_up.inputs.confirmPassword.label')}</Label>
               <Input
                 id="confirmPassword"
                 type="password"
                 {...register('confirmPassword')}
-                placeholder="Confirme sua senha"
+                placeholder={t('auth.sign_up.inputs.confirmPassword.placeholder')}
               />
               {errors.confirmPassword && (
-                <FormMenssage>{errors.confirmPassword?.message}</FormMenssage>
+                <FormMenssage>{t(errors.confirmPassword?.message ?? '')}</FormMenssage>
               )}
             </div>
 
-            <Button disabled={isSubmitting || !isValid} className="w-full" type="submit">
-              Finalizar cadastro
+            <Button disabled={isSubmitting} className="w-full" type="submit">
+              {t('auth.sign_up.button')}
             </Button>
           </form>
         </div>

@@ -1,28 +1,24 @@
+import { Outlet } from '@tanstack/react-router'
 import { Suspense } from 'react'
-import { Outlet } from 'react-router-dom'
-
-import { Header } from '@/components/_layouts/Header'
-import { AppSidebarMenu } from '@/components/_layouts/SideBarMenu'
-import { SidebarProvider } from '@/context/SideBarContext'
-
-import { Loader } from '../../components/Atoms/Loader'
+import { Loader } from '../../shared/components/Atoms/Loader'
+import { SidebarProvider } from '@/shared/contexts/SideBarContext'
+import { AppSidebarMenu } from '@/features/Structor/components/SideBarMenu'
+import { Header } from '@/features/Structor/components/Header'
 
 export default function AppLayout() {
   return (
     <SidebarProvider defaultOpen={true}>
-      <>
-        <AppSidebarMenu />
+      <AppSidebarMenu />
 
-        <div className="w-full">
-          <Header />
+      <div className="w-full">
+        <Header />
 
-          <main>
-            <Suspense fallback={<Loader />}>
-              <Outlet />
-            </Suspense>
-          </main>
-        </div>
-      </>
+        <main>
+          <Suspense fallback={<Loader />}>
+            <Outlet />
+          </Suspense>
+        </main>
+      </div>
     </SidebarProvider>
   )
 }

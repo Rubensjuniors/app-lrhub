@@ -1,0 +1,21 @@
+{
+  "auth": {
+    "title": "Welcome to",
+    "sign": {
+      "email": {
+        "label": "E-mail",
+        "placeholder": "Enter your e-mail"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Enter your password"
+      },
+      "in": "Sign in",
+      "up": "Sign up"
+    }
+  },
+  "errors": {
+    "EMAIL_01": "Invalid e-mail",
+    "PASSWORD_01": "Password must be at least 6 characters long"
+  }
+}
