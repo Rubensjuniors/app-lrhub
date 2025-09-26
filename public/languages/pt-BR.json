@@ -49,6 +49,7 @@
     "pix": "Debito"
   },
   "auth": {
+    "login": "Entrar na sua conta",
     "create_account": "Criar conta",
     "sign_in": {
       "title": "Faça login na sua conta",
@@ -64,6 +65,34 @@
           "label": "Senha",
           "placeholder": "Digite sua senha",
           "error": "Precisa ter no mínimo 8 caracteres."
+        }
+      }
+    },
+    "sign_up": {
+      "title": "Crie sua conta",
+      "description": "Organize suas finanças como nosso hub de controle!",
+      "button": "Cadastrar",
+      "inputs": {
+        "name": {
+          "label": "Nome",
+          "placeholder": "Digite seu nome",
+          "error_min": "Precisa ter no mínimo 3 caracteres.",
+          "error_max": "Precisa ter no máximo 115 caracteres."
+        },
+        "email": {
+          "label": "E-mail",
+          "placeholder": "Digite seu e-mail",
+          "error": "E-mail inválido."
+        },
+        "createPassword": {
+          "label": "Criar senha",
+          "placeholder": "Crie uma senha",
+          "error": "Precisa ter no mínimo 8 caracteres."
+        },
+        "confirmPassword": {
+          "label": "Confirmar senha",
+          "placeholder": "Confirme sua senha",
+          "error": "As senhas não coincidem."
         }
       }
     }
