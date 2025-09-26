@@ -1,0 +1,21 @@
+{
+  "auth": {
+    "title": "Bem-vindo(a) ao",
+    "sign": {
+      "email": {
+        "label": "E-mail",
+        "placeholder": "Digite seu e-mail"
+      },
+      "password": {
+        "label": "Senha",
+        "placeholder": "Digite sua senha"
+      },
+      "in": "Entrar",
+      "up": "Criar conta"
+    }
+  },
+  "errors": {
+    "EMAIL_01": "E-mail inválido",
+    "PASSWORD_01": "A senha deve ter no mínimo 6 caracteres"
+  }
+}
