@@ -1,13 +1,10 @@
+import { useAuthContext } from '@/shared/contexts/AuthContext'
 import { useNavigate } from '@tanstack/react-router'
 import { type ReactNode, useEffect } from 'react'
 
-// import { useAuthContext } from '@/shared/contexts/AuthContext'
-
 export const ProtectedRoute = ({ children }: { children: ReactNode }) => {
-  // const { isAuthenticated } = useAuthContext()
+  const { isAuthenticated } = useAuthContext()
   const navigate = useNavigate()
-
-  const isAuthenticated = true // --- TEMPORARY ---
 
   useEffect(() => {
     if (!isAuthenticated) {

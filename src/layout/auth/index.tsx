@@ -1,8 +1,8 @@
 import { Outlet } from '@tanstack/react-router'
-
-// added copy
+import { useTranslation } from 'react-i18next'
 
 export default function AuthLayout() {
+  const { t } = useTranslation()
   return (
     <div className="grid min-h-screen grid-cols-1 lg:grid-cols-2 antialiased">
       <div
@@ -10,14 +10,14 @@ export default function AuthLayout() {
       lg:flex h-full flex-col justify-between border-r bg-muted border-foreground/ p-10 text-muted-foreground"
       >
         <div className="flex items-center gap-1 text-lg font-medium text-foreground">
-          <img src="icons/logo.svg" alt="Logo" />
+          <img src="/icons/logo.svg" alt="Logo" />
           <span className="font-semibold text-1xl">Hub</span>
         </div>
         <div className="w-lg self-center">
-          <img src="icons/savings.svg" alt="Savings" />
+          <img src="/icons/Savings.svg" alt="Savings" />
         </div>
         <footer className="text-sm">
-          Todos os direitos reservados &copy; LR Hub - {new Date().getFullYear()}
+          {t('general.cpyright')} &copy; LR Hub - {new Date().getFullYear()}
         </footer>
       </div>
 

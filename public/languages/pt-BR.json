@@ -2,7 +2,8 @@
   "general": {
     "profile": "Perfil",
     "out": "Sair",
-    "add_expense": "Cadastrar um Gasto"
+    "add_expense": "Cadastrar um Gasto",
+    "cpyright": "Todos os direitos reservados"
   },
   "sidebar": {
     "financial": "Financeiro"
@@ -46,5 +47,25 @@
     "fixed_expenses": "Gastos Fixos",
     "credit_card": "Parcelados (Creditos)",
     "pix": "Debito"
+  },
+  "auth": {
+    "create_account": "Criar conta",
+    "sign_in": {
+      "title": "Faça login na sua conta",
+      "description": "Acompanhe seus gastos no seu hub de controle!",
+      "button": "Entrar",
+      "inputs": {
+        "email": {
+          "label": "E-mail",
+          "placeholder": "Digite seu e-mail",
+          "error": "E-mail inválido."
+        },
+        "password": {
+          "label": "Senha",
+          "placeholder": "Digite sua senha",
+          "error": "Precisa ter no mínimo 8 caracteres."
+        }
+      }
+    }
   }
 }
