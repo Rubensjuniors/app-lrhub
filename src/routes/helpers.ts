@@ -1,4 +1,4 @@
-import { createRoute } from '@tanstack/react-router'
+import { createRoute } from "@tanstack/react-router";
 
 export const createLayoutRoute = (id: string, component: any, parentRoute: any) => {
   return createRoute({
