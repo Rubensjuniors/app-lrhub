@@ -24,10 +24,8 @@
     "noUncheckedSideEffectImports": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "src/pages/Financial", "src/shared/hooks/use-mobile.ts"]
 }
