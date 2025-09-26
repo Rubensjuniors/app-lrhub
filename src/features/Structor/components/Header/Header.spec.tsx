@@ -1,9 +1,9 @@
 import { describe, expect, it, vi } from 'vitest'
 
 import { render, screen } from '@/config/test-utils'
-import { SidebarProvider } from '@/context/SideBarContext'
 
 import { Header } from '.'
+import { SidebarProvider } from '@/shared/contexts/SideBarContext'
 
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
