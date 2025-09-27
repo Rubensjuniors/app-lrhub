@@ -14,7 +14,7 @@ export function AppSidebarMenu() {
     <Sidebar>
       <Sidebar.SidebarHeader className="flex items-center flex-row justify-between p-4">
         <Link to="/" className="hidden md:block">
-          <img src="useSidebar" alt="Logo" />
+          <img src="/icons/logo.svg" alt="Logo" />
         </Link>
 
         <ButtonToggleTheme />

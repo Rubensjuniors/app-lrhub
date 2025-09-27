@@ -1,12 +1,14 @@
 import lrHubApi from "@/config/axios"
 import type { IUser } from "./types"
+import { sleep } from "@/shared/utils/sleep"
 
 
 class User {
-  async getProfile(): Promise<{ data: IUser }> {
-    const profile = await lrHubApi.get<IUser>('/profile')
+  async getProfile(): Promise<IUser > {
+     await sleep() // TODO: Remover essa simulação de delay
+    const { data } = await lrHubApi.get<IUser>('/profile')
 
-    return profile
+    return data
   }
 }
 

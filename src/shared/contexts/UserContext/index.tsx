@@ -5,13 +5,12 @@ import { useUserQuery } from '@/shared/services/User/useUserQuery'
 const UserContext = createContext<UserContextType>({} as UserContextType)
 
 export function UserProvider({ children }: UserProviderProps) {
-  const { data: user } = useUserQuery()
+  const { data: user, isLoading } = useUserQuery()
 
   const providerValue = useMemo(() => {
     return {
-      name: user?.data.name ?? '',
-      email: user?.data.email ?? '',
-      avatar: user?.data.avatar ?? '',
+      user: { ...user } as UserContextType['user'],
+      isUserLoading: isLoading,
     }
   }, [user])
 
