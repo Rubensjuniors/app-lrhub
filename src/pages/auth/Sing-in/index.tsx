@@ -8,9 +8,14 @@ import { Link, useNavigate, useSearch } from '@tanstack/react-router'
 import { schemaSignIn, type TypeSchemaSignIn } from './schema'
 import { useTranslation } from 'react-i18next'
 
+interface SignInQueryParams {
+  email: string
+}
+
 export default function SignIn() {
   const { t } = useTranslation()
-  const { email } = useSearch({ strict: false })
+  const { email } = useSearch({ from: '/auth-layout/sign-in' }) as SignInQueryParams
+
   const {
     register,
     handleSubmit,
