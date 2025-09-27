@@ -8,7 +8,7 @@ const name = 'larissa Vitoria'
 const currencyCards: CurrencyCardProps[] = [
   { type: 'entries', value: 1000 },
   { type: 'exits', value: 500 },
-  { type: 'leftovers', value: 500 },
+  { type: 'total', value: 500 },
 ]
 
 export default function Financial() {

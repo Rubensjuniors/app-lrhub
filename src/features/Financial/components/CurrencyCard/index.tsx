@@ -3,7 +3,7 @@ import { ArrowBigDown, ArrowBigUp, DollarSign } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 export interface CurrencyCardProps {
-  type: 'entries' | 'exits' | 'leftovers'
+  type: 'entries' | 'exits' | 'total'
   value: number
 }
 
@@ -19,7 +19,7 @@ export function CurrencyCard({ type, value }: CurrencyCardProps) {
       title: t('currency_card.exits'),
       icon: <ArrowBigDown color="red" />,
     },
-    leftovers: {
+    total: {
       title: t('currency_card.total'),
       icon: <DollarSign />,
     },
