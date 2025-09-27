@@ -1,9 +1,8 @@
 import { CurrencyCard, type CurrencyCardProps } from '@/features/Financial/components/CurrencyCard'
 import { ExpenseTabs } from '@/features/Financial/components/ExpenseTabs'
 import { SwitcherCalendar } from '@/shared/components/Molecules'
+import { useUserContext } from '@/shared/contexts/UserContext'
 import { Trans, useTranslation } from 'react-i18next'
-
-const name = 'larissa Vitoria'
 
 const currencyCards: CurrencyCardProps[] = [
   { type: 'entries', value: 1000 },
@@ -13,6 +12,7 @@ const currencyCards: CurrencyCardProps[] = [
 
 export default function Financial() {
   const { t } = useTranslation()
+  const { name } = useUserContext()
 
   return (
     <div className="w-full p-5 xl:px-15">
