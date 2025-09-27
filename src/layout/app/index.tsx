@@ -1,11 +1,18 @@
-import { Outlet } from '@tanstack/react-router'
+import { Navigate, Outlet } from '@tanstack/react-router'
 import { Suspense } from 'react'
 import { Loader } from '../../shared/components/Atoms/Loader'
 import { SidebarProvider } from '@/shared/contexts/SideBarContext'
 import { AppSidebarMenu } from '@/features/Structor/components/SideBarMenu'
 import { Header } from '@/features/Structor/components/Header'
+import { useAuthContext } from '@/shared/contexts/AuthContext'
 
 export default function AppLayout() {
+  const { isAuthenticated } = useAuthContext()
+
+  if (!isAuthenticated) {
+    return <Navigate to="/sign-in" />
+  }
+
   return (
     <SidebarProvider defaultOpen={true}>
       <AppSidebarMenu />

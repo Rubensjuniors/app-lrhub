@@ -4,12 +4,13 @@ import { useForm } from 'react-hook-form'
 import { Button } from '@/shared/components/Atoms'
 import { FormMenssage, Input, Label } from '@/shared/components/Atoms/Form'
 import { useAuthContext } from '@/shared/contexts/AuthContext'
-import { Link, useNavigate } from '@tanstack/react-router'
+import { Link, useNavigate, useSearch } from '@tanstack/react-router'
 import { schemaSignIn, type TypeSchemaSignIn } from './schema'
 import { useTranslation } from 'react-i18next'
 
 export default function SignIn() {
   const { t } = useTranslation()
+  const { email } = useSearch({ strict: false })
   const {
     register,
     handleSubmit,
@@ -18,7 +19,7 @@ export default function SignIn() {
   } = useForm<TypeSchemaSignIn>({
     resolver: zodResolver(schemaSignIn),
     defaultValues: {
-      email: '',
+      email,
       password: '',
     },
   })

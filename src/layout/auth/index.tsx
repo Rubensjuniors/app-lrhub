@@ -1,8 +1,15 @@
-import { Outlet } from '@tanstack/react-router'
+import { useAuthContext } from '@/shared/contexts/AuthContext'
+import { Navigate, Outlet } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 
 export default function AuthLayout() {
   const { t } = useTranslation()
+  const { isAuthenticated } = useAuthContext()
+
+  if (isAuthenticated) {
+    return <Navigate to="/" />
+  }
+
   return (
     <div className="grid min-h-screen grid-cols-1 lg:grid-cols-2 antialiased">
       <div

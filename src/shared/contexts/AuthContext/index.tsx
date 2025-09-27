@@ -1,22 +1,17 @@
 import Cookies from 'js-cookie'
-import { createContext, type ReactNode, useCallback, useContext, useEffect, useState } from 'react'
+import { createContext, useCallback, useContext, useEffect, useState } from 'react'
+import type { AuthContextType, AuthProviderProps } from './types'
 
-interface AuthContextType {
-  isAuthenticated: boolean
-  signIn: (email: string, password: string) => Promise<void>
-  signOut: () => Promise<void>
-}
+const AuthContext = createContext<AuthContextType>({} as AuthContextType)
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined)
-
-interface AuthProviderProps {
-  children: ReactNode
-}
+const KEY_TOKEN = 'token'
+const KEY_REFRESH_TOKEN = 'token'
 
 export function AuthProvider({ children }: AuthProviderProps) {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
-    const cookieToken = Cookies.get('token')
-    return cookieToken ? Boolean(cookieToken) : true
+    const cookieToken = Cookies.get(KEY_TOKEN)
+
+    return cookieToken ? Boolean(cookieToken) : false
   })
   const [isLoading, setIsLoading] = useState(true)
 
@@ -24,32 +19,29 @@ export function AuthProvider({ children }: AuthProviderProps) {
     setIsLoading(false)
   }, [])
 
-  const signIn = useCallback(
-    async (email: string, password: string) => {
-      try {
-        console.log({ email, password })
-        setIsAuthenticated(true)
-      } catch (error) {
-        console.error('Erro ao fazer login:', error)
-        throw error
-      }
-    },
-    [],
-  )
+  const signIn = useCallback(async (email: string, password: string) => {
+    Cookies.set(KEY_TOKEN, 'true') // TODO: Remover isso quando implementar a autenticação
+    try {
+      console.log({ email, password })
+      setIsAuthenticated(true)
+    } catch (error) {
+      console.error('Erro ao fazer login:', error)
+      throw error
+    }
+  }, [])
 
-  const signOut = async () => {
+  const signOut = useCallback(async () => {
     try {
       console.log('Fazendo logout...')
-      console.log('aqui ssss')
       Cookies.remove('auth')
-      Cookies.remove('refreshToken')
-      Cookies.remove('token')
+      Cookies.remove(KEY_REFRESH_TOKEN)
+      Cookies.remove(KEY_TOKEN)
       setIsAuthenticated(false)
     } catch (error) {
       console.error('Erro ao fazer logout:', error)
       throw error
     }
-  }
+  }, [])
 
   const value: AuthContextType = {
     isAuthenticated,
