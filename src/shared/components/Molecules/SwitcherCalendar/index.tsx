@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Button } from '../../Atoms'
 import { cn } from '@/lib/utils'
+import { Text } from '../../Atoms/Text'
 
 function getMonthStart(date: Date) {
   return new Date(date.getFullYear(), date.getMonth(), 1)
@@ -35,7 +36,9 @@ export function SwitcherCalendar({ className }: { className?: string }) {
       <Button variant="outline" onClick={handlePrevMonth} size="sm">
         <ChevronLeft />
       </Button>
-      <span className="text-lg font-medium">{format(currentMonth, 'MMMM yyyy', { locale: ptBR })}</span>
+      <Text as="span" size="base" weight="medium" className="truncate">
+        {format(currentMonth, 'MMMM yyyy', { locale: ptBR })}
+      </Text>
       <Button variant="outline" onClick={handleNextMonth} size="sm">
         <ChevronRight />
       </Button>

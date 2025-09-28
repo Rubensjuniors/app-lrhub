@@ -16,6 +16,10 @@ export default function Financial() {
 
         <div className="mt-5">
           <Summary />
+
+          <div className="md:hidden py-6 w-full flex items-center justify-center">
+            <SwitcherCalendar className="md:hidden w-full justify-between gap-2" />
+          </div>
           <div className="mt-3">
             <ExpenseTabs />
           </div>
