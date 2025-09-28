@@ -3,6 +3,7 @@ import { ptBR } from 'date-fns/locale'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Button } from '../../Atoms'
+import { cn } from '@/lib/utils'
 
 function getMonthStart(date: Date) {
   return new Date(date.getFullYear(), date.getMonth(), 1)
@@ -12,7 +13,7 @@ function getMonthFilterValue(date: Date) {
   return format(date, 'yyyy-MM')
 }
 
-export function SwitcherCalendar() {
+export function SwitcherCalendar({ className }: { className?: string }) {
   const [currentMonth, setCurrentMonth] = useState<Date>(getMonthStart(new Date()))
 
   const handlePrevMonth = () => {
@@ -30,7 +31,7 @@ export function SwitcherCalendar() {
   }, [currentMonth])
 
   return (
-    <div className="flex items-center gap-4">
+    <div className={cn('flex items-center gap-4', className)}>
       <Button variant="outline" onClick={handlePrevMonth} size="sm">
         <ChevronLeft />
       </Button>

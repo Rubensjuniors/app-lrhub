@@ -12,11 +12,6 @@
     "title": "Olá, {{name}}",
     "description": "Aqui estão todos os seus gastos."
   },
-  "currency_card": {
-    "entries": "Entradas",
-    "exits": "Saídas",
-    "total": "Total"
-  },
   "expense_tabs": {
     "fixed_expenses": "Gastos Fixos",
     "fixed_expenses_mobile": "Fixos",
@@ -95,6 +90,13 @@
           "error": "As senhas não coincidem."
         }
       }
+    }
+  },
+  "financial": {
+    "summary": {
+      "entries": "Entradas",
+      "exits": "Saídas",
+      "total": "Total"
     }
   }
 }

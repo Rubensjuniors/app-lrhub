@@ -1,9 +1,9 @@
 {
-  "summary": [
-    { "type": "entries", "value": 3000 },
-    { "type": "exits", "value": 1500 },
-    { "type": "total", "value": 1500 }
-  ],
+  "summary": {
+    "entries": 3000,
+    "exits": 3000,
+    "total": -133
+  },
   "profile": {
     "name": "Rubens Marques",
     "email": "rublari3011@teste.com",

@@ -1,27 +1,77 @@
-import { Skeleton } from '@/shared/components/Atoms'
 import { useSummaryQuery } from '../../services/Summary/useSummaryQuery'
-import { CurrencyCard } from '../CurrencyCard'
+import { TotalOverview } from './TotalOverview'
+import { IncomeExpenseSummary } from './IncomeExpenseSummary'
+import { useTranslation } from 'react-i18next'
+import { DollarSign, TrendingDown, TrendingUp } from 'lucide-react'
+import { Card, Skeleton } from '@/shared/components/Atoms'
+import { Text } from '@/shared/components/Atoms/Text'
+import { useHiddenMoneyToggle } from '../../contexts/HiddenMoneyToggleContext'
+import { cn } from '@/lib/utils'
+import { HiddenMoneyButton } from '../HiddenValue/HiddenMoneyButton'
+import { HiddenMoney } from '../HiddenValue'
 
 export function Summary() {
+  const { t } = useTranslation()
   const { data: summary, isLoading } = useSummaryQuery()
+  const { isVisible } = useHiddenMoneyToggle()
+
+  const summaryItems = [
+    {
+      type: 'income',
+      title: t('financial.summary.entries'),
+      value: summary?.entries ?? 0,
+      icon: <TrendingUp className="h-5 w-5" color="green" />,
+    },
+    {
+      type: 'exits',
+      title: t('financial.summary.exits'),
+      value: summary?.exits ?? 0,
+      icon: <TrendingDown className="h-5 w-5" color="red" />,
+    },
+    {
+      type: 'total',
+      title: t('financial.summary.total'),
+      value: summary?.total ?? 0,
+      icon: <DollarSign />,
+    },
+  ]
 
   return (
-    <div className="flex items-center gap-4 flex-wrap">
-      {isLoading && (
-        <>
-          <Skeleton className="w-[200px] h-[130px] flex-1" />
-          <Skeleton className="w-[200px] h-[130px] flex-1" />
-          <Skeleton className="w-[200px] h-[130px] flex-1" />
-        </>
-      )}
-      {!isLoading &&
-        summary?.map((item) => {
-          return (
-            <div className="flex-1" key={item.type}>
-              <CurrencyCard type={item.type} value={item.value} />
-            </div>
-          )
-        })}
-    </div>
+    <>
+      <div className="flex flex-col items-center justify-center gap-4 sm:hidden">
+        <TotalOverview balance={summary?.total ?? 0} isLoading={isLoading} />
+        <IncomeExpenseSummary
+          income={summary?.entries ?? 0}
+          expenses={summary?.exits ?? 0}
+          isLoading={isLoading}
+        />
+      </div>
+
+      <div className="hidden sm:flex flex-col w-full">
+        {!isLoading && <HiddenMoneyButton className="mb-1" />}
+        <div className="flex items-center justify-center gap-4 flex-wrap">
+          {summaryItems.map((item) => {
+            const negativeTotal =
+              item.value <= 0 && item.type === 'total' && isVisible ? 'text-red-500' : 'text-foreground'
+            return (
+              <Card className="min-w-[200px] flex-1" key={item.type}>
+                <Card.Header className="flex items-center justify-between">
+                  <Text as="span" size="xs" color="muted" weight="medium">
+                    {item.title}
+                  </Text>
+                  <span>{item.icon}</span>
+                </Card.Header>
+                <Card.Content>
+                  <Text as="span" size="xl" className={cn(negativeTotal)} weight="bold">
+                    {isLoading && <Skeleton className="h-6 w-20" />}
+                    {!isLoading && <HiddenMoney value={item.value} />}
+                  </Text>
+                </Card.Content>
+              </Card>
+            )
+          })}
+        </div>
+      </div>
+    </>
   )
 }
