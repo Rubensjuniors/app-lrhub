@@ -5,7 +5,7 @@ import { Sidebar } from '@/shared/components/Atoms'
 import { Link } from '@tanstack/react-router'
 import { ButtonToggleTheme } from '@/shared/components/Molecules'
 import { useSidebar } from '@/shared/contexts/SideBarContext'
-import { LanguageSelect } from '../LanguageSelect'
+// import { LanguageSelect } from '../LanguageSelect'
 
 export function AppSidebarMenu() {
   const { setOpenMobile } = useSidebar()
@@ -19,7 +19,7 @@ export function AppSidebarMenu() {
         </Link>
 
         <ButtonToggleTheme />
-        <LanguageSelect />
+        {/* <LanguageSelect /> */}
         <Sidebar.SidebarTrigger className="md:hidden ml-3" isClose />
       </Sidebar.SidebarHeader>
       <Sidebar.SidebarContent className="p-2">
