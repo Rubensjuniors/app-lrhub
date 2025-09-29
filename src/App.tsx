@@ -8,6 +8,7 @@ import { ThemeProvider } from '@/shared/contexts/ThemeContext'
 import { Suspense } from 'react'
 import { AuthProvider } from '@/shared/contexts/AuthContext'
 import { Loader } from '@/shared/components/Atoms'
+import { env } from './env'
 
 export function App() {
   return (
@@ -19,7 +20,7 @@ export function App() {
           </AuthProvider>
         </Suspense>
       </ThemeProvider>
-      <ReactQueryDevtools initialIsOpen={false} position="left" buttonPosition="bottom-left" />
+      {env.NODE_ENV === 'development' && <ReactQueryDevtools initialIsOpen={false} position="left" buttonPosition="bottom-left" />}
     </QueryClientProvider>
   )
 }
