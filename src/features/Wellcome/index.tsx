@@ -1,7 +1,7 @@
 import { useUserContext } from '@/shared/contexts/UserContext'
-import { Skeleton } from '../Atoms'
+import { Skeleton } from '../../shared/components/Atoms'
 import { Trans, useTranslation } from 'react-i18next'
-import { Heading } from '../Atoms/Heading'
+import { Heading } from '../../shared/components/Atoms/Heading'
 
 export function Wellcome({ classNames }: { hasDescription?: boolean; classNames?: string }) {
   const { t } = useTranslation()

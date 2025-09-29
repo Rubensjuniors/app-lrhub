@@ -1,12 +1,18 @@
-import lrHubApi from '@/config/axios'
-import type { ISummary } from './types'
+// import lrHubApi from '@/config/axios'
+// import type { ISummary } from './types'
 import { sleep } from '@/shared/utils/sleep'
 
 class SummaryService {
   async getSummary() {
     await sleep() // TODO: Remover essa simulação de delay
-    const summary = await lrHubApi.get<ISummary>('/summary')
-    return summary.data
+    // const { data } = await lrHubApi.get<ISummary>('/summary')
+    return new Promise((resolve) =>
+      resolve({
+        entries: 3000,
+        exits: 3133,
+        total: -133,
+      }),
+    )
   }
 }
 

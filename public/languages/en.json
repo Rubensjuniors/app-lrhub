@@ -1,21 +1,102 @@
 {
-  "auth": {
-    "title": "Welcome to",
-    "sign": {
-      "email": {
-        "label": "E-mail",
-        "placeholder": "Enter your e-mail"
-      },
-      "password": {
-        "label": "Password",
-        "placeholder": "Enter your password"
-      },
-      "in": "Sign in",
-      "up": "Sign up"
+  "general": {
+    "profile": "Profile",
+    "out": "Sign Out",
+    "add_expense": "Add Expense",
+    "cpyright": "All rights reserved"
+  },
+  "sidebar": {
+    "financial": "Financial"
+  },
+  "init": {
+    "title": "Hello, {{name}}",
+    "description": "Here are all your expenses."
+  },
+  "expense_tabs": {
+    "fixed_expenses": "Fixed Expenses",
+    "fixed_expenses_mobile": "Fixed",
+    "credit_card": "Credit Card",
+    "credit_card_mobile": "Credit",
+    "debit_pix": "Debit/PIX"
+  },
+  "expense_table": {
+    "fixed_expenses": {
+      "title": "Fixed Expenses"
+    },
+    "credit_card": {
+      "title": "Credit Card (Installments)"
+    },
+    "debit_pix": {
+      "title": "Debit or PIX"
     }
   },
-  "errors": {
-    "EMAIL_01": "Invalid e-mail",
-    "PASSWORD_01": "Password must be at least 6 characters long"
+  "empty_states": {
+    "no_expenses": {
+      "title": "You haven't registered any expenses yet",
+      "description": "Add one now to start tracking your records!"
+    }
+  },
+  "add_transaction_sidebar": {
+    "new_expense": "New expense",
+    "choose_type_and_fill_data": "Choose the type and fill in the data to add to your list.",
+    "fixed_expenses": "Fixed Expenses",
+    "credit_card": "Installments (Credit)",
+    "pix": "Debit"
+  },
+  "auth": {
+    "login": "Sign in to your account",
+    "create_account": "Create account",
+    "sign_in": {
+      "title": "Sign in to your account",
+      "description": "Track your expenses in your control hub!",
+      "button": "Sign In",
+      "inputs": {
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter your email",
+          "error": "Invalid email."
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Enter your password",
+          "error": "Must have at least 8 characters."
+        }
+      }
+    },
+    "sign_up": {
+      "title": "Create your account",
+      "description": "Organize your finances with our control hub!",
+      "button": "Sign Up",
+      "inputs": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Enter your name",
+          "error_min": "Must have at least 3 characters.",
+          "error_max": "Must have at most 115 characters."
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter your email",
+          "error": "Invalid email."
+        },
+        "createPassword": {
+          "label": "Create password",
+          "placeholder": "Create a password",
+          "error": "Must have at least 8 characters."
+        },
+        "confirmPassword": {
+          "label": "Confirm password",
+          "placeholder": "Confirm your password",
+          "error": "Passwords don't match."
+        }
+      }
+    }
+  },
+  "financial": {
+    "summary": {
+      "entries": "Income",
+      "exits": "Expenses",
+      "total": "Total"
+    }
   }
 }

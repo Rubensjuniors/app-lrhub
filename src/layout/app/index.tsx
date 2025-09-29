@@ -5,6 +5,7 @@ import { SidebarProvider } from '@/shared/contexts/SideBarContext'
 import { AppSidebarMenu } from '@/features/Structor/components/SideBarMenu'
 import { Header } from '@/features/Structor/components/Header'
 import { useAuthContext } from '@/shared/contexts/AuthContext'
+import { UserProvider } from '@/shared/contexts/UserContext'
 
 export default function AppLayout() {
   const { isAuthenticated } = useAuthContext()
@@ -14,18 +15,20 @@ export default function AppLayout() {
   }
 
   return (
-    <SidebarProvider defaultOpen={true}>
-      <AppSidebarMenu />
+    <UserProvider>
+      <SidebarProvider defaultOpen={true} >
+        <AppSidebarMenu />
 
-      <div className="w-full">
-        <Header />
+        <div className="w-full">
+          <Header />
 
-        <main>
-          <Suspense fallback={<Loader />}>
-            <Outlet />
-          </Suspense>
-        </main>
-      </div>
-    </SidebarProvider>
+          <main>
+            <Suspense fallback={<Loader />}>
+              <Outlet />
+            </Suspense>
+          </main>
+        </div>
+      </SidebarProvider>
+    </UserProvider>
   )
 }

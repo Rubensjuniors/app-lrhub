@@ -1,13 +1,13 @@
 import { ExpenseTabs } from '@/features/Financial/components/ExpenseTabs'
 import { Summary } from '@/features/Financial/components/Summary'
 import { HiddenMoneyToggleProvider } from '@/features/Financial/contexts/HiddenMoneyToggleContext'
-import { SwitcherCalendar } from '@/shared/components/Molecules'
-import { Wellcome } from '@/shared/components/Wellcome'
+import { SwitcherCalendar } from '@/features/Structor/components/SwitcherCalendar'
+import { Wellcome } from '@/features/Wellcome'
 
 export default function Financial() {
   return (
     <HiddenMoneyToggleProvider>
-      <div className="w-full p-5 xl:px-15">
+      <div className="w-full py-5 px-5">
         <header className="gap-4 flex items-center justify-between sm:justify-between flex-wrap">
           <Wellcome />
 

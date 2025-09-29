@@ -4,21 +4,25 @@ import HttpBackend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 i18n
-  .use(HttpBackend) // carregar arquivos JSON
-  .use(LanguageDetector) // detectar idioma do navegador
-  .use(initReactI18next) // integrar com React
+  .use(HttpBackend)
+  .use(LanguageDetector)
+  .use(initReactI18next)
   .init({
-    fallbackLng: 'en', // idioma padrão
+    fallbackLng: 'en',
     debug: import.meta.env.DEV,
     interpolation: {
-      escapeValue: false, // React já faz escape
+      escapeValue: false,
     },
     backend: {
-      loadPath: '/languages/{{lng}}.json', // caminho dos arquivos JSON
+      loadPath: '/languages/{{lng}}.json',
     },
     detection: {
-      order: ['navigator', 'localStorage', 'htmlTag'],
-      caches: ['localStorage']
+      // 🔥 MUDANÇA AQUI: localStorage PRIMEIRO
+      order: ['localStorage', 'navigator', 'htmlTag'],
+      caches: ['localStorage'],
+
+      // Opcional: especificar a chave do localStorage
+      lookupLocalStorage: 'i18nextLng'
     }
   });
 

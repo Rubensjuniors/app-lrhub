@@ -8,7 +8,6 @@ import { ThemeProvider } from '@/shared/contexts/ThemeContext'
 import { Suspense } from 'react'
 import { AuthProvider } from '@/shared/contexts/AuthContext'
 import { Loader } from '@/shared/components/Atoms'
-import { UserProvider } from './shared/contexts/UserContext'
 
 export function App() {
   return (
@@ -16,9 +15,7 @@ export function App() {
       <ThemeProvider>
         <Suspense fallback={<Loader />}>
           <AuthProvider>
-            <UserProvider>
-              <RouterProvider router={router} />
-            </UserProvider>
+            <RouterProvider router={router} />
           </AuthProvider>
         </Suspense>
       </ThemeProvider>

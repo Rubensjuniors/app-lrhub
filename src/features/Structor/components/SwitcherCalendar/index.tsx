@@ -2,9 +2,9 @@ import { addMonths, format, subMonths } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import { Button } from '../../Atoms'
 import { cn } from '@/lib/utils'
-import { Text } from '../../Atoms/Text'
+import { Button } from '@/shared/components/Atoms'
+import { Text } from '@/shared/components/Atoms/Text'
 
 function getMonthStart(date: Date) {
   return new Date(date.getFullYear(), date.getMonth(), 1)
