@@ -7,7 +7,7 @@ class User {
     await sleep() // TODO: Remover essa simulação de delay
     // const { data } = await lrHubApi.get<IUser>('/profile')
 
-    return new Promise((resolve) =>
+    return new Promise<IUser>((resolve) =>
       resolve({
         name: 'Larissa Vítoria',
         email: 'rublari3011@teste.com',
