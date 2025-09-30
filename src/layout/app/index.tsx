@@ -18,7 +18,7 @@ export default function AppLayout() {
 
   return (
     <UserProvider>
-      <SidebarProvider defaultOpen={true} >
+      <SidebarProvider defaultOpen={true}>
         <AppSidebarMenu />
 
         <div className="w-full">

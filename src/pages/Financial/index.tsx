@@ -7,11 +7,9 @@ import { Wellcome } from '@/features/Wellcome'
 export default function Financial() {
   return (
     <HiddenMoneyToggleProvider>
-      <div className="w-full py-5 px-5">
+      <div className="w-full py-4 px-5">
         <header className="gap-4 flex items-center justify-between sm:justify-between flex-wrap">
           <Wellcome />
-
-          <SwitcherCalendar className="hidden md:flex" />
         </header>
 
         <div className="mt-5">

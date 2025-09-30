@@ -1,4 +1,4 @@
-import { AlignJustify, X } from 'lucide-react'
+import { AlignJustify, ArrowLeftToLine, ArrowRightToLine, X } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 import { useSidebar } from '@/shared/contexts/SideBarContext'
@@ -10,7 +10,7 @@ type SidebarTriggerProps = React.ComponentProps<typeof Button> & {
 }
 
 export function SidebarTrigger({ className, onClick, isClose, ...props }: SidebarTriggerProps) {
-  const { toggleSidebar } = useSidebar()
+  const { toggleSidebar, open } = useSidebar()
 
   return (
     <Button
@@ -25,7 +25,8 @@ export function SidebarTrigger({ className, onClick, isClose, ...props }: Sideba
       }}
       {...props}
     >
-      {isClose ? <X /> : <AlignJustify />}
+      <span className="md:hidden">{isClose ? <X /> : <AlignJustify />}</span>
+      <span className="hidden md:inline-block">{open ? <ArrowLeftToLine /> : <ArrowRightToLine />}</span>
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   )

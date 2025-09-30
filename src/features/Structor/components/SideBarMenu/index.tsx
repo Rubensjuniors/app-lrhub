@@ -6,7 +6,6 @@ import { ButtonToggleTheme } from '@/shared/components/Molecules'
 import { useSidebar } from '@/shared/contexts/SideBarContext'
 
 import { ItemsMenu } from './constants'
-// import { LanguageSelect } from '../LanguageSelect'
 
 export function AppSidebarMenu() {
   const { setOpenMobile } = useSidebar()
@@ -14,14 +13,13 @@ export function AppSidebarMenu() {
 
   return (
     <Sidebar>
-      <Sidebar.SidebarHeader className="flex items-center flex-row justify-between p-4">
+      <Sidebar.SidebarHeader className="flex items-center md:flex-col lg:flex-row flex-row justify-between p-4 gap-4">
         <Link to="/" className="hidden md:block">
           <img src="/icons/logo.svg" alt="Logo" />
         </Link>
 
         <ButtonToggleTheme />
-        {/* <LanguageSelect /> */}
-        <Sidebar.SidebarTrigger className="md:hidden ml-3" isClose />
+        <Sidebar.SidebarTrigger className="md:hidden" isClose />
       </Sidebar.SidebarHeader>
       <Sidebar.SidebarContent className="p-2">
         <nav className="flex flex-col gap-2">
@@ -37,7 +35,7 @@ export function AppSidebarMenu() {
                       gap-2 py-4 px-3`}
                   >
                     {item.icon}
-                    <span>{t(item.name)}</span>
+                    <span className="md:hidden lg:inline-block">{t(item.name)}</span>
                   </div>
                 )}
               </Link>
