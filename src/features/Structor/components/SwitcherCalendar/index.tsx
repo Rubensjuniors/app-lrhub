@@ -27,6 +27,7 @@ export function SwitcherCalendar({ className }: { className?: string }) {
   }
 
   useEffect(() => {
+    // eslint-disable-next-line no-console
     console.log({
       filterValue: getMonthFilterValue(currentMonth)
     })

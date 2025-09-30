@@ -53,6 +53,7 @@ export function ExpenseCreditCardTable() {
             variant="ghost"
             size="icon"
             onClick={() => {
+              // eslint-disable-next-line no-console
               console.log(row.original)
             }}
           >

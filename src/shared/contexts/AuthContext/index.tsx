@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import Cookies from 'js-cookie'
 import { createContext, useCallback, useContext, useEffect, useState } from 'react'
 

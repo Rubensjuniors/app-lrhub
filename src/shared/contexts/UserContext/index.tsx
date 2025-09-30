@@ -14,7 +14,7 @@ export function UserProvider({ children }: UserProviderProps) {
       user: { ...user } as UserContextType['user'],
       isUserLoading: isLoading
     }
-  }, [user])
+  }, [isLoading, user])
 
   return <UserContext.Provider value={providerValue}>{children}</UserContext.Provider>
 }

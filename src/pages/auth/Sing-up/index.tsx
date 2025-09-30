@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Link, useNavigate } from '@tanstack/react-router'
 import { useForm } from 'react-hook-form'

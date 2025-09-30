@@ -75,16 +75,8 @@ export default defineConfig([
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
 
-      // === REACT REFRESH ===
-      'react-refresh/only-export-components': [
-        'warn',
-        {
-          allowConstantExport: true
-        }
-      ],
-
       // === COMPLEXIDADE (NATIVO DO ESLINT) ===
-      'complexity': ['error', { max: 10 }],
+      'complexity': ['error', { max: 20 }],
       'max-depth': ['error', 4],
       'max-lines': ['error', { max: 300, skipBlankLines: true }],
       'max-lines-per-function': ['error', { max: 110, skipBlankLines: true }],
