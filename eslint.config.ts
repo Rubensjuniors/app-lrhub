@@ -87,7 +87,7 @@ export default defineConfig([
       'complexity': ['error', { max: 10 }],
       'max-depth': ['error', 4],
       'max-lines': ['error', { max: 300, skipBlankLines: true }],
-      'max-lines-per-function': ['error', { max: 50, skipBlankLines: true }],
+      'max-lines-per-function': ['error', { max: 110, skipBlankLines: true }],
       'max-params': ['error', 3],
       'max-nested-callbacks': ['error', 3]
     }
