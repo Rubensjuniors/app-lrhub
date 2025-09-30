@@ -12,7 +12,7 @@ export function UserProvider({ children }: UserProviderProps) {
   const providerValue = useMemo(() => {
     return {
       user: { ...user } as UserContextType['user'],
-      isUserLoading: isLoading
+      isUserLoading: isLoading,
     }
   }, [user])
 
