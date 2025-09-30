@@ -1,6 +1,7 @@
 // import lrHubApi from '@/config/axios'
-import type { ISummary } from './types'
 import { sleep } from '@/shared/utils/sleep'
+
+import type { ISummary } from './types'
 
 class SummaryService {
   async getSummary() {
@@ -10,8 +11,8 @@ class SummaryService {
       resolve({
         entries: 3000,
         exits: 3133,
-        total: -133,
-      }),
+        total: -133
+      })
     )
   }
 }

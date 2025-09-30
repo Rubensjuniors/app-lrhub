@@ -1,8 +1,9 @@
-import { useState, createContext, useContext } from 'react'
+import { createContext, useContext, useState } from 'react'
+
 import type { HiddenMoneyToggleContextType, HiddenMoneyToggleProviderProps } from './types'
 
 const HiddenMoneyToggleContext = createContext<HiddenMoneyToggleContextType>(
-  {} as HiddenMoneyToggleContextType,
+  {} as HiddenMoneyToggleContextType
 )
 
 export function HiddenMoneyToggleProvider({ children }: HiddenMoneyToggleProviderProps) {

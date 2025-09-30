@@ -1,6 +1,7 @@
 import { cn } from '@/lib/utils'
+import { formatCurrency } from '@/shared/utils/money'
+
 import { useHiddenMoneyToggle } from '../../contexts/HiddenMoneyToggleContext'
-import { formatCurrency } from '@/shared/utils/money';
 
 export function HiddenMoney({ value, classNames }: { value: number; classNames?: string }) {
   const { isVisible } = useHiddenMoneyToggle()

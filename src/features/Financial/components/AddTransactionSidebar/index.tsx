@@ -1,6 +1,7 @@
-import { Button, Sheet, Tabs } from '@/shared/components/Atoms'
 import { SquarePlus } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+
+import { Button, Sheet, Tabs } from '@/shared/components/Atoms'
 
 export type ITransactionSidebarTypes = 'fixedExpenses' | 'creditCard' | 'pix'
 interface AddTransactionSidebarProps {
@@ -12,7 +13,7 @@ interface AddTransactionSidebarProps {
 export function AddTransactionSidebar({
   type,
   handleAddTransaction,
-  isEmptyState = false,
+  isEmptyState = false
 }: AddTransactionSidebarProps) {
   const { t } = useTranslation()
 

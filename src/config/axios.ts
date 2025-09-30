@@ -1,4 +1,5 @@
 import axios from 'axios'
+
 import { env } from '@/env'
 
 const lrHubApi = axios.create({
@@ -6,13 +7,13 @@ const lrHubApi = axios.create({
   // withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
-    Accept: 'application/json',
-  },
+    Accept: 'application/json'
+  }
 })
 
 lrHubApi.interceptors.response.use(
   (response) => response,
-  async (error) => {
+  async(error) => {
     const originalRequest = error.config
 
     if (error.response?.status === 401) {
@@ -35,7 +36,7 @@ lrHubApi.interceptors.response.use(
     }
 
     return Promise.reject(error)
-  },
+  }
 )
 
 export default lrHubApi

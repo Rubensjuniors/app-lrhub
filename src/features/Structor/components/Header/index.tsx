@@ -1,5 +1,6 @@
-import { SidebarTrigger } from '@/shared/components/Atoms/Sidebar/SidebarTrigger'
 import { Link } from '@tanstack/react-router'
+
+import { SidebarTrigger } from '@/shared/components/Atoms/Sidebar/SidebarTrigger'
 
 export function Header() {
   return (

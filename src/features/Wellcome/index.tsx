@@ -1,13 +1,15 @@
-import { useUserContext } from '@/shared/contexts/UserContext'
-import { Skeleton } from '../../shared/components/Atoms'
 import { Trans, useTranslation } from 'react-i18next'
+
+import { useUserContext } from '@/shared/contexts/UserContext'
+
+import { Skeleton } from '../../shared/components/Atoms'
 import { Heading } from '../../shared/components/Atoms/Heading'
 
 export function Wellcome({ classNames }: { hasDescription?: boolean; classNames?: string }) {
   const { t } = useTranslation()
   const {
     user: { name },
-    isUserLoading,
+    isUserLoading
   } = useUserContext()
 
   return (

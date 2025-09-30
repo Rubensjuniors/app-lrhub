@@ -35,5 +35,4 @@ DropdownMenu.Sub = DropdownMenuSub
 DropdownMenu.SubTrigger = DropdownMenuSubTrigger
 DropdownMenu.SubContent = DropdownMenuSubContent
 
-
 export { DropdownMenu }

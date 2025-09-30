@@ -1,6 +1,8 @@
-import { useTheme } from '@/shared/contexts/ThemeContext'
 import { Moon, Sun } from 'lucide-react'
 import { useMemo } from 'react'
+
+import { useTheme } from '@/shared/contexts/ThemeContext'
+
 import { Button } from '../../Atoms'
 
 export function ButtonToggleTheme() {

@@ -1,5 +1,5 @@
-import { lazy } from 'react'
 import { createRootRoute, createRoute, createRouter, Outlet } from '@tanstack/react-router'
+import { lazy } from 'react'
 
 const AuthLayout = lazy(() => import('../layout/auth'))
 const AppLayout = lazy(() => import('../layout/app'))
@@ -10,49 +10,49 @@ const SignUp = lazy(() => import('../pages/auth/Sing-up'))
 
 const rootRoute = createRootRoute({
   component: () => <Outlet />,
-  notFoundComponent: () => <div>Not Found 404</div>,
+  notFoundComponent: () => <div>Not Found 404</div>
 })
 
 // ===== LAYOUTS =====
 const authLayout = createRoute({
   getParentRoute: () => rootRoute,
   id: 'auth-layout',
-  component: AuthLayout,
+  component: AuthLayout
 })
 
 const structorLayout = createRoute({
   getParentRoute: () => rootRoute,
   id: 'structor-layout',
-  component: AppLayout,
+  component: AppLayout
 })
 
 // ===== PAGES =====
 const signInRoute = createRoute({
   getParentRoute: () => authLayout,
   path: '/sign-in',
-  component: SignIn,
+  component: SignIn
 })
 
 const signUpRoute = createRoute({
   getParentRoute: () => authLayout,
   path: '/sign-up',
-  component: SignUp,
+  component: SignUp
 })
 
 const indexRoute = createRoute({
   getParentRoute: () => structorLayout,
   path: '/',
-  component: Financial,
+  component: Financial
 })
 
 const routeTree = rootRoute.addChildren([
   authLayout.addChildren([signInRoute, signUpRoute]),
-  structorLayout.addChildren([indexRoute]),
+  structorLayout.addChildren([indexRoute])
 ])
 
 export const router = createRouter({
   routeTree,
-  defaultPreload: 'intent',
+  defaultPreload: 'intent'
 })
 
 declare module '@tanstack/react-router' {

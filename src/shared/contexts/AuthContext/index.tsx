@@ -1,5 +1,6 @@
 import Cookies from 'js-cookie'
 import { createContext, useCallback, useContext, useEffect, useState } from 'react'
+
 import type { AuthContextType, AuthProviderProps } from './types'
 
 const AuthContext = createContext<AuthContextType>({} as AuthContextType)
@@ -19,7 +20,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     setIsLoading(false)
   }, [])
 
-  const signIn = useCallback(async (email: string, password: string) => {
+  const signIn = useCallback(async(email: string, password: string) => {
     Cookies.set(KEY_TOKEN, 'true') // TODO: Remover isso quando implementar a autenticação
     try {
       console.log({ email, password })
@@ -30,7 +31,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
   }, [])
 
-  const signOut = useCallback(async () => {
+  const signOut = useCallback(async() => {
     try {
       console.log('Fazendo logout...')
       Cookies.remove('auth')
@@ -46,7 +47,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const value: AuthContextType = {
     isAuthenticated,
     signIn,
-    signOut,
+    signOut
   }
 
   if (isLoading) {

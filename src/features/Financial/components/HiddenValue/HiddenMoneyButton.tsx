@@ -1,7 +1,9 @@
-import { Button } from '@/shared/components/Atoms'
 import { Eye, EyeOff } from 'lucide-react'
-import { useHiddenMoneyToggle } from '../../contexts/HiddenMoneyToggleContext'
+
 import { cn } from '@/lib/utils'
+import { Button } from '@/shared/components/Atoms'
+
+import { useHiddenMoneyToggle } from '../../contexts/HiddenMoneyToggleContext'
 
 export function HiddenMoneyButton({ className }: { className?: string }) {
   const { isVisible, toggleVisibility } = useHiddenMoneyToggle()

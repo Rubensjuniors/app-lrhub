@@ -1,7 +1,7 @@
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
-import HttpBackend from 'i18next-http-backend';
-import LanguageDetector from 'i18next-browser-languagedetector';
+import i18n from 'i18next'
+import LanguageDetector from 'i18next-browser-languagedetector'
+import HttpBackend from 'i18next-http-backend'
+import { initReactI18next } from 'react-i18next'
 
 i18n
   .use(HttpBackend)
@@ -11,10 +11,10 @@ i18n
     fallbackLng: 'en',
     debug: import.meta.env.DEV,
     interpolation: {
-      escapeValue: false,
+      escapeValue: false
     },
     backend: {
-      loadPath: '/languages/{{lng}}.json',
+      loadPath: '/languages/{{lng}}.json'
     },
     detection: {
       // 🔥 MUDANÇA AQUI: localStorage PRIMEIRO
@@ -24,6 +24,6 @@ i18n
       // Opcional: especificar a chave do localStorage
       lookupLocalStorage: 'i18nextLng'
     }
-  });
+  })
 
-export default i18n;
+export default i18n

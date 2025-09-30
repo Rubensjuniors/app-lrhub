@@ -1,12 +1,13 @@
 import { zodResolver } from '@hookform/resolvers/zod'
+import { Link, useNavigate, useSearch } from '@tanstack/react-router'
 import { useForm } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 
 import { Button } from '@/shared/components/Atoms'
 import { FormMenssage, Input, Label } from '@/shared/components/Atoms/Form'
 import { useAuthContext } from '@/shared/contexts/AuthContext'
-import { Link, useNavigate, useSearch } from '@tanstack/react-router'
+
 import { schemaSignIn, type TypeSchemaSignIn } from './schema'
-import { useTranslation } from 'react-i18next'
 
 interface SignInQueryParams {
   email: string
@@ -20,13 +21,13 @@ export default function SignIn() {
     register,
     handleSubmit,
     formState: { isSubmitting, errors, isValid },
-    reset,
+    reset
   } = useForm<TypeSchemaSignIn>({
     resolver: zodResolver(schemaSignIn),
     defaultValues: {
       email,
-      password: '',
-    },
+      password: ''
+    }
   })
 
   const navigate = useNavigate()

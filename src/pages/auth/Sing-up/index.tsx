@@ -1,10 +1,12 @@
-import { Button } from '@/shared/components/Atoms'
-import { FormMenssage, Input, Label } from '@/shared/components/Atoms/Form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Link, useNavigate } from '@tanstack/react-router'
 import { useForm } from 'react-hook-form'
-import { schemaSignUp, type TypeSchemaSignUp } from './schema'
 import { useTranslation } from 'react-i18next'
+
+import { Button } from '@/shared/components/Atoms'
+import { FormMenssage, Input, Label } from '@/shared/components/Atoms/Form'
+
+import { schemaSignUp, type TypeSchemaSignUp } from './schema'
 
 export default function SignUp() {
   const { t } = useTranslation()
@@ -14,9 +16,9 @@ export default function SignUp() {
     register,
     handleSubmit,
     formState: { isSubmitting, errors },
-    reset,
+    reset
   } = useForm<TypeSchemaSignUp>({
-    resolver: zodResolver(schemaSignUp),
+    resolver: zodResolver(schemaSignUp)
   })
 
   async function handleSignUp(data: TypeSchemaSignUp) {
@@ -25,7 +27,7 @@ export default function SignUp() {
         name: data.name,
         email: data.email,
         password: data.createPassword,
-        urlCoverPhoto: '',
+        urlCoverPhoto: ''
       }
 
       console.log(paramsData)

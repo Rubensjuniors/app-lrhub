@@ -23,7 +23,7 @@ function DropdownMenuSubTrigger({
           'flex cursor-default items-center rounded-sm px-2 py-1.5 text-sm outline-hidden select-none',
           'data-[inset]:pl-8'
         ].join(' '),
-        className,
+        className
       )}
       {...props}
     >

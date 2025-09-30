@@ -9,7 +9,7 @@ export const schemaSignUp = z
   })
   .refine((data) => data.createPassword === data.confirmPassword, {
     message: 'auth.sign_up.inputs.confirmPassword.error',
-    path: ['confirmPassword'],
+    path: ['confirmPassword']
   })
 
 export type TypeSchemaSignUp = z.infer<typeof schemaSignUp>

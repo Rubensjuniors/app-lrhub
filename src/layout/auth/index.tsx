@@ -1,6 +1,7 @@
-import { useAuthContext } from '@/shared/contexts/AuthContext'
 import { Navigate, Outlet } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
+
+import { useAuthContext } from '@/shared/contexts/AuthContext'
 
 export default function AuthLayout() {
   const { t } = useTranslation()

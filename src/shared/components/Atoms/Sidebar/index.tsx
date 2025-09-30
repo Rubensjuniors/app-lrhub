@@ -1,12 +1,12 @@
 
 import { cn } from '@/lib/utils'
+import { useSidebar } from '@/shared/contexts/SideBarContext'
 
+import { Sheet } from '../Sheet'
 import { SidebarContent } from './SidebarContent'
 import { SidebarFooter } from './SidebarFooter'
 import { SidebarHeader } from './SidebarHeader'
 import { SidebarTrigger } from './SidebarTrigger'
-import { useSidebar } from '@/shared/contexts/SideBarContext'
-import { Sheet } from '../Sheet'
 
 const SIDEBAR_WIDTH_MOBILE = '18rem'
 
@@ -30,7 +30,7 @@ function Sidebar({
         data-slot="sidebar"
         className={cn(
           'bg-sidebar text-sidebar-foreground flex h-full w-(--sidebar-width) flex-col',
-          className,
+          className
         )}
         {...props}
       >
@@ -77,7 +77,7 @@ function Sidebar({
           'group-data-[side=right]:rotate-180',
           variant === 'floating' || variant === 'inset'
             ? 'group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4)))]'
-            : 'group-data-[collapsible=icon]:w-(--sidebar-width-icon)',
+            : 'group-data-[collapsible=icon]:w-(--sidebar-width-icon)'
         )}
       />
       <div
@@ -90,7 +90,7 @@ function Sidebar({
           variant === 'floating' || variant === 'inset'
             ? 'p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4))+2px)]'
             : 'group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=left]:border-r group-data-[side=right]:border-l',
-          className,
+          className
         )}
         {...props}
       >

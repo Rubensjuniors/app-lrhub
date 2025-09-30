@@ -13,7 +13,7 @@ export const queryClient = new QueryClient({
           return false
         }
         return failureCount < 1
-      },
-    },
-  },
+      }
+    }
+  }
 })

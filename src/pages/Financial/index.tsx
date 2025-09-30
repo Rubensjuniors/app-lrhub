@@ -24,7 +24,9 @@ export default function Financial() {
             <ExpenseTabs />
           </div>
         </div>
+
       </div>
     </HiddenMoneyToggleProvider>
   )
 }
+

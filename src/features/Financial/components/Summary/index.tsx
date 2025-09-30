@@ -1,14 +1,16 @@
-import { useSummaryQuery } from '../../services/Summary/useSummaryQuery'
-import { TotalOverview } from './TotalOverview'
-import { IncomeExpenseSummary } from './IncomeExpenseSummary'
-import { useTranslation } from 'react-i18next'
 import { DollarSign, TrendingDown, TrendingUp } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+
+import { cn } from '@/lib/utils'
 import { Card, Skeleton } from '@/shared/components/Atoms'
 import { Text } from '@/shared/components/Atoms/Text'
+
 import { useHiddenMoneyToggle } from '../../contexts/HiddenMoneyToggleContext'
-import { cn } from '@/lib/utils'
-import { HiddenMoneyButton } from '../HiddenValue/HiddenMoneyButton'
+import { useSummaryQuery } from '../../services/Summary/useSummaryQuery'
 import { HiddenMoney } from '../HiddenValue'
+import { HiddenMoneyButton } from '../HiddenValue/HiddenMoneyButton'
+import { IncomeExpenseSummary } from './IncomeExpenseSummary'
+import { TotalOverview } from './TotalOverview'
 
 export function Summary() {
   const { t } = useTranslation()
@@ -20,20 +22,20 @@ export function Summary() {
       type: 'income',
       title: t('financial.summary.entries'),
       value: summary?.entries ?? 0,
-      icon: <TrendingUp className="h-5 w-5" color="green" />,
+      icon: <TrendingUp className="h-5 w-5" color="green" />
     },
     {
       type: 'exits',
       title: t('financial.summary.exits'),
       value: summary?.exits ?? 0,
-      icon: <TrendingDown className="h-5 w-5" color="red" />,
+      icon: <TrendingDown className="h-5 w-5" color="red" />
     },
     {
       type: 'total',
       title: t('financial.summary.total'),
       value: summary?.total ?? 0,
-      icon: <DollarSign />,
-    },
+      icon: <DollarSign />
+    }
   ]
 
   return (

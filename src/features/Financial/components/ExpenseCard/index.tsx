@@ -1,6 +1,6 @@
-import { Card } from "@/shared/components/Atoms"
-import { AddTransactionSidebar, type ITransactionSidebarTypes } from "../AddTransactionSidebar"
+import { Card } from '@/shared/components/Atoms'
 
+import { AddTransactionSidebar, type ITransactionSidebarTypes } from '../AddTransactionSidebar'
 
 interface ExpenseCardProps {
   title: string

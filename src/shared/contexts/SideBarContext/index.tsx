@@ -1,8 +1,8 @@
+import { TooltipProvider } from '@radix-ui/react-tooltip'
 import React from 'react'
 
 import { cn } from '@/lib/utils'
 import { useIsMobile } from '@/shared/hooks/use-mobile'
-import { TooltipProvider } from '@radix-ui/react-tooltip'
 
 const SIDEBAR_COOKIE_NAME = 'sidebar_state'
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
@@ -51,7 +51,7 @@ export function SidebarProvider({
 
       document.cookie = `${SIDEBAR_COOKIE_NAME}=${openState}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`
     },
-    [setOpenProp, open],
+    [setOpenProp, open]
   )
 
   const toggleSidebar = React.useCallback(() => {
@@ -80,9 +80,9 @@ export function SidebarProvider({
       isMobile,
       openMobile,
       setOpenMobile,
-      toggleSidebar,
+      toggleSidebar
     }),
-    [state, open, setOpen, isMobile, openMobile, setOpenMobile, toggleSidebar],
+    [state, open, setOpen, isMobile, openMobile, setOpenMobile, toggleSidebar]
   )
 
   return (
@@ -94,12 +94,12 @@ export function SidebarProvider({
             {
               '--sidebar-width': SIDEBAR_WIDTH,
               '--sidebar-width-icon': SIDEBAR_WIDTH_ICON,
-              ...style,
+              ...style
             } as React.CSSProperties
           }
           className={cn(
             'group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex min-h-svh w-full',
-            className,
+            className
           )}
           {...props}
         >

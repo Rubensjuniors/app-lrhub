@@ -11,7 +11,6 @@ import { SheetPortal } from './SheetPortal'
 import { SheetTitle } from './SheetTitle'
 import { SheetTrigger } from './SheetTrigger'
 
-
 function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
   return <SheetPrimitive.Root data-slot="sheet" {...props} />
 }

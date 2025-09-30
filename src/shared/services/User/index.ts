@@ -1,6 +1,7 @@
 // import lrHubApi from '@/config/axios'
-import type { IUser } from './types'
 import { sleep } from '@/shared/utils/sleep'
+
+import type { IUser } from './types'
 
 class User {
   async getProfile(): Promise<IUser> {
@@ -11,8 +12,8 @@ class User {
       resolve({
         name: 'Larissa Vítoria',
         email: 'rublari3011@teste.com',
-        avatar: 'https://avatars.githubusercontent.com/u/16882392?v=4',
-      }),
+        avatar: 'https://avatars.githubusercontent.com/u/16882392?v=4'
+      })
     )
   }
 }

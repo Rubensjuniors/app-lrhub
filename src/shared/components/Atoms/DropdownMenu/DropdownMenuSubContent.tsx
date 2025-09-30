@@ -21,9 +21,9 @@ function DropdownMenuSubContent({
           'data-[side=right]:slide-in-from-left-2',
           'data-[side=top]:slide-in-from-bottom-2',
           'z-50 min-w-[8rem] origin-(--radix-dropdown-menu-content-transform-origin)',
-          'overflow-hidden rounded-md border p-1 shadow-lg',
+          'overflow-hidden rounded-md border p-1 shadow-lg'
         ].join(' '),
-        className,
+        className
       )}
       {...props}
     />

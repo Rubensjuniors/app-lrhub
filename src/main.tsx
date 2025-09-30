@@ -1,5 +1,6 @@
 import './shared/assets/styles/index.css'
 import './lib/i18n.ts'
+
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 
@@ -11,6 +12,6 @@ if (!rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <App />
-    </StrictMode>,
+    </StrictMode>
   )
 }

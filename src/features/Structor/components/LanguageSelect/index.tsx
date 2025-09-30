@@ -4,7 +4,7 @@ import {
   SelectGroup,
   SelectItem,
   SelectTrigger,
-  SelectValue,
+  SelectValue
 } from '@/shared/components/ui/select'
 import { changeLanguage, getCurrentLanguage } from '@/shared/utils/languageUtils'
 

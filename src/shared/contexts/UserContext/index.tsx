@@ -1,6 +1,8 @@
 import { createContext, useContext, useMemo } from 'react'
-import type { UserContextType, UserProviderProps } from './types'
+
 import { useUserQuery } from '@/shared/services/User/useUserQuery'
+
+import type { UserContextType, UserProviderProps } from './types'
 
 const UserContext = createContext<UserContextType>({} as UserContextType)
 
@@ -10,7 +12,7 @@ export function UserProvider({ children }: UserProviderProps) {
   const providerValue = useMemo(() => {
     return {
       user: { ...user } as UserContextType['user'],
-      isUserLoading: isLoading,
+      isUserLoading: isLoading
     }
   }, [user])
 

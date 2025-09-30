@@ -1,10 +1,11 @@
 
+import type { ColumnDef } from '@tanstack/react-table'
 import { PencilIcon } from 'lucide-react'
 
-import { NoExpenseEmptyState } from '../EmptyStates/NoExpense'
-import type { ColumnDef } from '@tanstack/react-table'
 import { Button, Checkbox } from '@/shared/components/Atoms'
 import { CustomTable } from '@/shared/components/Molecules'
+
+import { NoExpenseEmptyState } from '../EmptyStates/NoExpense'
 
 interface ExpenseFixed {
   id: number
@@ -24,24 +25,24 @@ export function ExpenseDebitTable() {
       accessorKey: 'paid',
       cell: ({ row }) => {
         return <Checkbox checked={row.original.paid} />
-      },
+      }
     },
     {
       header: 'Nome',
       accessorKey: 'name',
-      enableSorting: true,
+      enableSorting: true
     },
     {
       header: 'Data',
-      accessorKey: 'date',
+      accessorKey: 'date'
     },
     {
       header: 'Categoria',
-      accessorKey: 'category',
+      accessorKey: 'category'
     },
     {
       header: 'Valor',
-      accessorKey: 'amount',
+      accessorKey: 'amount'
     },
     {
       header: 'Ações',
@@ -58,8 +59,8 @@ export function ExpenseDebitTable() {
             <PencilIcon className="w-4 h-4" />
           </Button>
         )
-      },
-    },
+      }
+    }
   ]
 
   return (

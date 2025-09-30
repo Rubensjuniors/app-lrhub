@@ -1,5 +1,6 @@
 import { LayoutList } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+
 import { AddTransactionSidebar, type ITransactionSidebarTypes } from '../../AddTransactionSidebar'
 
 interface NoExpenseProps {

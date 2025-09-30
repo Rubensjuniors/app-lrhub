@@ -1,5 +1,4 @@
-import { useEffect,useState } from 'react'
-
+import { useEffect, useState } from 'react'
 
 export function Loader() {
   const [rotation, setRotation] = useState(0)
@@ -28,7 +27,7 @@ export function Loader() {
             className="w-full h-full rounded-full border-2 border-primary opacity-60"
             style={{
               transform: `scale(${0.8 + Math.sin(rotation * 0.05) * 0.2})`,
-              transition: 'transform 0.1s ease-out',
+              transition: 'transform 0.1s ease-out'
             }}
           />
         </div>
@@ -38,7 +37,7 @@ export function Loader() {
             className="w-full h-full rounded-full border-2 border-primary/50 opacity-40"
             style={{
               transform: `scale(${0.8 + Math.sin(rotation * 0.05 + 1) * 0.2})`,
-              transition: 'transform 0.1s ease-out',
+              transition: 'transform 0.1s ease-out'
             }}
           />
         </div>
@@ -48,7 +47,7 @@ export function Loader() {
             className="w-full h-full rounded-full border-2 border-primary/30 opacity-20"
             style={{
               transform: `scale(${0.8 + Math.sin(rotation * 0.05 + 2) * 0.2})`,
-              transition: 'transform 0.1s ease-out',
+              transition: 'transform 0.1s ease-out'
             }}
           />
         </div>

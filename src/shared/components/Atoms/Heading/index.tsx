@@ -9,7 +9,7 @@ const levelVariants = {
   h3: 'text-lg sm:text-xl md:text-2xl lg:text-3xl',
   h4: 'text-base sm:text-lg md:text-xl lg:text-2xl',
   h5: 'text-sm sm:text-base md:text-lg lg:text-xl',
-  h6: 'text-xs sm:text-sm md:text-base lg:text-lg',
+  h6: 'text-xs sm:text-sm md:text-base lg:text-lg'
 } as const
 
 // Weight variants
@@ -19,7 +19,7 @@ const weightVariants = {
   medium: 'font-medium',
   semibold: 'font-semibold',
   bold: 'font-bold',
-  extrabold: 'font-extrabold',
+  extrabold: 'font-extrabold'
 } as const
 
 // Color variants
@@ -29,14 +29,14 @@ const colorVariants = {
   primary: 'text-primary',
   secondary: 'text-secondary-foreground',
   destructive: 'text-destructive',
-  accent: 'text-accent-foreground',
+  accent: 'text-accent-foreground'
 } as const
 
 // Align variants
 const alignVariants = {
   left: 'text-left',
   center: 'text-center',
-  right: 'text-right',
+  right: 'text-right'
 } as const
 
 export interface HeadingProps extends Omit<React.HTMLAttributes<HTMLHeadingElement>, 'color'> {
@@ -50,7 +50,7 @@ export interface HeadingProps extends Omit<React.HTMLAttributes<HTMLHeadingEleme
 const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
   (
     { className, level = 'h1', weight = 'semibold', color = 'default', align = 'left', as, ...props },
-    ref,
+    ref
   ) => {
     const Component = as || level || 'h1'
 
@@ -60,11 +60,11 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
       weightVariants[weight],
       colorVariants[color],
       alignVariants[align],
-      className,
+      className
     )
 
     return <Component ref={ref} className={classes} {...props} />
-  },
+  }
 )
 
 Heading.displayName = 'Heading'

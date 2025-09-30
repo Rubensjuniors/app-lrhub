@@ -1,9 +1,11 @@
+import { useTranslation } from 'react-i18next'
+
 import { useHiddenMoneyToggle } from '@/features/Financial/contexts/HiddenMoneyToggleContext'
 import { cn } from '@/lib/utils'
 import { Skeleton } from '@/shared/components/Atoms'
 import { Heading } from '@/shared/components/Atoms/Heading'
 import { Text } from '@/shared/components/Atoms/Text'
-import { useTranslation } from 'react-i18next'
+
 import { HiddenMoney } from '../../HiddenValue'
 import { HiddenMoneyButton } from '../../HiddenValue/HiddenMoneyButton'
 

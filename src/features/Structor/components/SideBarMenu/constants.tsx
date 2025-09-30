@@ -4,6 +4,6 @@ export const ItemsMenu = [
   {
     icon: <DollarSign />,
     name: 'sidebar.financial',
-    route: '/',
-  },
+    route: '/'
+  }
 ]

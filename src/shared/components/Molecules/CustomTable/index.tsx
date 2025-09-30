@@ -1,10 +1,11 @@
 import { type ColumnDef, flexRender, getCoreRowModel, type TableOptions, useReactTable } from '@tanstack/react-table'
+
 import { Table } from '../../Atoms'
-import { TableHeader } from '../../Atoms/Table/TableHeader'
-import { TableRow } from '../../Atoms/Table/TableRow'
-import { TableHead } from '../../Atoms/Table/TableHead'
 import { TableBody } from '../../Atoms/Table/TableBody'
 import { TableCell } from '../../Atoms/Table/TableCell'
+import { TableHead } from '../../Atoms/Table/TableHead'
+import { TableHeader } from '../../Atoms/Table/TableHeader'
+import { TableRow } from '../../Atoms/Table/TableRow'
 
 interface CustomTableProps<TData> extends Omit<TableOptions<TData>, 'data' | 'columns' | 'getCoreRowModel'> {
   data: TData[]
@@ -19,10 +20,10 @@ export function CustomTable<TData>({
   ...reactTableProps
 }: CustomTableProps<TData>) {
   const table = useReactTable({
-    data: data,
-    columns: columns,
+    data,
+    columns,
     ...reactTableProps,
-    getCoreRowModel: getCoreRowModel(),
+    getCoreRowModel: getCoreRowModel()
   })
 
   return (

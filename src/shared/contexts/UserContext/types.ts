@@ -1,5 +1,6 @@
-import type { IUser } from '@/shared/services/User/types'
 import type { ReactNode } from 'react'
+
+import type { IUser } from '@/shared/services/User/types'
 
 export interface UserContextType {
   user: IUser,

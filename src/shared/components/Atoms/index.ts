@@ -17,11 +17,11 @@ export {
   Card,
   Checkbox,
   DropdownMenu,
+  Loader,
   Sheet,
   Sidebar,
   Skeleton,
   Table,
   Tabs,
-  Tooltip,
-  Loader,
+  Tooltip
 }

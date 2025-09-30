@@ -8,7 +8,7 @@ const sizeVariants = {
   sm: 'text-sm sm:text-base',
   base: 'text-base sm:text-lg',
   lg: 'text-lg sm:text-xl',
-  xl: 'text-xl sm:text-2xl',
+  xl: 'text-xl sm:text-2xl'
 } as const
 
 // Weight variants
@@ -17,7 +17,7 @@ const weightVariants = {
   normal: 'font-normal',
   medium: 'font-medium',
   semibold: 'font-semibold',
-  bold: 'font-bold',
+  bold: 'font-bold'
 } as const
 
 // Color variants
@@ -27,7 +27,7 @@ const colorVariants = {
   primary: 'text-primary',
   secondary: 'text-secondary-foreground',
   destructive: 'text-destructive',
-  accent: 'text-accent-foreground',
+  accent: 'text-accent-foreground'
 } as const
 
 // Align variants
@@ -35,7 +35,7 @@ const alignVariants = {
   left: 'text-left',
   center: 'text-center',
   right: 'text-right',
-  justify: 'text-justify',
+  justify: 'text-justify'
 } as const
 
 export interface TextProps extends Omit<React.HTMLAttributes<HTMLParagraphElement>, 'color'> {
@@ -57,7 +57,7 @@ const Text = React.forwardRef<HTMLParagraphElement, TextProps>(
       as: Component = 'p',
       ...props
     },
-    ref,
+    ref
   ) => {
     const classes = cn(
       'text-foreground',
@@ -65,11 +65,11 @@ const Text = React.forwardRef<HTMLParagraphElement, TextProps>(
       weightVariants[weight],
       colorVariants[color],
       alignVariants[align],
-      className,
+      className
     )
 
     return <Component ref={ref} className={classes} {...props} />
-  },
+  }
 )
 
 Text.displayName = 'Text'

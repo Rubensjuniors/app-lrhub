@@ -1,9 +1,11 @@
+import { TrendingDown, TrendingUp } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+
 import { cn } from '@/lib/utils'
 import { Card, Skeleton } from '@/shared/components/Atoms'
 import { CardContent } from '@/shared/components/Atoms/Card/CardContent'
 import { Text } from '@/shared/components/Atoms/Text'
-import { TrendingDown, TrendingUp } from 'lucide-react'
-import { useTranslation } from 'react-i18next'
+
 import { HiddenMoney } from '../../HiddenValue'
 
 interface IncomeExpenseSummaryProps {

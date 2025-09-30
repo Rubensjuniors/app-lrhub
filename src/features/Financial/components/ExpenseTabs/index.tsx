@@ -1,10 +1,11 @@
 import { useTranslation } from 'react-i18next'
 
+import { Tabs } from '@/shared/components/Atoms'
+
 import { ExpenseCard } from '../ExpenseCard'
 import { ExpenseCreditCardTable } from '../Tables/ExpenseCreditCardTable'
 import { ExpenseDebitTable } from '../Tables/ExpenseDebitTable'
 import { ExpenseFixedTable } from '../Tables/ExpenseFixedTable'
-import { Tabs } from '@/shared/components/Atoms'
 
 export function ExpenseTabs() {
   const { t } = useTranslation()

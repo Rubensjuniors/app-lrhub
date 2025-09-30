@@ -1,9 +1,9 @@
 import { AlignJustify, X } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
+import { useSidebar } from '@/shared/contexts/SideBarContext'
 
 import { Button } from '../Button'
-import { useSidebar } from '@/shared/contexts/SideBarContext'
 
 type SidebarTriggerProps = React.ComponentProps<typeof Button> & {
   isClose?: boolean

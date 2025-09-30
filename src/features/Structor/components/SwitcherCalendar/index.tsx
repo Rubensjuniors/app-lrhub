@@ -2,6 +2,7 @@ import { addMonths, format, subMonths } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useEffect, useState } from 'react'
+
 import { cn } from '@/lib/utils'
 import { Button } from '@/shared/components/Atoms'
 import { Text } from '@/shared/components/Atoms/Text'
@@ -27,7 +28,7 @@ export function SwitcherCalendar({ className }: { className?: string }) {
 
   useEffect(() => {
     console.log({
-      filterValue: getMonthFilterValue(currentMonth),
+      filterValue: getMonthFilterValue(currentMonth)
     })
   }, [currentMonth])
 
