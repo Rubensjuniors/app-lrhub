@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🔍 Running lint..."
+pnpm lint
+
+echo "🧪 Running tests..."
+pnpm test
+
+echo "✅ Pre-push checks passed!"

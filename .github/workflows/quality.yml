@@ -1,0 +1,48 @@
+name: Quality
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+env:
+  NODE_VERSION: '22'
+  PNPM_VERSION: '10.15.1'
+
+jobs:
+  quality-check:
+    name: Quality Check
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: ${{ env.PNPM_VERSION }}
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'pnpm'
+
+    - name: Install dependencies
+      run: pnpm install --frozen-lockfile
+
+    - name: Build project
+      run: pnpm build
+      env:
+        NODE_ENV: production
+
+    - name: Type checking
+      run: pnpm type-check
+
+    - name: Linting
+      run: pnpm lint
+
+    - name: Run tests
+      run: pnpm test

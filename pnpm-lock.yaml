@@ -150,6 +150,9 @@ importers:
       globals:
         specifier: ^16.4.0
         version: 16.4.0
+      husky:
+        specifier: ^9.1.7
+        version: 9.1.7
       jiti:
         specifier: ^2.6.0
         version: 2.6.0
@@ -2178,6 +2181,11 @@ packages:
 
   http-status-emojis@2.2.0:
     resolution: {integrity: sha512-ompKtgwpx8ff0hsbpIB7oE4ax1LXoHmftsHHStMELX56ivG3GhofTX8ZHWlUaFKfGjcGjw6G3rPk7dJRXMmbbg==}
+
+  husky@9.1.7:
+    resolution: {integrity: sha512-5gs5ytaNjBrh5Ow3zrvdUUY+0VxIuWVL4i9irt6friV+BqdCfmV11CQTWMiBYWHbXhco+J1kHfTOUkePhCDvMA==}
+    engines: {node: '>=18'}
+    hasBin: true
 
   i18next-browser-languagedetector@8.2.0:
     resolution: {integrity: sha512-P+3zEKLnOF0qmiesW383vsLdtQVyKtCNA9cjSoKCppTKPQVfKd2W8hbVo5ZhNJKDqeM7BOcvNoKJOjpHh4Js9g==}
@@ -5270,6 +5278,8 @@ snapshots:
       void-elements: 3.1.0
 
   http-status-emojis@2.2.0: {}
+
+  husky@9.1.7: {}
 
   i18next-browser-languagedetector@8.2.0:
     dependencies:
