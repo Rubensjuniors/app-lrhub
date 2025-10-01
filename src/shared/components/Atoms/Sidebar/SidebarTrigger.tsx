@@ -18,7 +18,7 @@ export function SidebarTrigger({ className, onClick, isClose, ...props }: Sideba
       data-slot="sidebar-trigger"
       variant="ghost"
       size="icon"
-      className={cn('size-7', className)}
+      className={cn(className)}
       onClick={(event) => {
         onClick?.(event)
         toggleSidebar()
@@ -27,7 +27,6 @@ export function SidebarTrigger({ className, onClick, isClose, ...props }: Sideba
     >
       <span className="md:hidden">{isClose ? <X /> : <AlignJustify />}</span>
       <span className="hidden md:inline-block">{open ? <ArrowLeftToLine /> : <ArrowRightToLine />}</span>
-      <span className="sr-only">Toggle Sidebar</span>
     </Button>
   )
 }

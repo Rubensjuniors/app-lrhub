@@ -12,7 +12,7 @@ class User {
       resolve({
         name: 'Larissa Vítoria',
         email: 'rublari3011@teste.com',
-        avatar: 'https://avatars.githubusercontent.com/u/16882392?v=4'
+        avatar: 'https://avatars.githubusercontent.com/u/91913482?v=4'
       })
     )
   }

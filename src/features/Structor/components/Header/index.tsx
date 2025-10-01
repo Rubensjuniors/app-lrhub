@@ -6,11 +6,13 @@ import { SwitcherCalendar } from '../SwitcherCalendar'
 
 export function Header() {
   return (
-    <header className="sticky left-0 top-0 z-10 px-5 py-5 bg-sidebar shadow-lg">
+    <header className="sticky left-0 top-0 z-10 px-4 py-4 bg-sidebar shadow-lg">
       <div className="flex w-full items-center justify-between">
         <SidebarTrigger />
 
-        <SwitcherCalendar className="hidden md:flex" />
+        <div className="flex items-center gap-4">
+          <SwitcherCalendar className="hidden md:flex" />
+        </div>
 
         <Link to="/" className="md:hidden">
           <img src="/icons/logo.svg" alt="Logo" />
