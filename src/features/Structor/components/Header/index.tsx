@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router'
 
+import { ProfileDropdown } from '@/features/Profile/components/ProfileDropdown'
 import { SidebarTrigger } from '@/shared/components/Atoms/Sidebar/SidebarTrigger'
 
 import { SwitcherCalendar } from '../SwitcherCalendar'
@@ -12,11 +13,11 @@ export function Header() {
 
         <div className="flex items-center gap-4">
           <SwitcherCalendar className="hidden md:flex" />
+          <Link to="/" className="md:hidden">
+            <img src="/icons/logo.svg" alt="Logo" />
+          </Link>
+          <ProfileDropdown />
         </div>
-
-        <Link to="/" className="md:hidden">
-          <img src="/icons/logo.svg" alt="Logo" />
-        </Link>
       </div>
     </header>
   )
