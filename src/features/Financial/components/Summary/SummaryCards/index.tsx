@@ -20,7 +20,7 @@ export function SummaryCard({ type, title, value, icon, isLoading }: SummaryCard
       case 'exits':
         return 'text-danger bg-danger/10'
       case 'total':
-        return 'text-white bg-white/10'
+        return value >= 0 ? 'text-success bg-success/10' : 'text-danger bg-danger/10'
       default:
         return 'text-muted-foreground bg-muted'
     }

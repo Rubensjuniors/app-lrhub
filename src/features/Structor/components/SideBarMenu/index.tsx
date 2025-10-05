@@ -32,8 +32,8 @@ export function AppSidebarMenu() {
                   <Button
                     variant="ghost"
                     className={`
-                      ${isActive ? 'bg-primary/10 text-primary hover:bg-primary/20' : ''}
-                      w-full justify-center lg:justify-start hover:bg-sidebar-secondary hover:text-primary
+                      ${isActive ? 'bg-primary/10 text-primary' : ''}
+                      w-full justify-center lg:justify-start hover:bg-primary/20 hover:text-primary
                       transition-colors duration-200 rounded flex items-center
                       gap-2 py-4 px-3`}
                   >

@@ -6,7 +6,8 @@
     "cpyright": "Todos os direitos reservados"
   },
   "sidebar": {
-    "financial": "Financeiro"
+    "financial": "Financeiro",
+    "hub": "Painel"
   },
   "init": {
     "title": "Olá, {{name}}",

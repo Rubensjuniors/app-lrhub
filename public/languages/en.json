@@ -6,7 +6,8 @@
     "cpyright": "All rights reserved"
   },
   "sidebar": {
-    "financial": "Financial"
+    "financial": "Financial",
+    "hub": "hub"
   },
   "init": {
     "title": "Hello, {{name}}",

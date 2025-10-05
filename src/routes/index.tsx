@@ -3,7 +3,9 @@ import { lazy } from 'react'
 
 const AuthLayout = lazy(() => import('../layout/auth'))
 const AppLayout = lazy(() => import('../layout/app'))
+const SummaryLayout = lazy(() => import('../layout/SummaryLayout'))
 
+const Hub = lazy(() => import('../pages/Hub'))
 const Financial = lazy(() => import('../pages/Financial'))
 const SignIn = lazy(() => import('../pages/auth/Sing-in'))
 const SignUp = lazy(() => import('../pages/auth/Sing-up'))
@@ -26,6 +28,12 @@ const structorLayout = createRoute({
   component: AppLayout
 })
 
+const summaryLayout = createRoute({
+  getParentRoute: () => structorLayout,
+  id: 'summary-layout',
+  component: SummaryLayout
+})
+
 // ===== PAGES =====
 const signInRoute = createRoute({
   getParentRoute: () => authLayout,
@@ -40,14 +48,20 @@ const signUpRoute = createRoute({
 })
 
 const indexRoute = createRoute({
-  getParentRoute: () => structorLayout,
+  getParentRoute: () => summaryLayout,
   path: '/',
+  component: Hub
+})
+
+const financialRoute = createRoute({
+  getParentRoute: () => summaryLayout,
+  path: '/financial',
   component: Financial
 })
 
 const routeTree = rootRoute.addChildren([
   authLayout.addChildren([signInRoute, signUpRoute]),
-  structorLayout.addChildren([indexRoute])
+  structorLayout.addChildren([summaryLayout.addChildren([indexRoute, financialRoute])])
 ])
 
 export const router = createRouter({

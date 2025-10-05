@@ -1,5 +1,5 @@
 import type { TFunction } from 'i18next'
-import { DollarSign, TrendingDown, TrendingUp } from 'lucide-react'
+import { TrendingDown, TrendingUp, Wallet } from 'lucide-react'
 
 import type { ISummary } from '../../services/Summary/types'
 
@@ -21,7 +21,7 @@ export const getSummaryItems = (summary: ISummary, t: TFunction<'translation', u
       type: 'total',
       title: t('financial.summary.total'),
       value: summary?.total ?? 0,
-      icon: <DollarSign />
+      icon: <Wallet />
     }
   ]
 }
