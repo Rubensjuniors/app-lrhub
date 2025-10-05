@@ -1,7 +1,7 @@
 import { Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 
-import { Sidebar } from '@/shared/components/Atoms'
+import { Button, Sidebar } from '@/shared/components/Atoms'
 import { ButtonToggleTheme } from '@/shared/components/Molecules'
 import { useSidebar } from '@/shared/contexts/SideBarContext'
 
@@ -10,6 +10,8 @@ import { ItemsMenu } from './constants'
 export function AppSidebarMenu() {
   const { setOpenMobile } = useSidebar()
   const { t } = useTranslation()
+  // const t = ' "
+  //           className=""'
 
   return (
     <Sidebar>
@@ -27,16 +29,17 @@ export function AppSidebarMenu() {
             return (
               <Link to={item.route} key={item.name} onClick={() => setOpenMobile(false)}>
                 {({ isActive }) => (
-                  <div
+                  <Button
+                    variant="ghost"
                     className={`
-                      ${isActive ? 'text-primary bg-sidebar-secondary' : ''}
-                      hover:bg-sidebar-secondary hover:text-primary
+                      ${isActive ? 'bg-primary/10 text-primary hover:bg-primary/20' : ''}
+                      w-full justify-center lg:justify-start hover:bg-sidebar-secondary hover:text-primary
                       transition-colors duration-200 rounded flex items-center
                       gap-2 py-4 px-3`}
                   >
                     {item.icon}
                     <span className="md:hidden lg:inline-block">{t(item.name)}</span>
-                  </div>
+                  </Button>
                 )}
               </Link>
             )

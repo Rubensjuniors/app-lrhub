@@ -23,7 +23,7 @@ export function IncomeExpenseSummary({ income, expenses, className, isLoading }:
       <Card className="flex-1 p-0">
         <Card.Content className="px-2 py-3">
           <div className="flex items-center space-x-3">
-            <div className="p-3 bg-income/20 rounded-full">
+            <div className="p-2 rounded-lg text-success bg-success/10">
               <TrendingUp className="h-5 w-5" color="green" />
             </div>
             <div className="flex-1 min-w-0">
@@ -31,7 +31,7 @@ export function IncomeExpenseSummary({ income, expenses, className, isLoading }:
                 {t('financial.summary.entries')}
               </Text>
               {isLoading && <Skeleton className="h-6 w-20" />}
-              {!isLoading && <HiddenMoney value={income} classNames="text-lg font-bold truncate" />}
+              {!isLoading && <HiddenMoney value={income} classNames="text-lg font-bold truncate text-success" />}
             </div>
           </div>
         </Card.Content>
@@ -40,7 +40,7 @@ export function IncomeExpenseSummary({ income, expenses, className, isLoading }:
       <Card className="flex-1 p-0">
         <CardContent className="px-2 py-3">
           <div className="flex items-center space-x-3">
-            <div className="p-3 bg-expense/20 rounded-full">
+            <div className="p-2 rounded-lg text-danger bg-danger/10">
               <TrendingDown className="h-5 w-5" color="red" />
             </div>
             <div className="flex-1 min-w-0">
@@ -48,7 +48,7 @@ export function IncomeExpenseSummary({ income, expenses, className, isLoading }:
                 {t('financial.summary.exits')}
               </Text>
               {isLoading && <Skeleton className="h-6 w-20" />}
-              {!isLoading && <HiddenMoney value={expenses} classNames="text-lg font-bold truncate" />}
+              {!isLoading && <HiddenMoney value={expenses} classNames="text-lg font-bold truncate text-danger" />}
             </div>
           </div>
         </CardContent>

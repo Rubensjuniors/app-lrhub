@@ -41,6 +41,11 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-secondary: var(--sidebar-secondary);
 
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-danger: var(--danger);
+  --color-danger-foreground: var(--danger-foreground);
+
   --font-sans: 'Roboto', 'sans-serif';
   --font-display: 'Concert One', 'sans-serif';
 }
@@ -79,6 +84,10 @@
   --sidebar-border: oklch(0.92 0.004 286.32);
   --sidebar-ring: oklch(0.606 0.25 292.717);
   --sidebar-secondary: oklch(0.97 0.08 292.717);
+  --success: oklch(0.64 0.15 145);
+  --success-foreground: oklch(0.97 0.01 145);
+  --danger: oklch(0.65 0.22 25);
+  --danger-foreground: oklch(0.98 0.01 25);
 }
 
 .dark {
@@ -114,6 +123,10 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.541 0.281 293.009);
   --sidebar-secondary: oklch(0.274 0.006 286.033);
+  --success: oklch(0.7 0.18 145);
+  --success-foreground: oklch(0.15 0.02 145);
+  --danger: oklch(0.7 0.25 25);
+  --danger-foreground: oklch(0.15 0.02 25);
 }
 
 @layer base {

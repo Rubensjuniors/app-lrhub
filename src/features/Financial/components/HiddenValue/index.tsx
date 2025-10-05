@@ -6,5 +6,5 @@ import { useHiddenMoneyToggle } from '../../contexts/HiddenMoneyToggleContext'
 export function HiddenMoney({ value, classNames }: { value: number; classNames?: string }) {
   const { isVisible } = useHiddenMoneyToggle()
 
-  return <p className={cn(classNames)}>{isVisible ? formatCurrency(value) : '••••••••••'}</p>
+  return <p className={cn(classNames, `${isVisible ? '' : 'text-muted-foreground' }`)}>{isVisible ? formatCurrency(value) : '••••••••••'}</p>
 }
