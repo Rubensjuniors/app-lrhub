@@ -8,7 +8,7 @@ import { Loader } from '@/shared/components/Atoms'
 import { AuthProvider } from '@/shared/contexts/AuthContext'
 import { ThemeProvider } from '@/shared/contexts/ThemeContext'
 
-import { env } from './env'
+// import { env } from './env'
 import { router } from './routes'
 
 export function App() {
@@ -21,7 +21,9 @@ export function App() {
           </AuthProvider>
         </Suspense>
       </ThemeProvider>
-      {env.NODE_ENV === 'development' && <ReactQueryDevtools initialIsOpen={false} position="left" buttonPosition="bottom-left" />}
+      {import.meta.env.NODE_ENV === 'development' && (
+        <ReactQueryDevtools initialIsOpen={false} position="left" buttonPosition="bottom-left" />
+      )}
     </QueryClientProvider>
   )
 }
