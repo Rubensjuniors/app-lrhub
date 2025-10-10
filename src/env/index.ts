@@ -2,7 +2,7 @@ import { z } from 'zod'
 
 const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'production']).default('production'),
-  VITE_API_LRHUB: z.string().url()
+  VITE_API_LRHUB: z.string().url().optional()
 })
 
 const _env = envSchema.safeParse(import.meta.env)
