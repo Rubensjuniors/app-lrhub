@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-import { env } from '@/env'
+// import { env } from '@/env'
 
 const lrHubApi = axios.create({
-  baseURL: env.VITE_API_LRHUB,
+  baseURL: 'env.VITE_API_LRHUB',
   // withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
