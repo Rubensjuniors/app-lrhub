@@ -13,7 +13,7 @@ export default function SummaryLayout() {
         <Wellcome classNames="mb-4"/>
 
         <Summary />
-        <div>
+        <div className="mt-4">
           <Suspense fallback={<Loader />}>
             <Outlet />
           </Suspense>
