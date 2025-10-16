@@ -10,7 +10,7 @@ export default function SummaryLayout() {
   return (
     <HiddenMoneyToggleProvider>
       <div className="w-full py-4 px-5">
-        <Wellcome classNames="mb-4"/>
+        <Wellcome classNames="mb-4" />
 
         <Summary />
         <div className="mt-4">

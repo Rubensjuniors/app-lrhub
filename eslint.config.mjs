@@ -1,24 +1,24 @@
 import js from '@eslint/js'
+import { defineConfig } from 'eslint/config'
+import pluginReact from 'eslint-plugin-react'
+import pluginReactHooks from 'eslint-plugin-react-hooks'
+import pluginReactRefresh from 'eslint-plugin-react-refresh'
+import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
-import pluginReact from 'eslint-plugin-react'
-import { defineConfig } from 'eslint/config'
-import pluginReactHooks from 'eslint-plugin-react-hooks'
-import simpleImportSort from 'eslint-plugin-simple-import-sort'
-import pluginReactRefresh from 'eslint-plugin-react-refresh'
 
 export default defineConfig([
   {
     ignores: ['dist/**', 'node_modules/**', '*.config.js', '*.config.ts', 'cypress/**', 'public/**']
   },
-  {
-    files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-    plugins: { js },
-    extends: ['js/recommended'],
-    languageOptions: { globals: globals.browser }
-  },
+  js.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
+  {
+    files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    languageOptions: { globals: globals.browser },
+    plugins: { js }
+  },
   {
     files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     plugins: {
@@ -36,8 +36,8 @@ export default defineConfig([
 
     rules: {
       // === SEM LIB ===
-      'quotes': ['error', 'single'],
-      'semi': ['error', 'never'],
+      quotes: ['error', 'single'],
+      semi: ['error', 'never'],
       'react/react-in-jsx-scope': 'off',
       'object-curly-spacing': ['error', 'always'],
       'space-before-function-paren': ['error', 'never'],
@@ -48,8 +48,7 @@ export default defineConfig([
       'space-before-blocks': ['error', 'always'],
 
       // === REMOVER ESTA LINHA QUE CAUSA ERRO ===
-      // 'indent': ['error', 2],  ← COMENTAR OU REMOVER
-
+      indent: ['error', 2],
       'comma-dangle': ['error', 'never'],
       'no-trailing-spaces': 'error',
       'no-multiple-empty-lines': ['error', { max: 1 }],
@@ -76,7 +75,7 @@ export default defineConfig([
       'simple-import-sort/exports': 'error',
 
       // === COMPLEXIDADE (NATIVO DO ESLINT) ===
-      'complexity': ['error', { max: 20 }],
+      complexity: ['error', { max: 20 }],
       'max-depth': ['error', 4],
       'max-lines': ['error', { max: 300, skipBlankLines: true }],
       'max-lines-per-function': ['error', { max: 110, skipBlankLines: true }],

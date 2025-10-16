@@ -1,52 +1,37 @@
-import { ExpensesChart, type MonthlyData } from '@/features/Hub/components/ExpensesChart'
+import { ExpensesChart } from '@/features/Hub/components/ExpensesChart'
+import type { MonthlyData } from '@/features/Hub/components/ExpensesChart/types.ts'
+import { Tabs } from '@/shared/components/Atoms'
 
-export const mockMonthlyData: MonthlyData[] = [
+// TODO: Consumir da API
+const mockMonthlyData: MonthlyData[] = [
   {
     month: 'Jan',
-    income: 5200,
-    expenses: 2100,
-    fixed: 1500,
-    debit: 600,
-    installment: 0
+    income: 2200,
+    expenses: 900
   },
   {
     month: 'Fev',
     income: 5200,
-    expenses: 2300,
-    fixed: 1500,
-    debit: 800,
-    installment: 0
+    expenses: 2300
   },
   {
     month: 'Mar',
-    income: 5500,
-    expenses: 1800,
-    fixed: 1500,
-    debit: 0,
-    installment: 300
-  },
-  {
-    month: 'Abr',
-    income: 5500,
-    expenses: 2320,
-    fixed: 1500,
-    debit: 520,
-    installment: 300
-  },
-  {
-    month: 'Mai',
-    income: 5500,
-    expenses: 2639,
-    fixed: 1709,
-    debit: 630,
-    installment: 300
+    income: 520,
+    expenses: 200
   }
 ]
 
 export default function Hub() {
   return (
-    <div className="mb-8">
-      <ExpensesChart data={mockMonthlyData} />
-    </div>
+    <Tabs defaultValue="summary" className="mb-8">
+      <Tabs.List>
+        <Tabs.Trigger value="summary">
+          <span>Summary</span>
+        </Tabs.Trigger>
+      </Tabs.List>
+      <Tabs.Content value="summary">
+        <ExpensesChart data={mockMonthlyData} />
+      </Tabs.Content>
+    </Tabs>
   )
 }
