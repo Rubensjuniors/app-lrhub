@@ -1,5 +1,5 @@
 export interface MonthlyData {
-  month: string
+  month:  number
   income: number
   expenses: number
 }

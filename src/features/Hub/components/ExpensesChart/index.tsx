@@ -1,21 +1,72 @@
+import { useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Area, AreaChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 
-import type { ExpensesChartProps } from '@/features/Hub/components/ExpensesChart/types.ts'
+import type { MonthlyData } from '@/features/Hub/components/ExpensesChart/types.ts'
 import { Card } from '@/shared/components/Atoms'
 import { EmptyState } from '@/shared/components/Molecules/EmptyState'
 import { EMPTY_STATE_TYPE } from '@/shared/components/Molecules/EmptyState/types.ts'
 import { formatCurrency } from '@/shared/utils/money'
 
-export const ExpensesChart = ({ data }: ExpensesChartProps) => {
-  if (data.length <= 1) {
+const data: MonthlyData[] = [
+  {
+    month: 1,
+    income: 2200,
+    expenses: 900
+  },
+  {
+    month: 2,
+    income: 5200,
+    expenses: 2300
+  },
+  {
+    month: 3,
+    income: 520,
+    expenses: 200
+  },
+  {
+    month: 4,
+    income: 2200,
+    expenses: 900
+  },
+  {
+    month: 5,
+    income: 5200,
+    expenses: 2300
+  },
+  {
+    month: 6,
+    income: 520,
+    expenses: 200
+  },
+  {
+    month: 7,
+    income: 2200,
+    expenses: 900
+  }
+]
+
+export const ExpensesChart = () => {
+  const { t } = useTranslation()
+
+  const formatedData = useMemo(
+    () =>
+      data.map((item) => ({
+        ...item,
+        month: t(`months.${item.month}`)
+      })),
+    [t]
+  )
+
+  if (formatedData.length <= 1) {
     return <EmptyState type={EMPTY_STATE_TYPE.CHART} />
   }
 
   return (
     <Card className="p-6 shadow-[var(--shadow-md)]">
-      <h3 className="text-lg font-semibold mb-6 text-foreground">Evolução Financeira (5 meses)</h3>
+      <h3 className="text-lg font-semibold mb-6 text-foreground">{t('ff')}</h3>
       <ResponsiveContainer width="100%" height={350}>
-        <AreaChart data={data}>
+        <AreaChart data={formatedData}>
           <defs>
             <linearGradient id="colorIncome" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="var(--success)" stopOpacity={0.3} />
@@ -46,8 +97,8 @@ export const ExpensesChart = ({ data }: ExpensesChartProps) => {
             wrapperStyle={{ fontSize: '12px', paddingTop: '20px' }}
             formatter={(value) => {
               const labels: Record<string, string> = {
-                income: 'Entradas',
-                expenses: 'Saídas Totais'
+                income: t('Entradas'),
+                expenses: t('Saídas Totais')
               }
               return labels[value] || value
             }}
