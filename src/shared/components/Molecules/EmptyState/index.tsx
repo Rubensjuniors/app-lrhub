@@ -16,12 +16,12 @@ export const EmptyState = ({ type = EMPTY_STATE_TYPE.GENERAL, onAction }: EmptyS
           <Icon className="h-12 w-12 text-muted-foreground" />
         </div>
         <div className="space-y-2">
-          <h3 className="text-xl font-semibold text-foreground">{t(selected.title)}</h3>
-          <p className="text-muted-foreground max-w-md">{t(selected.description)}</p>
+          <h3 className="text-xl font-semibold text-foreground">{t(`empty_state.${type}.title`)}</h3>
+          <p className="text-muted-foreground max-w-md">{t(`empty_state.${type}.description`)}</p>
         </div>
         {selected.actionLabel && onAction && (
           <Button onClick={onAction} className="mt-4">
-            {t(selected.actionLabel)}
+            {t(`empty_state.${type}.action_label`)}
           </Button>
         )}
       </div>

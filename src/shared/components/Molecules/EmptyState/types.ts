@@ -12,7 +12,5 @@ export interface EmptyStateProps {
 
 export interface IEmptyStateContent {
   icon: LucideIcon
-  title: string
-  description: string
   actionLabel?: string
 }

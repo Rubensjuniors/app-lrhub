@@ -99,5 +99,15 @@
       "exits": "Saídas",
       "total": "Total"
     }
+  },
+  "empty_state": {
+    "general": {
+      "title": "Bem-vindo!",
+      "description": "Você ainda não tem dados financeiros. Complete seu primeiro mês para começar a visualizar análises."
+    },
+    "chart": {
+      "title": "Sem dados para exibir",
+      "description": "Complete 2 meses de transações para visualizar o histórico financeiro."
+    }
   }
 }

@@ -4,14 +4,9 @@ import { EMPTY_STATE_TYPE, type IEmptyStateContent } from '@/shared/components/M
 
 export const emptyStateContent: Record<EMPTY_STATE_TYPE, IEmptyStateContent> = {
   chart: {
-    icon: TrendingUp,
-    title: 'Sem dados para exibir',
-    description: 'Complete 2 meses de transações para visualizar o histórico financeiro.'
+    icon: TrendingUp
   },
   general: {
-    icon: FileQuestion,
-    title: 'Bem-vindo!',
-    description:
-      'Você ainda não tem dados financeiros. Complete seu primeiro mês para começar a visualizar análises.'
+    icon: FileQuestion
   }
 }
