@@ -48,7 +48,6 @@ export default defineConfig([
       'space-before-blocks': ['error', 'always'],
 
       // === REMOVER ESTA LINHA QUE CAUSA ERRO ===
-      indent: ['error', 2],
       'comma-dangle': ['error', 'never'],
       'no-trailing-spaces': 'error',
       'no-multiple-empty-lines': ['error', { max: 1 }],

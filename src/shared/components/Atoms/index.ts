@@ -5,6 +5,7 @@ import { Checkbox } from './Checkbox'
 import { Heading } from './Heading'
 import { Loader } from './Loader'
 import { Select } from './Select'
+import { Separator } from './Separator'
 import { Sheet } from './Sheet'
 import { Sidebar } from './Sidebar'
 import { Skeleton } from './Skeleton'
@@ -21,6 +22,7 @@ export {
   Heading,
   Loader,
   Select,
+  Separator,
   Sheet,
   Sidebar,
   Skeleton,

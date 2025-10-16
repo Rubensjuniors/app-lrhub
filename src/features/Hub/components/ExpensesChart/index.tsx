@@ -1,3 +1,4 @@
+import { TrendingDown, TrendingUp } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Area, AreaChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
@@ -40,18 +41,6 @@ const data: MonthlyData[] = [
     income: 5200,
     expenses: 2300,
     year: 25
-  },
-  {
-    month: 6,
-    income: 520,
-    expenses: 200,
-    year: 25
-  },
-  {
-    month: 7,
-    income: 2200,
-    expenses: 900,
-    year: 25
   }
 ]
 
@@ -74,7 +63,7 @@ export const ExpensesChart = () => {
 
   return (
     <Card className="p-6 shadow-[var(--shadow-md)]">
-      <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
+      <div className="flex items-center justify-between mb-2 flex-wrap gap-2">
         <h3 className="text-lg font-semibold text-foreground">{t('expenses_chart.title')}</h3>
 
         <SelectLastMonths chartPeriod={chartPeriod} setChartPeriod={setChartPeriod} />
@@ -134,7 +123,26 @@ export const ExpensesChart = () => {
         </AreaChart>
       </ResponsiveContainer>
 
-      <div className="md:hidden">Falta o mobile</div>
+      <div className="md:hidden flex gap-2 flex-col">
+        {formatedData.map((item) => (
+          <Card key={item.month} className="p-6 flex flex-row items-center justify-between">
+            <div>{item.month}</div>
+            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2">
+                <TrendingUp className="h-5 w-5" color="green" />
+
+                <span>{formatCurrency(item.income)}</span>
+              </div>
+
+              <span className="border h-10" />
+              <div className="flex items-center gap-2">
+                <span>{formatCurrency(item.expenses)}</span>
+                <TrendingDown className="h-5 w-5" color="red" />
+              </div>
+            </div>
+          </Card>
+        ))}
+      </div>
     </Card>
   )
 }
