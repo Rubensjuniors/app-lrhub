@@ -100,6 +100,11 @@
       "total": "Total"
     }
   },
+  "hub": {
+    "tabs": {
+      "summary": "Resumo"
+    }
+  },
   "empty_state": {
     "general": {
       "title": "Bem-vindo!",
@@ -123,5 +128,14 @@
     "10": "Out",
     "11": "Nov",
     "12": "Dez"
+  },
+  "expenses_chart": {
+    "title": "Gastos dos últimos meses",
+    "entries": "Entradas",
+    "exits": "Saídas",
+    "select_last_months": {
+      "label": "Selecione o período",
+      "option": "Últimos {{month}} meses"
+    }
   }
 }

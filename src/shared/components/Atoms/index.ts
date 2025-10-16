@@ -4,6 +4,7 @@ import { Card } from './Card'
 import { Checkbox } from './Checkbox'
 import { Heading } from './Heading'
 import { Loader } from './Loader'
+import { Select } from './Select'
 import { Sheet } from './Sheet'
 import { Sidebar } from './Sidebar'
 import { Skeleton } from './Skeleton'
@@ -19,6 +20,7 @@ export {
   Checkbox,
   Heading,
   Loader,
+  Select,
   Sheet,
   Sidebar,
   Skeleton,

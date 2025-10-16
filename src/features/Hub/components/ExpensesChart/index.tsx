@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Area, AreaChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 
@@ -8,52 +8,62 @@ import { EmptyState } from '@/shared/components/Molecules/EmptyState'
 import { EMPTY_STATE_TYPE } from '@/shared/components/Molecules/EmptyState/types.ts'
 import { formatCurrency } from '@/shared/utils/money'
 
+import { SelectLastMonths } from '../SelectLastMonths'
+
 const data: MonthlyData[] = [
   {
     month: 1,
     income: 2200,
-    expenses: 900
+    expenses: 900,
+    year: 25
   },
   {
     month: 2,
     income: 5200,
-    expenses: 2300
+    expenses: 2300,
+    year: 25
   },
   {
     month: 3,
     income: 520,
-    expenses: 200
+    expenses: 200,
+    year: 25
   },
   {
     month: 4,
     income: 2200,
-    expenses: 900
+    expenses: 900,
+    year: 25
   },
   {
     month: 5,
     income: 5200,
-    expenses: 2300
+    expenses: 2300,
+    year: 25
   },
   {
     month: 6,
     income: 520,
-    expenses: 200
+    expenses: 200,
+    year: 25
   },
   {
     month: 7,
     income: 2200,
-    expenses: 900
+    expenses: 900,
+    year: 25
   }
 ]
 
 export const ExpensesChart = () => {
   const { t } = useTranslation()
+  const [chartPeriod, setChartPeriod] = useState(5)
 
   const formatedData = useMemo(
     () =>
       data.map((item) => ({
         ...item,
-        month: t(`months.${item.month}`)
+        month: `${t(`months.${item.month}`)}/${item.year}`
       })),
     [t]
   )
@@ -64,9 +74,13 @@ export const ExpensesChart = () => {
 
   return (
     <Card className="p-6 shadow-[var(--shadow-md)]">
-      <h3 className="text-lg font-semibold mb-6 text-foreground">{t('ff')}</h3>
-      <ResponsiveContainer width="100%" height={350}>
-        <AreaChart data={formatedData}>
+      <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
+        <h3 className="text-lg font-semibold text-foreground">{t('expenses_chart.title')}</h3>
+
+        <SelectLastMonths chartPeriod={chartPeriod} setChartPeriod={setChartPeriod} />
+      </div>
+      <ResponsiveContainer width="100%" height={350} className="hidden md:block">
+        <AreaChart data={formatedData} className="outline-none">
           <defs>
             <linearGradient id="colorIncome" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="var(--success)" stopOpacity={0.3} />
@@ -97,8 +111,8 @@ export const ExpensesChart = () => {
             wrapperStyle={{ fontSize: '12px', paddingTop: '20px' }}
             formatter={(value) => {
               const labels: Record<string, string> = {
-                income: t('Entradas'),
-                expenses: t('Saídas Totais')
+                income: t('expenses_chart.entries'),
+                expenses: t('expenses_chart.exits')
               }
               return labels[value] || value
             }}
@@ -119,6 +133,8 @@ export const ExpensesChart = () => {
           />
         </AreaChart>
       </ResponsiveContainer>
+
+      <div className="md:hidden">Falta o mobile</div>
     </Card>
   )
 }
