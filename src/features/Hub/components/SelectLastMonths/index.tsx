@@ -1,5 +1,6 @@
 import { Trans, useTranslation } from 'react-i18next'
 
+import { cn } from '@/lib/utils'
 import { Select } from '@/shared/components/Atoms'
 
 import type { SelectLastMonthsProps } from './types'
@@ -23,7 +24,7 @@ export function SelectLastMonths({ chartPeriod, setChartPeriod }: SelectLastMont
       </Select.Trigger>
       <Select.Content>
         {months.map((item) => (
-          <Select.Item key={item} value={item}>
+          <Select.Item key={item} value={item} className={cn(`${Number(item) > 5 ? 'hidden sm:block' : ''}`)}>
             <Trans i18nKey="expenses_chart.select_last_months.option" values={{ month: item }} />
           </Select.Item>
         ))}

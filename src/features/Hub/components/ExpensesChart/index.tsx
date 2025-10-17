@@ -1,4 +1,4 @@
-import { TrendingDown, TrendingUp } from 'lucide-react'
+import { ArrowDownCircle, ArrowUpCircle } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Area, AreaChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
@@ -68,7 +68,7 @@ export const ExpensesChart = () => {
 
         <SelectLastMonths chartPeriod={chartPeriod} setChartPeriod={setChartPeriod} />
       </div>
-      <ResponsiveContainer width="100%" height={350} className="hidden md:block">
+      <ResponsiveContainer width="100%" height={350} className="hidden sm:block">
         <AreaChart data={formatedData} className="outline-none">
           <defs>
             <linearGradient id="colorIncome" x1="0" y1="0" x2="0" y2="1">
@@ -123,21 +123,27 @@ export const ExpensesChart = () => {
         </AreaChart>
       </ResponsiveContainer>
 
-      <div className="md:hidden flex gap-2 flex-col">
+      <div className="sm:hidden flex gap-2 flex-col">
         {formatedData.map((item) => (
-          <Card key={item.month} className="p-6 flex flex-row items-center justify-between">
-            <div>{item.month}</div>
-            <div className="flex items-center gap-2">
+          <Card className="p-4 rounded-lg border border-border bg-card/50 space-y-2 gap-0" key={item.month}>
+            <div className="font-medium text-foreground text-sm mb-3">{item.month}</div>
+            <div className="flex flex-wrap items-center justify-between gap-2">
               <div className="flex items-center gap-2">
-                <TrendingUp className="h-5 w-5" color="green" />
-
-                <span>{formatCurrency(item.income)}</span>
+                <ArrowUpCircle className="h-4 w-4 text-success flex-shrink-0" />
+                <div>
+                  <div className="text-xs text-muted-foreground">{t('expenses_chart.entries')}</div>
+                  <div className="text-sm font-semibold text-success">{formatCurrency(item.income)}</div>
+                </div>
               </div>
 
-              <span className="border h-10" />
               <div className="flex items-center gap-2">
-                <span>{formatCurrency(item.expenses)}</span>
-                <TrendingDown className="h-5 w-5" color="red" />
+                <ArrowDownCircle className="h-4 w-4 text-danger flex-shrink-0" />
+                <div>
+                  <div className="text-xs text-muted-foreground">{t('expenses_chart.exits')}</div>
+                  <div className="text-sm font-semibold text-danger">
+                    {formatCurrency(item.expenses)}
+                  </div>
+                </div>
               </div>
             </div>
           </Card>

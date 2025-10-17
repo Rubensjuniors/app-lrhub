@@ -24,7 +24,7 @@ export function IncomeExpenseSummary({ income, expenses, className, isLoading }:
         <Card.Content className="px-2 py-3">
           <div className="flex items-center space-x-3">
             <div className="p-2 rounded-lg text-success bg-success/10">
-              <TrendingUp className="h-5 w-5" color="green" />
+              <TrendingUp className="h-5 w-5 text-success" />
             </div>
             <div className="flex-1 min-w-0">
               <Text as="span" size="xs" color="muted" weight="medium">
@@ -41,7 +41,7 @@ export function IncomeExpenseSummary({ income, expenses, className, isLoading }:
         <CardContent className="px-2 py-3">
           <div className="flex items-center space-x-3">
             <div className="p-2 rounded-lg text-danger bg-danger/10">
-              <TrendingDown className="h-5 w-5" color="red" />
+              <TrendingDown className="h-5 w-5 text-danger"  />
             </div>
             <div className="flex-1 min-w-0">
               <Text as="span" size="xs" color="muted" weight="medium">
