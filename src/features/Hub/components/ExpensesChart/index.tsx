@@ -14,7 +14,7 @@ import { SelectLastMonths } from '../SelectLastMonths'
 export const ExpensesChart = () => {
   const { t } = useTranslation()
   const [chartPeriod, setChartPeriod] = useState(5)
-  const { data, isLoading } = useLastMonth()
+  const { data } = useLastMonth()
 
   const formatedData = useMemo(
     () =>
