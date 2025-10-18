@@ -1,9 +1,4 @@
-export interface MonthlyData {
-  month:  number
-  income: number
-  expenses: number
-  year: number
-}
+import type { MonthlyData } from '../../services/LastMonth/types'
 
 export interface ExpensesChartProps {
   data: MonthlyData[]

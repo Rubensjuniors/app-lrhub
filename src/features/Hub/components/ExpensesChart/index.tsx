@@ -3,58 +3,26 @@ import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Area, AreaChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 
-import type { MonthlyData } from '@/features/Hub/components/ExpensesChart/types.ts'
 import { Card } from '@/shared/components/Atoms'
 import { EmptyState } from '@/shared/components/Molecules/EmptyState'
 import { EMPTY_STATE_TYPE } from '@/shared/components/Molecules/EmptyState/types.ts'
 import { formatCurrency } from '@/shared/utils/money'
 
+import { useLastMonth } from '../../services/LastMonth/useLastMonth'
 import { SelectLastMonths } from '../SelectLastMonths'
-
-const data: MonthlyData[] = [
-  {
-    month: 1,
-    income: 2200,
-    expenses: 900,
-    year: 25
-  },
-  {
-    month: 2,
-    income: 5200,
-    expenses: 2300,
-    year: 25
-  },
-  {
-    month: 3,
-    income: 520,
-    expenses: 200,
-    year: 25
-  },
-  {
-    month: 4,
-    income: 2200,
-    expenses: 900,
-    year: 25
-  },
-  {
-    month: 5,
-    income: 5200,
-    expenses: 2300,
-    year: 25
-  }
-]
 
 export const ExpensesChart = () => {
   const { t } = useTranslation()
   const [chartPeriod, setChartPeriod] = useState(5)
+  const { data, isLoading } = useLastMonth()
 
   const formatedData = useMemo(
     () =>
-      data.map((item) => ({
+      data?.map((item) => ({
         ...item,
         month: `${t(`months.${item.month}`)}/${item.year}`
-      })),
-    [t]
+      })) ?? [],
+    [t, data]
   )
 
   if (formatedData.length <= 1) {
@@ -140,9 +108,7 @@ export const ExpensesChart = () => {
                 <ArrowDownCircle className="h-4 w-4 text-danger flex-shrink-0" />
                 <div>
                   <div className="text-xs text-muted-foreground">{t('expenses_chart.exits')}</div>
-                  <div className="text-sm font-semibold text-danger">
-                    {formatCurrency(item.expenses)}
-                  </div>
+                  <div className="text-sm font-semibold text-danger">{formatCurrency(item.expenses)}</div>
                 </div>
               </div>
             </div>
