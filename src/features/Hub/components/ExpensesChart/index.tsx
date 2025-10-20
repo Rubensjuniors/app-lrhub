@@ -1,31 +1,20 @@
 import { ArrowDownCircle, ArrowUpCircle } from 'lucide-react'
-import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Area, AreaChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 
-import { Card } from '@/shared/components/Atoms'
+import { Card, Skeleton } from '@/shared/components/Atoms'
 import { EmptyState } from '@/shared/components/Molecules/EmptyState'
 import { EMPTY_STATE_TYPE } from '@/shared/components/Molecules/EmptyState/types.ts'
 import { formatCurrency } from '@/shared/utils/money'
 
-import { useLastMonth } from '../../services/LastMonth/useLastMonth'
 import { SelectLastMonths } from '../SelectLastMonths'
+import { useExpensesChart } from './useExpensesChart'
 
 export const ExpensesChart = () => {
   const { t } = useTranslation()
-  const [chartPeriod, setChartPeriod] = useState(5)
-  const { data } = useLastMonth()
+  const { chartPeriod, formatedData, isLoading, setChartPeriod } = useExpensesChart(t)
 
-  const formatedData = useMemo(
-    () =>
-      data?.map((item) => ({
-        ...item,
-        month: `${t(`months.${item.month}`)}/${item.year}`
-      })) ?? [],
-    [t, data]
-  )
-
-  if (formatedData.length <= 1) {
+  if (formatedData.length <= 1 && !isLoading) {
     return <EmptyState type={EMPTY_STATE_TYPE.CHART} />
   }
 
@@ -34,64 +23,75 @@ export const ExpensesChart = () => {
       <div className="flex items-center justify-between mb-2 flex-wrap gap-2">
         <h3 className="text-lg font-semibold text-foreground">{t('expenses_chart.title')}</h3>
 
-        <SelectLastMonths chartPeriod={chartPeriod} setChartPeriod={setChartPeriod} />
+        {isLoading && <Skeleton className="h-9 w-40" />}
+        {!isLoading && <SelectLastMonths chartPeriod={chartPeriod} setChartPeriod={setChartPeriod} />}
       </div>
-      <ResponsiveContainer width="100%" height={350} className="hidden sm:block">
-        <AreaChart data={formatedData} className="outline-none">
-          <defs>
-            <linearGradient id="colorIncome" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="var(--success)" stopOpacity={0.3} />
-              <stop offset="95%" stopColor="var(--success)" stopOpacity={0} />
-            </linearGradient>
-            <linearGradient id="colorExpenses" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="var(--danger)" stopOpacity={0.3} />
-              <stop offset="95%" stopColor="var(--danger)" stopOpacity={0} />
-            </linearGradient>
-          </defs>
-          <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
-          <XAxis dataKey="month" stroke="var(--muted-foreground)" className="text-sm" />
-          <YAxis
-            stroke="var(--muted-foreground)"
-            className="text-sm"
-            tickFormatter={(value) => formatCurrency(value)}
-          />
-          <Tooltip
-            contentStyle={{
-              backgroundColor: 'var(--card)',
-              border: '1px solid var(--border)',
-              borderRadius: 'var(--radius)',
-              padding: '12px'
-            }}
-            formatter={(value: number) => [formatCurrency(value), '']}
-          />
-          <Legend
-            wrapperStyle={{ fontSize: '12px', paddingTop: '20px' }}
-            formatter={(value) => {
-              const labels: Record<string, string> = {
-                income: t('expenses_chart.entries'),
-                expenses: t('expenses_chart.exits')
-              }
-              return labels[value] || value
-            }}
-          />
-          <Area
-            type="monotone"
-            dataKey="income"
-            stroke="var(--success)"
-            strokeWidth={3}
-            fill="url(#colorIncome)"
-          />
-          <Area
-            type="monotone"
-            dataKey="expenses"
-            stroke="var(--danger)"
-            strokeWidth={3}
-            fill="url(#colorExpenses)"
-          />
-        </AreaChart>
-      </ResponsiveContainer>
+
+      <div className="hidden sm:block w-full">
+        {isLoading && <Skeleton className="h-[399px] w-full" />}
+        {!isLoading && formatedData && (
+          <ResponsiveContainer width="100%" height={350} className="hidden sm:block">
+            <AreaChart data={formatedData} className="outline-none">
+              <defs>
+                <linearGradient id="colorIncome" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="var(--success)" stopOpacity={0.3} />
+                  <stop offset="95%" stopColor="var(--success)" stopOpacity={0} />
+                </linearGradient>
+                <linearGradient id="colorExpenses" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="var(--danger)" stopOpacity={0.3} />
+                  <stop offset="95%" stopColor="var(--danger)" stopOpacity={0} />
+                </linearGradient>
+              </defs>
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
+              <XAxis dataKey="month" stroke="var(--muted-foreground)" className="text-sm" />
+              <YAxis
+                stroke="var(--muted-foreground)"
+                className="text-sm"
+                tickFormatter={(value) => formatCurrency(value)}
+              />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: 'var(--card)',
+                  border: '1px solid var(--border)',
+                  borderRadius: 'var(--radius)',
+                  padding: '12px'
+                }}
+                formatter={(value: number) => [formatCurrency(value), '']}
+              />
+              <Legend
+                wrapperStyle={{ fontSize: '12px', paddingTop: '20px' }}
+                formatter={(value) => {
+                  const labels: Record<string, string> = {
+                    income: t('expenses_chart.entries'),
+                    expenses: t('expenses_chart.exits')
+                  }
+                  return labels[value] || value
+                }}
+              />
+              <Area
+                type="monotone"
+                dataKey="income"
+                stroke="var(--success)"
+                strokeWidth={3}
+                fill="url(#colorIncome)"
+              />
+              <Area
+                type="monotone"
+                dataKey="expenses"
+                stroke="var(--danger)"
+                strokeWidth={3}
+                fill="url(#colorExpenses)"
+              />
+            </AreaChart>
+          </ResponsiveContainer>
+        )}
+      </div>
 
       <div className="sm:hidden flex gap-2 flex-col">
+        {isLoading &&
+          Array(5)
+            .fill(null)
+            .map((_, i) => <Skeleton key={i} className="h-22 w-full" />)}
         {formatedData.map((item) => (
           <Card className="p-4 rounded-lg border border-border bg-card/50 space-y-2 gap-0" key={item.month}>
             <div className="font-medium text-foreground text-sm mb-3">{item.month}</div>
