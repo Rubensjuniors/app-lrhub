@@ -1,5 +1,6 @@
-import { ExpenseTabs } from '@/features/Financial/components/ExpenseTabs'
+import { financialTabsConfig } from '@/features/Financial/components/ExpenseTabs'
 import { SwitcherCalendar } from '@/features/Structor/components/SwitcherCalendar'
+import { ConfigurableTabs } from '@/shared/components/Molecules'
 
 export default function Financial() {
   return (
@@ -8,7 +9,7 @@ export default function Financial() {
         <SwitcherCalendar className="md:hidden w-full justify-between gap-2" />
       </div>
       <div className="mt-3">
-        <ExpenseTabs />
+        <ConfigurableTabs tabsConfig={financialTabsConfig} />
       </div>
     </div>
   )
