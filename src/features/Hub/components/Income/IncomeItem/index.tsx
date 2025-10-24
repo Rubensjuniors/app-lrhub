@@ -1,11 +1,10 @@
 import { TrendingUp } from 'lucide-react'
 
+import type { IIncome } from '@/features/Hub/context/IncomeContext/types'
 import { Button, Text } from '@/shared/components/Atoms'
 import { formatCurrency } from '@/shared/utils/money'
 
-import type { IncomeItemProps } from '../types'
-
-export function IncomeItem({ id, name, amount, dayOfReceipt }: IncomeItemProps) {
+export function IncomeItem({ id, name, amount, dayOfReceipt }: IIncome) {
   return (
     <Button
       variant="outline"

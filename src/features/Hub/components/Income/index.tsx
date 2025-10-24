@@ -1,6 +1,9 @@
-import { cn } from '@/lib/utils'
-import { Card, Heading } from '@/shared/components/Atoms'
+import { Plus } from 'lucide-react'
 
+import { cn } from '@/lib/utils'
+import { Button, Card, Heading } from '@/shared/components/Atoms'
+
+import { useIncomeContext } from '../../context/IncomeContext'
 import { IncomeItem } from './IncomeItem'
 
 const incomes = [
@@ -55,12 +58,16 @@ const incomes = [
 ]
 
 export function Income({ className = '' }: { className?: string }) {
+  const { setIsOpenIncomeModal } = useIncomeContext()
   return (
     <div className={cn(className)}>
-      <div>
+      <div className="flex justify-between items-center w-full">
         <Heading as="h4" level="h4">
           Entradas
         </Heading>
+        <Button size="sm" variant="outline" onClick={() => setIsOpenIncomeModal(true)}>
+          <Plus className="h-4 w-4" />
+        </Button>
       </div>
       <Card className="w-full flex flex-col gap-2 p-2 mt-4 max-h-[469px] overflow-y-scroll scrollbar pr-0">
         {incomes.map((item) => (
