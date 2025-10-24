@@ -37,7 +37,6 @@ export function ConfigurableTabs({ tabsConfig, className }: ConfigurableTabsProp
     }
 
     window.addEventListener('resize', handleResize)
-    // Verifica imediatamente ao montar
     handleResize()
 
     return () => window.removeEventListener('resize', handleResize)
