@@ -69,7 +69,7 @@ export function Income({ className = '' }: { className?: string }) {
           <Plus className="h-4 w-4" />
         </Button>
       </div>
-      <Card className="w-full flex flex-col gap-2 p-2 mt-4 max-h-[469px] overflow-y-scroll scrollbar pr-0">
+      <Card className="w-full flex flex-col gap-2 p-2 mt-4 max-h-[469px] overflow-y-scroll scrollbar pr-2 lg:pr-0">
         {incomes.map((item) => (
           <IncomeItem key={item.id} {...item} />
         ))}
