@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { cn } from '@/lib/utils'
@@ -15,12 +16,42 @@ export function ConfigurableTabs({ tabsConfig, className }: ConfigurableTabsProp
 
   const tabsKeys = Object.keys(tabsConfig)
   const defaultTab = tabsKeys[0]
+  const [activeTab, setActiveTab] = useState(defaultTab)
+
+  useEffect(() => {
+    const isTabVisible = (tabKey: string) => {
+      const config = tabsConfig[tabKey]
+      if (!config?.hidden?.width || !config?.hidden.className) return true
+
+      if (config?.hidden.className.includes('lg:hidden')) {
+        return window.innerWidth < config?.hidden.width
+      }
+
+      return true
+    }
+
+    const handleResize = () => {
+      if (!isTabVisible(activeTab)) {
+        setActiveTab(defaultTab)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+    // Verifica imediatamente ao montar
+    handleResize()
+
+    return () => window.removeEventListener('resize', handleResize)
+  }, [activeTab, defaultTab, tabsConfig])
 
   const renderTabTrigger = (tabKey: string) => {
     const config = tabsConfig[tabKey]
 
     return (
-      <Tabs.Trigger key={tabKey} value={tabKey}>
+      <Tabs.Trigger
+        key={tabKey}
+        value={tabKey}
+        className={cn(`${config?.hidden?.className ? config.hidden.className : ''}`)}
+      >
         {config.labelMobile ? (
           <>
             <span className="sm:hidden">{t(config.labelMobile)}</span>
@@ -37,14 +68,18 @@ export function ConfigurableTabs({ tabsConfig, className }: ConfigurableTabsProp
     const config = tabsConfig[tabKey]
 
     return (
-      <Tabs.Content key={tabKey} value={tabKey}>
+      <Tabs.Content
+        key={tabKey}
+        value={tabKey}
+        className={cn(`${config?.hidden?.className ? config.hidden.className : ''}`)}
+      >
         {config.content}
       </Tabs.Content>
     )
   }
 
   return (
-    <Tabs defaultValue={defaultTab} className={cn('w-full', className)}>
+    <Tabs value={activeTab} onValueChange={setActiveTab} className={cn('w-full', className)}>
       <Tabs.List className="flex items-center flex-wrap mb-3">{tabsKeys.map(renderTabTrigger)}</Tabs.List>
 
       {tabsKeys.map(renderTabContent)}
