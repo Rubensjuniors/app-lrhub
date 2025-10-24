@@ -11,49 +11,49 @@ const incomes = [
     id: 'sdfsdf',
     name: 'Salario',
     amount: 5000.0,
-    dayOfReceipt: 30
+    dateOfReceipt: '2025/12/10'
   },
   {
     id: 'sdfsdf',
     name: 'Salario',
     amount: 5000.0,
-    dayOfReceipt: 30
+    dateOfReceipt: '2025/12/10'
   },
   {
     id: 'sdfsdf',
     name: 'Salario',
     amount: 5000.0,
-    dayOfReceipt: 30
+    dateOfReceipt: '2025/12/10'
   },
   {
     id: 'sdfsdf',
     name: 'Salario',
     amount: 5000.0,
-    dayOfReceipt: 30
+    dateOfReceipt: '2025/12/10'
   },
   {
     id: 'sdfsdf',
     name: 'Salario',
     amount: 5000.0,
-    dayOfReceipt: 30
+    dateOfReceipt: '2025/12/10'
   },
   {
     id: 'sdfsdf',
     name: 'Salario',
     amount: 5000.0,
-    dayOfReceipt: 30
+    dateOfReceipt: '2025/12/10'
   },
   {
     id: 'sdfsdf',
     name: 'Salario',
     amount: 5000.0,
-    dayOfReceipt: 30
+    dateOfReceipt: '2025/12/10'
   },
   {
     id: 'sdfsdf',
     name: 'Salario',
     amount: 5000.0,
-    dayOfReceipt: 30
+    dateOfReceipt: '2025/12/10'
   }
 ]
 

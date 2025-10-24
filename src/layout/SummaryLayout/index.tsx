@@ -1,10 +1,10 @@
 import { Outlet } from '@tanstack/react-router'
-import { Loader } from 'lucide-react'
 import { Suspense } from 'react'
 
 import { Summary } from '@/features/Financial/components/Summary'
 import { HiddenMoneyToggleProvider } from '@/features/Financial/contexts/HiddenMoneyToggleContext'
 import { Wellcome } from '@/features/Wellcome'
+import { Loading } from '@/shared/components/Atoms'
 
 export default function SummaryLayout() {
   return (
@@ -14,7 +14,7 @@ export default function SummaryLayout() {
 
         <Summary />
         <div className="mt-4">
-          <Suspense fallback={<Loader />}>
+          <Suspense fallback={<Loading variant="overlay" />}>
             <Outlet />
           </Suspense>
         </div>

@@ -7,7 +7,7 @@ import { useAuthContext } from '@/shared/contexts/AuthContext'
 import { SidebarProvider } from '@/shared/contexts/SideBarContext'
 import { UserProvider } from '@/shared/contexts/UserContext'
 
-import { Loader } from '../../shared/components/Atoms/Loader'
+import { Loading } from '../../shared/components/Atoms'
 
 export default function AppLayout() {
   const { isAuthenticated } = useAuthContext()
@@ -25,7 +25,7 @@ export default function AppLayout() {
           <Header />
 
           <main>
-            <Suspense fallback={<Loader />}>
+            <Suspense fallback={<Loading />}>
               <Outlet />
             </Suspense>
           </main>

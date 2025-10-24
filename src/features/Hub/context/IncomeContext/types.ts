@@ -4,7 +4,7 @@ export interface IIncome {
   id: string
   name: string
   amount: number
-  dayOfReceipt: number
+  dateOfReceipt: string
 }
 
 export interface IIncomeContext {

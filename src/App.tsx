@@ -4,18 +4,17 @@ import { RouterProvider } from '@tanstack/react-router'
 import { Suspense } from 'react'
 
 import { queryClient } from '@/lib/queryClient'
-import { Loader } from '@/shared/components/Atoms'
+import { Loading } from '@/shared/components/Atoms'
 import { AuthProvider } from '@/shared/contexts/AuthContext'
 import { ThemeProvider } from '@/shared/contexts/ThemeContext'
 
-// import { env } from './env'
 import { router } from './routes'
 
 export function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={<Loading />}>
           <AuthProvider>
             <RouterProvider router={router} />
           </AuthProvider>

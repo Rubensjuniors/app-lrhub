@@ -3,7 +3,7 @@ import { Button } from './Button'
 import { Card } from './Card'
 import { Checkbox } from './Checkbox'
 import { Heading } from './Heading'
-import { Loader } from './Loader'
+import Loading from './Loading'
 import { Select } from './Select'
 import { Separator } from './Separator'
 import { Sheet } from './Sheet'
@@ -20,7 +20,7 @@ export {
   Card,
   Checkbox,
   Heading,
-  Loader,
+  Loading,
   Select,
   Separator,
   Sheet,
